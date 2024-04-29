@@ -3,10 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>javascript-precourse</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <h1>&#9918;숫자 야구 게임</h1>
+      <p><b>1~9까지의 수</b>를 중복없이 <b>3개</b> 입력해주세요.<br/>올바른 예) 139<br/>틀린 예) 122</p>
+      <label for="user-input"></label>
+      <input maxlength="3" id="user-input" />
+      <button id="submit-button">확인</button>
+      <h2>&#128196;결과</h2>
+      <div id="result-board">
+        <h3>숫자를 제출해 주세요</h3>
+        <p></p>
+      </div>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
