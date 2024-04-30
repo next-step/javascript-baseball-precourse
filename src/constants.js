@@ -14,6 +14,7 @@ export const BOARD_PARAGRAPH_CORRECT = "게임을 새로 시작하시겠습니�
 export const BOARD_HEADER_WRONG = "&#128517;틀렸습니다&#128517;";
 export const BOARD_HEADER_READY = "숫자를 제출해 주세요";
 export const RESET_BUTTON_CONTENT = "게임 재시작";
+export const END_BUTTON_CONTENT = "완전 종료";
 export const ALERT_DIGITS_NOT_LONG_ENOUGH = "최소 3자리의 숫자를 입력해 주세요";
 export const ALERT_DIGITS_NOT_DISTINCT = "중복되는 숫자 없이 주세요";
 export const NOT_FOUND_VALUE = -1

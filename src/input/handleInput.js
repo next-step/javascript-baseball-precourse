@@ -1,7 +1,7 @@
 import {
     BALL_POINT,
     BOARD_HEADER_CORRECT,
-    BOARD_HEADER_READY, BOARD_HEADER_WRONG, BOARD_PARAGRAPH_CORRECT,
+    BOARD_HEADER_READY, BOARD_HEADER_WRONG, BOARD_PARAGRAPH_CORRECT, END_BUTTON_CONTENT,
     NOT_FOUND_VALUE,
     RESET_BUTTON_CONTENT,
     STRIKE_POINT
@@ -32,7 +32,7 @@ export const printResultOnBoard = (score, resultBoardRef, startNewGame) => {
             BOARD_PARAGRAPH_CORRECT
         );
 
-        addResetButton(resultBoardRef, startNewGame);
+        addResetAndEndButton(resultBoardRef, startNewGame);
         return;
     }
 
@@ -69,21 +69,30 @@ const writeOnBoard = (resultBoardRef, headerContent, paragraphContent) => {
     boardParagraph.textContent = paragraphContent;
 }
 
-const addResetButton = (resultBoardRef, startNewGame) => {
+const addResetAndEndButton = (resultBoardRef, startNewGame) => {
     if (resultBoardRef.querySelector('button')) {
         return;
     }
 
     const resetButton = document.createElement('button');
-    const removeButton = () => resultBoardRef.removeChild(resetButton);
+    const endButton = document.createElement('button');
+
+    const removeButton = (buttonRef) => resultBoardRef.removeChild(buttonRef);
 
     resetButton.innerHTML = RESET_BUTTON_CONTENT;
+    endButton.innerHTML = END_BUTTON_CONTENT;
 
     resetButton.addEventListener('click', () => {
         startNewGame();
-        removeButton();
+        removeButton(resetButton);
+        removeButton(endButton);
         writeOnBoard(resultBoardRef, BOARD_HEADER_READY, "");
     })
 
+    endButton.addEventListener('click', () => {
+        document.querySelector('#app').innerHTML = "<h1>감사합니다</h1>";
+    })
+
     resultBoardRef.appendChild(resetButton);
+    resultBoardRef.appendChild(endButton);
 }
