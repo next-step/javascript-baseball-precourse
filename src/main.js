@@ -107,3 +107,32 @@ const makeComment = (score) => {
 
     return comment;
 }
+
+
+const writeOnBoard = (resultBoardRef, headerContent, paragraphContent) => {
+    const boardHeader = resultBoardRef.querySelector('h3');
+    const boardParagraph = resultBoardRef.querySelector('p');
+
+    boardHeader.innerHTML = headerContent;
+    boardParagraph.textContent = paragraphContent;
+}
+
+const printResultOnBoard = (score, resultBoardRef, startNewGame) => {
+    if (score === 3 * STRIKE_POINT) {
+        writeOnBoard(
+            resultBoardRef,
+            BOARD_HEADER_CORRECT,
+            BOARD_PARAGRAPH_CORRECT
+        );
+
+        // addResetButton(resultBoardRef, startNewGame);
+        return;
+    }
+
+    writeOnBoard(
+        resultBoardRef,
+        BOARD_HEADER_WRONG,
+        makeComment(score)
+    );
+}
+
