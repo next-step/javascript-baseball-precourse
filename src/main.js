@@ -198,9 +198,9 @@ const animateResultHeader = (resultHeaderRef, delay) => {
         .map((char, idx) => createSpan(char, idx, delay))
         .join('');
 
-    setTimeout(() => {
-        resultHeaderRef.innerHTML = simpleInnerHTML;
-    }, delay * tokens.length);
+    // setTimeout(() => {
+    //     resultHeaderRef.innerHTML = simpleInnerHTML;
+    // }, delay * tokens.length);
 
     return tokens.length;
 }
