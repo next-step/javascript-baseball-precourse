@@ -72,3 +72,38 @@ const isInputInvalid = (inputValue, resetUserInput) => {
 
     return false;
 }
+
+const countStrikeAndBall = (currentValue, targetDigits) => {
+    let score = 0;
+
+    for (let i = 0; i < 3; i++) {
+        if (currentValue[i] === targetDigits[i]) {
+            score += STRIKE_POINT;
+            continue;
+        }
+
+        if (targetDigits.indexOf(currentValue[i]) > -1) {
+            score += BALL_POINT;
+        }
+
+    }
+
+    return score;
+}
+
+const makeComment = (score) => {
+    if (score === 0) {
+        return "낫싱";
+    }
+    let comment = "";
+
+    if (score % STRIKE_POINT > 0) {
+        comment += score % 10 + "볼";
+    }
+
+    if (score / STRIKE_POINT >= 1) {
+        comment += Math.floor(score / 10) + "스트라이크";
+    }
+
+    return comment;
+}
