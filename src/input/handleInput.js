@@ -70,6 +70,10 @@ const writeOnBoard = (resultBoardRef, headerContent, paragraphContent) => {
 }
 
 const addResetButton = (resultBoardRef, startNewGame) => {
+    if (resultBoardRef.querySelector('button')) {
+        return;
+    }
+
     const resetButton = document.createElement('button');
     const removeButton = () => resultBoardRef.removeChild(resetButton);
 
