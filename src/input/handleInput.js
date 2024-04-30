@@ -1,7 +1,10 @@
 import {
     BALL_POINT,
     BOARD_HEADER_CORRECT,
-    BOARD_HEADER_READY, BOARD_HEADER_WRONG, BOARD_PARAGRAPH_CORRECT, END_BUTTON_CONTENT,
+    BOARD_HEADER_READY,
+    BOARD_HEADER_WRONG,
+    BOARD_PARAGRAPH_CORRECT,
+    END_BUTTON_CONTENT,
     NOT_FOUND_VALUE,
     RESET_BUTTON_CONTENT,
     STRIKE_POINT
@@ -10,16 +13,20 @@ import {
 export const countStrikeAndBall = (currentValue, targetDigits) => {
     let score = 0;
 
-    for (let i = 0; i < 3; i++) {
-        if (currentValue[i] === targetDigits[i]) {
-            score += STRIKE_POINT;
-            continue;
-        }
-
-        if (targetDigits.indexOf(currentValue[i]) > NOT_FOUND_VALUE) {
-            score += BALL_POINT;
-        }
-    }
+    currentValue
+        .split('')
+        .filter((curr, i) => {
+            if (curr === targetDigits[i]) {
+                score += STRIKE_POINT;
+                return null;
+            }
+            return curr;
+        })
+        .forEach(curr => {
+            if (targetDigits.indexOf(curr) > NOT_FOUND_VALUE) {
+                score += BALL_POINT
+            }
+        })
 
     return score;
 }
@@ -69,28 +76,39 @@ const writeOnBoard = (resultBoardRef, headerContent, paragraphContent) => {
     boardParagraph.textContent = paragraphContent;
 }
 
+const createEndButton = () => {
+    const endButton = document.createElement('button');
+
+    endButton.innerHTML = END_BUTTON_CONTENT;
+    endButton.addEventListener('click', () => {
+        document.querySelector('#app').innerHTML = "<h1>감사합니다</h1>";
+    })
+
+    return endButton;
+}
+
+const createResetButton = () => {
+    const resetButton = document.createElement('button');
+    resetButton.innerHTML = RESET_BUTTON_CONTENT;
+
+    return resetButton;
+}
+
 const addResetAndEndButton = (resultBoardRef, startNewGame) => {
     if (resultBoardRef.querySelector('button')) {
         return;
     }
 
-    const resetButton = document.createElement('button');
-    const endButton = document.createElement('button');
+    const endButton = createEndButton();
+    const resetButton = createResetButton();
 
     const removeButton = (buttonRef) => resultBoardRef.removeChild(buttonRef);
-
-    resetButton.innerHTML = RESET_BUTTON_CONTENT;
-    endButton.innerHTML = END_BUTTON_CONTENT;
 
     resetButton.addEventListener('click', () => {
         startNewGame();
         removeButton(resetButton);
         removeButton(endButton);
         writeOnBoard(resultBoardRef, BOARD_HEADER_READY, "");
-    })
-
-    endButton.addEventListener('click', () => {
-        document.querySelector('#app').innerHTML = "<h1>감사합니다</h1>";
     })
 
     resultBoardRef.appendChild(resetButton);

@@ -1,8 +1,20 @@
-import {ANIMATION_DURATION, RESULT_BOARD, RESULT_HEAD, SUBMIT_BUTTON, USER_INPUT} from "./constants.js";
-import {generateNewDistinct3Digits} from "./tools/target.js";
-import {countStrikeAndBall, printResultOnBoard} from "./input/handleInput.js";
-import {declineNonNumericInput, isInputInvalid} from "./input/validateInput.js";
-import {animateResultHeader} from "./tools/animateSpan.js";
+import {
+    ANIMATION_DURATION,
+    RESULT_BOARD,
+    RESULT_HEAD,
+    SUBMIT_BUTTON,
+    USER_INPUT
+} from "./constants.js";
+import {
+    countStrikeAndBall,
+    printResultOnBoard
+} from "./input/handleInput.js";
+import {
+    declineNonNumericInput,
+    isInputInvalid
+} from "./input/validateInput.js";
+import { animateResultHeader } from "./tools/animateSpan.js";
+import { generateNewDistinct3Digits } from "./tools/target.js";
 
 const selectElements = () => {
     const userInput = document.querySelector(USER_INPUT);
