@@ -18,6 +18,8 @@ const ALERT_DIGITS_NOT_DISTINCT = "중복되는 숫자 없이 주세요";
 const NOT_FOUND_VALUE = -1
 // 변경 가능
 const ANIMATION_DURATION = 700;
+const ARROW_LEFT = 37;
+const ARROW_RIGHT = 39;
 
 const selectElements = () => {
     const userInput = document.querySelector(USER_INPUT);
@@ -48,7 +50,10 @@ const generateNewDistinct3Digits = () => {
 
 const declineNonNumericInput = (e) => {
     if ((e.keyCode >= 48 && e.keyCode <= 57)
-        || e.keyCode === BACKSPACE) {
+        || e.keyCode === BACKSPACE
+        || e.keyCode === ARROW_LEFT
+        || e.keyCode === ARROW_RIGHT
+    ) {
         return;
     }
 
