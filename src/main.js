@@ -3,6 +3,7 @@ const DIGIT_MAX = 9;
 const USER_INPUT = "#user-input";
 const SUBMIT_BUTTON = "#submit-button";
 const RESULT_BOARD = "#result-board";
+// const RESULT_HEAD = "#result-head";
 const BACKSPACE = 8;
 const ENTER = 13;
 const STRIKE_POINT = 10;
@@ -20,11 +21,13 @@ const selectElements = () => {
     const userInput = document.querySelector(USER_INPUT);
     const submitButton = document.querySelector(SUBMIT_BUTTON);
     const resultBoard = document.querySelector(RESULT_BOARD);
+    // const resultHead = document.querySelector(RESULT_HEAD);
 
     return new Map()
         .set(USER_INPUT, userInput)
         .set(SUBMIT_BUTTON, submitButton)
         .set(RESULT_BOARD, resultBoard);
+        // .set(RESULT_HEAD, resultHead);
 }
 
 const randomDigitString = (min, max) => ("" + Math.floor(Math.random() * (max - min) + min));
@@ -43,10 +46,14 @@ const generateNewDistinct3Digits = () => {
 
 const declineNonNumericInput = (e) => {
     if ((e.keyCode >= 48 && e.keyCode <= 57)
-        || e.keyCode === BACKSPACE
-        || e.keyCode === ENTER) {
+        || e.keyCode === BACKSPACE) {
         return;
     }
+
+    if (e.keyCode === ENTER) {
+        e.target.parentNode.querySelector('button').click();
+    }
+
     e.preventDefault();
 }
 
@@ -172,6 +179,8 @@ const runGame = () => {
         const userDigits = getUserInput();
 
         if (isInputInvalid(userDigits, resetUserInput)) return;
+
+        // console.log(elements.get(RESULT_HEAD).innerHTML.split(''));
 
         const score = countStrikeAndBall(userDigits, targetDigits);
 
