@@ -150,3 +150,31 @@ const printResultOnBoard = (score, resultBoardRef, startNewGame) => {
     );
 }
 
+const runGame = () => {
+    const elements = selectElements();
+    let targetDigits = generateNewDistinct3Digits();
+
+    const resetUserInput = () => elements.get(USER_INPUT).value = "";
+    const getUserInput = () => elements.get(USER_INPUT).value;
+
+    const getResultBoardRef = () => elements.get(RESULT_BOARD);
+
+    const startNewGame = () => {
+        targetDigits = generateNewDistinct3Digits();
+        resetUserInput();
+        writeOnBoard(getResultBoardRef(), BOARD_HEADER_READY, "");
+    };
+
+    elements.get(USER_INPUT).addEventListener('keydown', declineNonNumericInput);
+    elements.get(SUBMIT_BUTTON).addEventListener('click', () => {
+        const userDigits = getUserInput();
+
+        if (isInputInvalid(userDigits, resetUserInput)) return;
+
+        const score = countStrikeAndBall(userDigits, targetDigits);
+
+        printResultOnBoard(score, getResultBoardRef(), startNewGame);
+    });
+}
+
+runGame();
