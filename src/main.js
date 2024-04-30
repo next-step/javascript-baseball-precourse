@@ -117,6 +117,20 @@ const writeOnBoard = (resultBoardRef, headerContent, paragraphContent) => {
     boardParagraph.textContent = paragraphContent;
 }
 
+const addResetButton = (resultBoardRef, startNewGame) => {
+    const resetButton = document.createElement('button');
+    resetButton.innerHTML = RESET_BUTTON_CONTENT;
+
+    const removeButton = () => resultBoardRef.removeChild(resetButton);
+
+    resetButton.addEventListener('click', () => {
+        startNewGame();
+        removeButton();
+    })
+
+    resultBoardRef.appendChild(resetButton);
+}
+
 const printResultOnBoard = (score, resultBoardRef, startNewGame) => {
     if (score === 3 * STRIKE_POINT) {
         writeOnBoard(
@@ -125,7 +139,7 @@ const printResultOnBoard = (score, resultBoardRef, startNewGame) => {
             BOARD_PARAGRAPH_CORRECT
         );
 
-        // addResetButton(resultBoardRef, startNewGame);
+        addResetButton(resultBoardRef, startNewGame);
         return;
     }
 
