@@ -14,6 +14,7 @@ const BOARD_HEADER_READY = "숫자를 제출해 주세요";
 const RESET_BUTTON_CONTENT = "게임 재시작";
 const ALERT_DIGITS_NOT_LONG_ENOUGH = "최소 3자리의 숫자를 입력해 주세요";
 const ALERT_DIGITS_NOT_DISTINCT = "중복되는 숫자 없이 주세요";
+const NOT_FOUND_VALUE = -1
 
 const selectElements = () => {
     const userInput = document.querySelector(USER_INPUT);
@@ -35,7 +36,7 @@ const generateNewDistinct3Digits = () => {
         digitSet.add(randomDigitString(DIGIT_MIN, DIGIT_MAX));
     }
 
-    console.log('정답', digitSet);
+    console.log('정답', ...digitSet);
 
     return [...digitSet];
 }
@@ -82,7 +83,7 @@ const countStrikeAndBall = (currentValue, targetDigits) => {
             continue;
         }
 
-        if (targetDigits.indexOf(currentValue[i]) > -1) {
+        if (targetDigits.indexOf(currentValue[i]) > NOT_FOUND_VALUE) {
             score += BALL_POINT;
         }
 
@@ -95,6 +96,7 @@ const makeComment = (score) => {
     if (score === 0) {
         return "낫싱";
     }
+
     let comment = "";
 
     if (score % STRIKE_POINT > 0) {
