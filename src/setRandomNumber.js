@@ -7,5 +7,5 @@ export const setRandomNumber = () => {
     }
   }
 
-  return num;
+  return [...num];
 };

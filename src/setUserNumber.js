@@ -9,7 +9,7 @@ export const setUserNumber = () => {
 
   const userNumber = removeDuplicateNumber(userInput.value);
   if (userNumber.size === 3) {
-    console.log("게임 진행하기");
+    return [...userNumber].map(Number);
   } else {
     alert(`잘못된 값을 입력했습니다. 중복이 없는 3자리 수를 입력해주세요. `);
     userInput.value = [...userNumber].join("");
