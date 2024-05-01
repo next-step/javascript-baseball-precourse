@@ -1,5 +1,5 @@
 import * as CommonComponents from '../views/common/index.js';
-import { HEADING } from '../utils/constants/baseball';
+import { HEADING, DESCRIPTION } from '../utils/constants/baseball';
 
 export default class BaseballGameController {
   constructor({ $target }) {
@@ -12,5 +12,13 @@ export default class BaseballGameController {
 
   #initializeHeader({ $target }) {
     this.$Header = new CommonComponents.Header({ $target, title: HEADING.PAGE });
+    this.#initializeDescription({ $target });
+  }
+
+  #initializeDescription({ $target }) {
+    this.$Description = new CommonComponents.Description({
+      $target,
+      description: DESCRIPTION.GAME,
+    });
   }
 }

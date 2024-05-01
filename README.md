@@ -17,7 +17,7 @@
 ## 📁 컴포넌트
 
 - [x] Header - header 공통 컴포넌트
-- [] Description - 게임 설명 공통 컴포넌트
+- [x] Description - 게임 설명 공통 컴포넌트
 - [] Input - 사용자 입력 공통 컴포넌트
 - [] Button - 버튼 공통 컴포넌트
 - [] Result - 게임 결과 컴포넌트
