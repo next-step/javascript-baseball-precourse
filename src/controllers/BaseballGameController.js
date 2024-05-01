@@ -51,6 +51,7 @@ export default class BaseballGameController {
   #showResult() {
     if (this.#validateInput()) {
       this.#processHintOrSuccess();
+      this.#inputValue = '';
       return;
     }
     this.#handleValidationFailure();
