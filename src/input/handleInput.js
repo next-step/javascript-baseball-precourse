@@ -21,7 +21,7 @@ export const countStrikeAndBall = (currentValue, targetDigits) => {
             }
             return acc;
         }, 0);
-}
+};
 
 export const printResultOnBoard = (score, resultBoardRef, startNewGame) => {
     if (score === 3 * STRIKE_POINT) {
@@ -40,7 +40,7 @@ export const printResultOnBoard = (score, resultBoardRef, startNewGame) => {
         BOARD_HEADER_WRONG,
         makeComment(score)
     );
-}
+};
 
 const makeComment = (score) => {
     if (score === 0) {
@@ -58,7 +58,7 @@ const makeComment = (score) => {
     }
 
     return comment;
-}
+};
 
 const writeOnBoard = (resultBoardRef, headerContent, paragraphContent) => {
     const boardHeader = resultBoardRef.querySelector('h3');
@@ -66,7 +66,7 @@ const writeOnBoard = (resultBoardRef, headerContent, paragraphContent) => {
 
     boardHeader.innerHTML = headerContent;
     boardParagraph.textContent = paragraphContent;
-}
+};
 
 const createEndButton = () => {
     const endButton = document.createElement('button');
@@ -77,14 +77,14 @@ const createEndButton = () => {
     })
 
     return endButton;
-}
+};
 
 const createResetButton = () => {
     const resetButton = document.createElement('button');
     resetButton.innerHTML = RESET_BUTTON_CONTENT;
 
     return resetButton;
-}
+};
 
 const addResetAndEndButton = (resultBoardRef, startNewGame) => {
     if (resultBoardRef.querySelector('button')) {
@@ -108,4 +108,4 @@ const addResetAndEndButton = (resultBoardRef, startNewGame) => {
     setTimeout(() => {
         resultBoardRef.appendChild(endButton);
     }, 2000);
-}
+};

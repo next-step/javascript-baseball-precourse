@@ -53,7 +53,7 @@ const runGame = () => {
         const userDigits = getUserInput();
 
         if (isInputInvalid(userDigits)) {
-            resetUserInput()
+            resetUserInput();
             return;
         }
 

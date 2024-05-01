@@ -21,7 +21,7 @@ export const declineNonNumericInput = (e) => {
     }
 
     e.preventDefault();
-}
+};
 
 export const isInputInvalid = (inputValue) => {
     if (!isInputValue3Length(inputValue)) {
@@ -35,12 +35,12 @@ export const isInputInvalid = (inputValue) => {
     }
 
     return false;
-}
+};
 
 const isInputValue3Length = (inputValue) => {
     return inputValue.length === 3;
-}
+};
 
 const isInputValueAllDistinct = (inputValue) => {
     return new Set(inputValue.split('')).size === 3;
-}
+};

@@ -10,6 +10,6 @@ export const generateNewDistinct3Digits = () => {
     console.log('정답', ...digitSet);
 
     return [...digitSet];
-}
+};
 
 const randomDigitString = (min, max) => ("" + Math.floor(Math.random() * (max - min) + min));
