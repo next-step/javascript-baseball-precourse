@@ -1,5 +1,6 @@
 export const HEADING = Object.freeze({
   PAGE: '⚾️ 숫자 야구 게임',
+  RESULT: '📄 결과',
 });
 
 export const DESCRIPTION = Object.freeze({

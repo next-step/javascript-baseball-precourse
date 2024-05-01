@@ -1,4 +1,5 @@
 import * as CommonComponents from '../views/common/index.js';
+import * as Components from '../views/index.js';
 import { HEADING, DESCRIPTION, PLACEHOLDER } from '../utils/constants/baseball.js';
 import { BUTTON } from '../utils/constants/button.js';
 
@@ -44,5 +45,10 @@ export default class BaseballGameController {
       type: 'button',
       text: BUTTON.ENTER,
     });
+    this.#initializeResult({ $target });
+  }
+
+  #initializeResult({ $target }) {
+    this.$Result = new Components.Result({ $target });
   }
 }
