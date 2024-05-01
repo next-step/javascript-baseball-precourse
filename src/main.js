@@ -19,7 +19,6 @@ let randomNum = randomProduce();
 const checkNum = (random, input) => {
   let strike = 0;
   let ball = 0;
-  console.log("random", random);
 
   input.split("").forEach((e, i) => {
     if (random.indexOf(parseInt(e)) === i) strike++;
