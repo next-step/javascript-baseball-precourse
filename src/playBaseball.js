@@ -1,3 +1,4 @@
+import { displayRestart } from "./displayRestart";
 import { displayResult } from "./displayResult";
 
 export const playBaseball = (computer, user) => {
@@ -15,6 +16,7 @@ export const playBaseball = (computer, user) => {
   if (strike === 3) {
     message = `🎉정답을 맞추셨습니다.🎉`;
     displayResult(message);
+    displayRestart();
     return;
   }
 
