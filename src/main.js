@@ -7,9 +7,13 @@ let isTrue;
 
 window.onload = function () {
   let num = document.getElementById("input");
-  document
-    .getElementById("submit-btn")
-    .addEventListener("click", () => submit(answer));
+  document.getElementById("submit-btn").addEventListener("click", () => {
+    if (answer.length == 3) {
+      submit(answer);
+    } else {
+      alert("3자리 숫자를 입력해주세요.");
+    }
+  });
   document.getElementById("restart-btn").addEventListener("click", restart);
   document.getElementById("exit-btn").addEventListener("click", exit);
 

@@ -20,10 +20,11 @@ export const submit = (answer) => {
     document.getElementById("result-message").style.display = "block";
   }
 };
-export function restart() {
-  location.reload();
-}
 
-export function exit() {
+export const restart = () => {
+  location.reload();
+};
+
+export const exit = () => {
   window.close();
-}
+};
