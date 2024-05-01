@@ -15,10 +15,10 @@ export default class BaseballGameController {
 
   constructor({ $target }) {
     this.#baseballGame = new BaseballGame();
-    this.#gameStart({ $target });
+    this.#init({ $target });
   }
 
-  #gameStart({ $target }) {
+  #init({ $target }) {
     this.#initializeHeader({ $target });
   }
 
