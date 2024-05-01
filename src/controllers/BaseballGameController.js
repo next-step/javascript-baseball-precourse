@@ -61,6 +61,10 @@ export default class BaseballGameController {
 
   #processHintOrSuccess() {
     this.#hint = this.#baseballGame.generateHint(this.#inputValue);
+    if (this.#hint.join(' ') === HINT.WIN) {
+      this.$Result.win();
+      return;
+    }
     this.$Result.hint(this.#hint);
   }
 
@@ -73,6 +77,10 @@ export default class BaseballGameController {
       $target,
       type: 'button',
       text: BUTTON.ENTER,
+      onClick: () => {
+        this.$Input.clearInput();
+        this.#showResult();
+      },
     });
     this.#initializeResult({ $target });
   }
