@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/main.css" />
     <title>숫자 야구 게임</title>
   </head>
   <body>
@@ -19,9 +20,11 @@
       <button class="check-btn">확인</button>
       <h2>📑결과</h2>
 
-      <h3>힌트:</h3>
-      <h3>🎉정답을 맞추셨습니다🎉</h3>
-      <button>게임 재시작</button>
+      <h3 class="ment--fail"></h3>
+      <div class="ment--success">
+        <h3>🎉정답을 맞추셨습니다🎉</h3>
+        <button>게임 재시작</button>
+      </div>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
