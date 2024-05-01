@@ -39,17 +39,37 @@ function checkIsValidateInput(input) {
   return true;
 }
 
+function checkIsCorrect(answer, input) {
+  const result = {
+    strike: 0,
+    ball: 0,
+  };
+
+  answer.forEach((num, index) => {
+    if (num === input[index]) {
+      result.strike++;
+    } else if (answer.includes(input[index])) {
+      result.ball++;
+    } else {
+      result.out++;
+    }
+  });
+
+  return result;
+}
+
 function init() {
   const answer = makeAnswer();
   userForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const userInput = getUserInput();
-    const isValidate = checkIsValidateInput(userInput);
-    if (!isValidate) {
+    const isValidateInput = checkIsValidateInput(userInput);
+    if (!isValidateInput) {
       alert("중복 없이 3자리 숫자를 입력해주세요.");
       return;
     }
+    const result = checkIsCorrect(answer, userInput);
     resetUserInput();
   });
 }
