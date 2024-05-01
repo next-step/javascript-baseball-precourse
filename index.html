@@ -4,6 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>⚾️ 숫자 야구 게임</title>
+		<link rel="stylesheet" href="./src/styles/style.css" />
+		<script defer type="module" src="./src/main.js"></script>
 	</head>
 	<body>
 		<div id="app">
@@ -14,20 +16,24 @@
 					<div>올바른 예) 139</div>
 					<div>틀린 예) 122</div>
 				</section>
-				<section class="input-container">
+				<section id="input-container">
 					<p>
-						<input class="submit-input" type="text" />
-						<button class="submit-button">확인</button>
+						<form>
+							<input id="submit-input" type="text" />
+							<button id="submit-button">확인</button>
+						</form>
 					</p>
 				</section>
 				<section class="result">
-					<h3>📄 결과</h3>
-					<p>🎉<b>정답을 맞추셨습니다</b>🎉</p>
-					<p>게임을 새로 시작하시겠습니까?</p>
-					<button>게임 재시작</button>
+					<h2>📄 결과</h2>
+					<h3 id="gameResult" ></h3>
+
+					<p id="restartGame">게임을 새로 시작하시겠습니까?</p>
+
+					<button id="restartBtn">게임 재시작</button>
+					<button id="endBtn">게임 종료</button>
 				</section>
 			</div>
 		</div>
-		<script type="module" src="/src/main.js"></script>
 	</body>
 </html>
