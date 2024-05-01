@@ -31,6 +31,7 @@ export default class Result {
     $div.id = 'result';
     const $h2 = document.createElement('h2');
     $h2.textContent = HEADING.RESULT;
+    $div.appendChild($h2);
     return $div;
   }
 

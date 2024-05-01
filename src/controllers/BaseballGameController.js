@@ -1,9 +1,10 @@
 import * as CommonComponents from '../views/common/index.js';
 import * as Components from '../views/index.js';
-import { HEADING, DESCRIPTION, PLACEHOLDER } from '../utils/constants/baseball.js';
+import BaseballGame from '../models/BaseballGame.js';
+import validateBaseballUserInput from '../utils/validators/validateBaseballUserInput.js';
+import { DESCRIPTION, HEADING, HINT, PLACEHOLDER } from '../utils/constants/baseball.js';
 import { BUTTON } from '../utils/constants/button.js';
 import { MESSAGE } from '../utils/constants/message.js';
-import BaseballGame from '../models/BaseballGame.js';
 
 export default class BaseballGameController {
   #inputValue;
