@@ -10,7 +10,7 @@ export function showResult(target, result, input) {
   const balleDiv = document.createElement("div");
 
   strikeDiv.textContent = "Strike : " + result.strike;
-  balleDiv.textContent = "Ball : " + result.strike;
+  balleDiv.textContent = "Ball : " + result.ball;
   userInputDiv.textContent = "입력값 : " + input.join("");
 
   target.appendChild(userInputDiv);
