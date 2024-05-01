@@ -10,7 +10,6 @@ export const submit = (answer) => {
     document.getElementById("result-message").innerHTML = "";
     document.getElementById("correct-message").style.display = "block";
   } else {
-    console.log(num);
     result = howMany(num, answer);
     let resultDiv = document.createElement("div");
     resultDiv.textContent = result;
