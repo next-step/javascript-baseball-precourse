@@ -10,3 +10,16 @@ export const DESCRIPTION = Object.freeze({
 export const PLACEHOLDER = Object.freeze({
   INPUT: '숫자를 입력해주세요',
 });
+
+export const NUMBER = Object.freeze({
+  MIN_RANGE: 1,
+  MAX_RANGE: 9,
+  LENGTH: 3,
+});
+
+export const HINT = Object.freeze({
+  STRIKE: '스트라이크',
+  BALL: '볼',
+  NOTHING: '낫싱',
+  WIN: '3스트라이크',
+});

@@ -1,3 +1,4 @@
+import { HINT, NUMBER } from '../utils/constants/baseball.js';
 import { generateNumberInRangeWithLength } from '../utils/generateNumberInRangeWithLength.js';
 
 export default class BaseballGame {

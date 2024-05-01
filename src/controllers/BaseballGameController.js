@@ -2,11 +2,18 @@ import * as CommonComponents from '../views/common/index.js';
 import * as Components from '../views/index.js';
 import { HEADING, DESCRIPTION, PLACEHOLDER } from '../utils/constants/baseball.js';
 import { BUTTON } from '../utils/constants/button.js';
+import { MESSAGE } from '../utils/constants/message.js';
+import BaseballGame from '../models/BaseballGame.js';
 
 export default class BaseballGameController {
   #inputValue;
 
+  #baseballGame;
+
+  #hint;
+
   constructor({ $target }) {
+    this.#baseballGame = new BaseballGame();
     this.#gameStart({ $target });
   }
 
@@ -35,8 +42,30 @@ export default class BaseballGameController {
       onChange: value => {
         this.#inputValue = value;
       },
+      onKeyup: () => this.#showResult(),
     });
     this.#initializeButton({ $target });
+  }
+
+  #showResult() {
+    if (this.#validateInput()) {
+      this.#processHintOrSuccess();
+      return;
+    }
+    this.#handleValidationFailure();
+  }
+
+  #validateInput() {
+    return validateBaseballUserInput(this.#inputValue);
+  }
+
+  #processHintOrSuccess() {
+    this.#hint = this.#baseballGame.generateHint(this.#inputValue);
+    this.$Result.hint(this.#hint);
+  }
+
+  #handleValidationFailure() {
+    alert(MESSAGE.VALIDATE_ERROR);
   }
 
   #initializeButton({ $target }) {
