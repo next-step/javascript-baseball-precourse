@@ -12,6 +12,7 @@ export default class BaseballGame {
   generateHint(inputValue) {
     this.#userNumbers = String(inputValue).split('').map(Number);
     const strikeCount = this.#countStrikes();
+    const ballCount = this.#countBalls(strikeCount);
   }
 
   #countStrikes() {
@@ -19,6 +20,14 @@ export default class BaseballGame {
       (count, digit, index) => (digit === this.#computerNumbers[index] ? count + 1 : count),
       0,
     );
+  }
+
+  #countBalls(strikeCount) {
+    const ballCount = this.#userNumbers.reduce(
+      (count, digit) => (this.#computerNumbers.includes(digit) ? count + 1 : count),
+      0,
+    );
+    return ballCount - strikeCount;
   }
 
   #initializeComputerNumbers() {
