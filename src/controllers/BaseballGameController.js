@@ -63,10 +63,10 @@ export default class BaseballGameController {
   #processHintOrSuccess() {
     this.#hint = this.#baseballGame.generateHint(this.#inputValue);
     if (this.#hint.join(' ') === HINT.WIN) {
-      this.$Result.win();
+      this.$Result.renderWin();
       return;
     }
-    this.$Result.hint(this.#hint);
+    this.$Result.renderHint(this.#hint);
   }
 
   #handleValidationFailure() {

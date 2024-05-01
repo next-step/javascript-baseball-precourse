@@ -16,12 +16,12 @@ export default class Result {
     this.#renderResult({ $target });
   }
 
-  hint(hint) {
+  renderHint(hint) {
     this.#createHint(hint);
     this.#scrollHintContainer();
   }
 
-  win() {
+  renderWin() {
     this.#clearHintContainer();
     this.#showWinResult();
   }
