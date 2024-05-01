@@ -1,4 +1,4 @@
-export function checkInput(num, lastNum) {
+export const checkInput = (num, lastNum) => {
   // 사용자가 입력한 숫자가 중복되는지 확인하는 함수
   for (let i = 0; i < num.length - 1; i++) {
     if (num[i] == lastNum) {
@@ -8,4 +8,4 @@ export function checkInput(num, lastNum) {
     }
   }
   return num;
-}
+};

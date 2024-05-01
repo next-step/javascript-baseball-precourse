@@ -1,11 +1,17 @@
 import { pickNum, numCheck } from "./pick_answer.js";
 import { checkInput } from "./check_input.js";
+import { submit, restart, exit } from "./buttons.js";
 
 let answer;
 let isTrue;
 
 window.onload = function () {
   let num = document.getElementById("input");
+  document
+    .getElementById("submit-btn")
+    .addEventListener("click", () => submit(answer));
+  document.getElementById("restart-btn").addEventListener("click", restart);
+  document.getElementById("exit-btn").addEventListener("click", exit);
 
   answer = pickNum();
   isTrue = numCheck(answer);
