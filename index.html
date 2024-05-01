@@ -4,19 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>경북대 FE_김아진 숫자 야구 게임 미니과제</title>
-    <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div id="app">
       <h1 class="title">⚾️ 숫자 야구 게임</h1>
       <div class="game">
         <div class="description">
-          <div><strong>1~9까지의 수</strong>를 중복없이 <strong>3개</strong> 입력해주세요.</div>
+          <div>
+            <strong>1~9까지의 수</strong>를 중복없이
+            <strong>3개</strong> 입력해주세요.
+          </div>
           <div>올바른 예 &#41; 139</div>
           <div>틀린 예 &#41; 122</div>
         </div>
         <form class="play mt-5">
-          <input type="number" maxlength="3" id="userInput"/>
+          <input type="number" maxlength="3" id="userInput" />
           <button type="button" id="userButton">확인</button>
         </form>
         <div class="result hidden">
@@ -25,7 +28,9 @@
         </div>
         <div class="restart hidden">
           <div class="restart__title">개임을 새로 시작하시겠습니까?</div>
-          <button type="button" class="restart__button mt-5">게임 재시작</button>
+          <button type="button" class="restart__button mt-5">
+            게임 재시작
+          </button>
         </div>
       </div>
     </div>
