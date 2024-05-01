@@ -23,16 +23,14 @@ export const declineNonNumericInput = (e) => {
     e.preventDefault();
 }
 
-export const isInputInvalid = (inputValue, resetUserInput) => {
+export const isInputInvalid = (inputValue) => {
     if (!isInputValue3Length(inputValue)) {
         alert(ALERT_DIGITS_NOT_LONG_ENOUGH);
-        resetUserInput();
         return true;
     }
 
     if (!isInputValueAllDistinct(inputValue)) {
         alert(ALERT_DIGITS_NOT_DISTINCT);
-        resetUserInput();
         return true;
     }
 

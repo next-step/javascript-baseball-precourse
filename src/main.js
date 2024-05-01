@@ -52,7 +52,8 @@ const runGame = () => {
     const validateAndScoreInput = () => {
         const userDigits = getUserInput();
 
-        if (isInputInvalid(userDigits, resetUserInput)) {
+        if (isInputInvalid(userDigits)) {
+            resetUserInput()
             return;
         }
 

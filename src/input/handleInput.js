@@ -11,24 +11,16 @@ import {
 } from "../constants.js";
 
 export const countStrikeAndBall = (currentValue, targetDigits) => {
-    let score = 0;
-
-    currentValue
+    return currentValue
         .split('')
-        .filter((curr, i) => {
+        .reduce((acc, curr, i) => {
             if (curr === targetDigits[i]) {
-                score += STRIKE_POINT;
-                return null;
+                acc += STRIKE_POINT;
+            } else if (targetDigits.indexOf(curr) > NOT_FOUND_VALUE ) {
+                acc += BALL_POINT;
             }
-            return curr;
-        })
-        .forEach(curr => {
-            if (targetDigits.indexOf(curr) > NOT_FOUND_VALUE) {
-                score += BALL_POINT
-            }
-        })
-
-    return score;
+            return acc;
+        }, 0);
 }
 
 export const printResultOnBoard = (score, resultBoardRef, startNewGame) => {
@@ -112,5 +104,8 @@ const addResetAndEndButton = (resultBoardRef, startNewGame) => {
     })
 
     resultBoardRef.appendChild(resetButton);
-    resultBoardRef.appendChild(endButton);
+
+    setTimeout(() => {
+        resultBoardRef.appendChild(endButton);
+    }, 2000);
 }
