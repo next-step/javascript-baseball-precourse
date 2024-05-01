@@ -16,3 +16,10 @@ const randomProduce = () => {
 };
 
 console.log(randomProduce());
+
+const checkBtn = document.querySelector(".check-btn");
+checkBtn.addEventListener("click", () => {
+  console.log(document.querySelector("input").value);
+});
+
+console.log(inputNum);
