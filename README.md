@@ -56,8 +56,7 @@ e.g.
 
 ## 3. 기타 참고 사항
 
-- AngularJS Git Commit Message Conventions을 참고해 커밋 메시지를 작성
-- Airbnb JavaScript Style Guide를 원칙으로 함
+- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)를 원칙으로 함
 - indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현 : 2까지만 허용
 - 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들 것
 - `import`문을 사용하여 스크립트를 모듈화하여 가져올 수 있도록 한다
