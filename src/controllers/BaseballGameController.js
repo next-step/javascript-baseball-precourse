@@ -1,7 +1,9 @@
 import * as CommonComponents from '../views/common/index.js';
-import { HEADING, DESCRIPTION } from '../utils/constants/baseball';
+import { HEADING, DESCRIPTION, PLACEHOLDER } from '../utils/constants/baseball.js';
 
 export default class BaseballGameController {
+  #inputValue;
+
   constructor({ $target }) {
     this.#gameStart({ $target });
   }
@@ -19,6 +21,18 @@ export default class BaseballGameController {
     this.$Description = new CommonComponents.Description({
       $target,
       description: DESCRIPTION.GAME,
+    });
+    this.#initializeInput({ $target });
+  }
+
+  #initializeInput({ $target }) {
+    this.$Input = new CommonComponents.Input({
+      $target,
+      type: 'text',
+      placeholder: PLACEHOLDER.INPUT,
+      onChange: value => {
+        this.#inputValue = value;
+      },
     });
   }
 }

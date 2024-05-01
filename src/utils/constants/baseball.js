@@ -5,3 +5,7 @@ export const HEADING = Object.freeze({
 export const DESCRIPTION = Object.freeze({
   GAME: '1~9까지의 수를 중복없이 3개 입력해주세요.\n올바른 예) 139\n틀린 예) 122',
 });
+
+export const PLACEHOLDER = Object.freeze({
+  INPUT: '숫자를 입력해주세요',
+});
