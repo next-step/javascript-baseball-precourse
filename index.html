@@ -1,12 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
+    <style>
+      form {
+        display: flex;
+      }
+
+      input[type="number"] {
+        width: 150px;
+        margin-right: 5px;
+      }
+
+      p #resultDisplay {
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <h1>⚾숫자 야구 게임</h1>
+      <p>
+        <strong>1~9까지의 수</strong>를 중복없이
+        <strong>3개</strong> 입력해주세요.
+      </p>
+      <p>올바른 예) 139</p>
+      <p>틀린 예) 122</p>
+      <form>
+        <input id="userInput" type="text" maxlength="3" />
+        <button id="checkButton">확인</button>
+      </form>
+
+      <h2>📄결과</h2>
+      <h3 id="resultDisplay"></h3>
+
+      <!-- 재시작 버튼 -->
+      <p id="restartDisplay" style="display: none">
+        게임을 새로 시작하시겠습니까?
+      </p>
+      <button id="restartButton" style="display: none">게임 재시작</button>
+      <button id="endButton" style="display: none">게임 종료</button>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
