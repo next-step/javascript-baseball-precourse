@@ -1,4 +1,5 @@
 import { makeAnswer } from "./utils/answer";
+import { showResult } from "./utils/element";
 import { checkIsCorrect } from "./utils/score";
 import {
   checkIsValidateInput,
@@ -8,10 +9,11 @@ import {
 
 const userForm = document.querySelector("#user-form");
 const userFormInput = userForm.querySelector("input");
+const resultBox = document.querySelector("#result-Box");
 
 function init() {
   const answer = makeAnswer();
-  console.log(answer);
+  // console.log(answer);
 
   userForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -23,6 +25,8 @@ function init() {
     }
     const result = checkIsCorrect(answer, userInput);
     resetUserInput(userFormInput);
+
+    showResult(resultBox, result, userInput);
   });
 }
 init();
