@@ -1,6 +1,5 @@
 const randomProduce = () => {
   let firstNum = Math.floor(Math.random() * 10);
-  //첫번째 숫자가 0이 나오지 않을 때까지 실행
   while (firstNum === 0) {
     firstNum = Math.floor(Math.random() * 10);
   }
@@ -29,10 +28,25 @@ const checkNum = (random, input) => {
 
   return { s: strike, b: ball };
 };
+const validation = (input) => {
+  const regexp = /^[0-9]{3}$/; //0~9까지 세자리 수 입력 여부
+  if (!regexp.test(input)) return false;
+  if (
+    input.split("")[0] === input.split("")[1] ||
+    input.split("")[0] === input.split("")[2] ||
+    input.split("")[1] === input.split("")[2]
+  )
+    return false;
+  return true;
+};
 
 const checkBtn = document.querySelector(".check__btn");
 checkBtn.addEventListener("click", () => {
   const inputNum = document.querySelector("input").value;
+  if (!validation(inputNum)) {
+    alert("서로 다른 수로 이루어진 3자리 수를 입력해주세요.");
+    return;
+  }
   const result = checkNum(randomNum, inputNum);
   const failMent = document.querySelector(".ment--fail");
 
