@@ -15,14 +15,15 @@ function makeAnswer() {
   const answer = [];
   while (answer.length < ANSWER_MAX_LENGTH) {
     const newNumber = getRandomNumber();
-    const isDuplicate = checkIsDuplicate(answer);
+    const isDuplicate = checkIsDuplicate([...answer, newNumber]);
     if (!isDuplicate) answer.push(newNumber);
   }
   return answer;
 }
 
 function getUserInput() {
-  return userFormInput.value.split("");
+  const inputArr = userFormInput.value.split("");
+  return inputArr.map((num) => parseInt(num));
 }
 
 function resetUserInput() {
@@ -30,13 +31,12 @@ function resetUserInput() {
 }
 
 function checkIsValidateInput(input) {
-  const isValidate =
-    input.length !== ANSWER_MAX_LENGTH &&
-    checkIsDuplicate(input) &&
-    input.some((num) => isNaN(num));
+  const isValidLength = input.length === ANSWER_MAX_LENGTH;
+  const isNotDuplicate = !checkIsDuplicate(input);
+  const isAllNumbers = input.every((num) => !isNaN(num));
 
-  if (isValidate) return false;
-  return true;
+  const isValidate = isValidLength && isNotDuplicate && isAllNumbers;
+  return isValidate;
 }
 
 function checkIsCorrect(answer, input) {
@@ -46,13 +46,8 @@ function checkIsCorrect(answer, input) {
   };
 
   answer.forEach((num, index) => {
-    if (num === input[index]) {
-      result.strike++;
-    } else if (answer.includes(input[index])) {
-      result.ball++;
-    } else {
-      result.out++;
-    }
+    if (num === input[index]) result.strike++;
+    else if (answer.includes(input[index])) result.ball++;
   });
 
   return result;
@@ -60,9 +55,10 @@ function checkIsCorrect(answer, input) {
 
 function init() {
   const answer = makeAnswer();
+  console.log(answer);
+
   userForm.addEventListener("submit", (e) => {
     e.preventDefault();
-
     const userInput = getUserInput();
     const isValidateInput = checkIsValidateInput(userInput);
     if (!isValidateInput) {
@@ -70,6 +66,8 @@ function init() {
       return;
     }
     const result = checkIsCorrect(answer, userInput);
+    console.log(result);
+
     resetUserInput();
   });
 }
