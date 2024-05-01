@@ -15,7 +15,7 @@ const randomProduce = () => {
   return [firstNum, secondNum, thirdNum];
 };
 
-const randomNum = randomProduce();
+let randomNum = randomProduce();
 
 const checkNum = (random, input) => {
   let strike = 0;
@@ -30,7 +30,7 @@ const checkNum = (random, input) => {
   return { s: strike, b: ball };
 };
 
-const checkBtn = document.querySelector(".check-btn");
+const checkBtn = document.querySelector(".check__btn");
 checkBtn.addEventListener("click", () => {
   const inputNum = document.querySelector("input").value;
   const result = checkNum(randomNum, inputNum);
@@ -47,4 +47,11 @@ checkBtn.addEventListener("click", () => {
     ${result.b === 0 && result.s === 0 ? "낫싱" : ""}
     `;
   }
+});
+
+const restartBtn = document.querySelector(".restart__btn");
+restartBtn.addEventListener("click", () => {
+  randomNum = randomProduce();
+  document.querySelector(".ment--success").style.display = "none";
+  document.querySelector("input").value = "";
 });
