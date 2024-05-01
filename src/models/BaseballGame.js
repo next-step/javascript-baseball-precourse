@@ -13,6 +13,17 @@ export default class BaseballGame {
     this.#userNumbers = String(inputValue).split('').map(Number);
     const strikeCount = this.#countStrikes();
     const ballCount = this.#countBalls(strikeCount);
+    const hintMessage = this.#generateHintMessage(ballCount, strikeCount);
+    return hintMessage;
+  }
+
+  #initializeComputerNumbers() {
+    const generatedNumber = generateNumberInRangeWithLength(
+      NUMBER.MIN_RANGE,
+      NUMBER.MAX_RANGE,
+      NUMBER.LENGTH,
+    );
+    this.#computerNumbers = String(generatedNumber).split('').map(Number);
   }
 
   #countStrikes() {
@@ -30,12 +41,11 @@ export default class BaseballGame {
     return ballCount - strikeCount;
   }
 
-  #initializeComputerNumbers() {
-    const generatedNumber = generateNumberInRangeWithLength(
-      NUMBER.MIN_RANGE,
-      NUMBER.MAX_RANGE,
-      NUMBER.LENGTH,
-    );
-    this.#computerNumbers = String(generatedNumber).split('').map(Number);
+  #generateHintMessage(ballCount, strikeCount) {
+    const hintMessage = [];
+    if (ballCount !== 0) hintMessage.push(`${ballCount}${HINT.BALL}`);
+    if (strikeCount !== 0) hintMessage.push(`${strikeCount}${HINT.STRIKE}`);
+    if (ballCount === 0 && strikeCount === 0) hintMessage.push(HINT.NOTHING);
+    return hintMessage;
   }
 }
