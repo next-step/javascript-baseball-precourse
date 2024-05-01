@@ -2,6 +2,7 @@ import { answer } from './generateAnswer.js';
 import { userInput } from './handleInput.js';
 import { displayResult } from './displayResult.js';
 import { showRestartMessage, showRestartButton } from './restart.js';
+import { showEndGameButton } from './endGame.js';
 
 export let result = '';
 
@@ -21,6 +22,7 @@ export const checkAnswer = () => {
     displayResult();
     showRestartMessage();
     showRestartButton();
+    showEndGameButton();
   } else if (strike > 0 || ball > 0) {
     result = `${strike} 스트라이크, ${ball} 볼`;
     displayResult();
