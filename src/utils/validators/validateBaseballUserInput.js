@@ -15,9 +15,18 @@ function hasDuplicateDigits(input) {
   return new Set(digits).size !== digits.length;
 }
 
+function includesAllDigits(input) {
+  const digits = input.split('');
+  return digits.every(digit => {
+    const number = parseInt(digit, DECIMAL);
+    return number >= NUMBER.MIN_RANGE && number <= NUMBER.MAX_RANGE;
+  });
+}
+
 export default function validateBaseballUserInput(input) {
   if (!isNumber(input)) return false;
   if (!isInRange(input)) return false;
   if (hasDuplicateDigits(input)) return false;
+  if (!includesAllDigits(input)) return false;
   return true;
 }
