@@ -1,5 +1,6 @@
 import * as CommonComponents from '../views/common/index.js';
 import { HEADING, DESCRIPTION, PLACEHOLDER } from '../utils/constants/baseball.js';
+import { BUTTON } from '../utils/constants/button.js';
 
 export default class BaseballGameController {
   #inputValue;
@@ -33,6 +34,15 @@ export default class BaseballGameController {
       onChange: value => {
         this.#inputValue = value;
       },
+    });
+    this.#initializeButton({ $target });
+  }
+
+  #initializeButton({ $target }) {
+    this.$Button = new CommonComponents.Button({
+      $target,
+      type: 'button',
+      text: BUTTON.ENTER,
     });
   }
 }
