@@ -8,7 +8,5 @@ export function checkIsCorrect(answer, input) {
     if (num === input[index]) result.strike++;
     else result.ball++;
   });
-  console.log(result);
-
   return result;
 }

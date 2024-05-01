@@ -14,6 +14,7 @@ const resultBox = document.querySelector("#result-Box");
 
 const handleSubmitInput = (event, answer) => {
   event.preventDefault();
+
   const userInput = getUserInput(userFormInput);
   const isValidateInput = checkIsValidateInput(userInput);
   if (!isValidateInput) {
@@ -22,7 +23,6 @@ const handleSubmitInput = (event, answer) => {
   }
   const result = checkIsCorrect(answer, userInput);
   resetUserInput(userFormInput);
-  console.log(result);
 
   const isCorrect = result.strike === ANSWER_MAX_LENGTH;
   if (isCorrect) showCorrectAnswer(resultBox);
@@ -31,7 +31,6 @@ const handleSubmitInput = (event, answer) => {
 
 function init() {
   const answer = makeAnswer();
-  console.log(answer);
   userForm.addEventListener("submit", (e) => handleSubmitInput(e, answer));
 }
 init();
