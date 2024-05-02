@@ -1,3 +1,10 @@
+var answer = '';
+
+document.getElementById("form").onsubmit = function (event) {
+    event.preventDefault();
+    const value = document.getElementById("number").value;
+}
+
 function setAnswer() {
     while (answer.length < 3) {
         const randomNum = Math.floor(Math.random() * 10).toString();
