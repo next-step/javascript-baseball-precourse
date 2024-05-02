@@ -6,6 +6,7 @@ import { displayResultMessage } from "./displayResultMessage";
 export const setResult = (user, strike, ball) => {
   let message = `${user.join("")}: `;
 
+  // 정답
   if (strike === 3) {
     message = `🎉정답을 맞추셨습니다.🎉`;
     disableInput(true);
@@ -14,6 +15,7 @@ export const setResult = (user, strike, ball) => {
     return;
   }
 
+  // 오답
   if (ball) {
     message += `${ball}볼 `;
   }

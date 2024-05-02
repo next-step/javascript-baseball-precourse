@@ -2,14 +2,14 @@ import { disableInput } from "./disableInput";
 import { getStrikeBall } from "./getStrikeBall";
 import { setRandomNumber } from "./setRandomNumber";
 import { setResult } from "./setResult";
-import { setUserNumber } from "./setUserNumber";
+import { getUserNumber } from "./getUserNumber";
 
 let computer = setRandomNumber();
 console.log(computer);
 
 /** 클라이언트 숫자의 유효성을 검사한 후 야구 게임의 결과를 출력한다.*/
 const playBaseball = () => {
-  const user = setUserNumber();
+  const user = getUserNumber();
   if (user) {
     const { strike, ball } = getStrikeBall(computer, user);
     setResult(user, strike, ball);
@@ -17,8 +17,8 @@ const playBaseball = () => {
   }
 }
 
-/** 클라이언트의 숫자를 입력 받아 야구 게임을 진행한다. */
-export const getUserNumber = () => {
+/** 클라이언트가 form을 제출하면 야구 게임을 진행한다. */
+export const getUserInput = () => {
   const userButton = document.getElementById("userButton");
   userButton.addEventListener('click', playBaseball)
 };
