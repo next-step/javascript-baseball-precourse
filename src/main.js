@@ -64,3 +64,39 @@ function comparenum(rannum, mynum) {
     }
   }
 }
+
+//스트라이크 출력
+function strikeout(num) {
+  if (num > 0 && num < 3) {
+    strikenumber.textContent = `${num} 스트라이크`;
+  } else if (num == 3) {
+    strikenumber.textContent = "정답입니다!";
+  }
+}
+//볼 출력
+function ballout(num) {
+  if (num > 0) {
+    ballnumber.textContent = `${num} 볼`;
+  }
+}
+
+//낫싱 출력
+function notting(anum, bnum) {
+  const result = document.querySelector(".result");
+  if (anum === 0 && bnum === 0) {
+    strikenumber.textContent =
+      "낫싱! 모든 숫자가 틀렸습니다, 다시 시도해 주세요";
+  }
+}
+
+//볼, 스트라이크의 갯수 알려주는 html 요소
+const strikenumber = document.querySelector(".strike");
+const ballnumber = document.querySelector(".ball");
+
+//이전 출력값들 지우기
+function deleteball() {
+  ballnumber.textContent = "";
+}
+function deletestrike() {
+  strikenumber.textContent = "";
+}
