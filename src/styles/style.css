@@ -1,0 +1,21 @@
+:root {
+	margin: 0;
+	padding: 0;
+}
+#restartGame {
+	display: none;
+}
+#restartBtn {
+	display: none;
+}
+#endBtn {
+	display: none;
+}
+
+.buttons {
+	display: flex;
+}
+.buttons > button {
+	margin-right: 10px;
+	cursor: pointer;
+}
