@@ -25,3 +25,11 @@ function ranmakenum() {
     }
   }
 }
+
+//입력받은 숫자를 배열에 저장하는 함수
+function arraynumber(number) {
+  for (var i = 2; i >= 0; i--) {
+    if (number > 0) mynum[i] = number % 10;
+    number = Math.floor(number / 10);
+  }
+}
