@@ -116,3 +116,33 @@ function showbutton(num) {
     replayButton.classList.add("show");
   }
 }
+
+//게임 시작
+ranmakenum(); //컴퓨터의 번호
+
+console.log(rannum[0], rannum[1], rannum[2]); // console에 정답 나오게
+//버튼 click 한번 -> 게임 한번
+btn.addEventListener("click", function () {
+  strike = 0;
+  ball = 0;
+  //매 게임마다 strike, ball 초기화
+
+  deleteball();
+  deletestrike();
+
+  mynumber = number.value;
+  checknumber(mynumber);
+  if (numberchecking == 0) {
+    return;
+  }
+  realmynumber = parseInt(mynumber);
+  arraynumber(realmynumber);
+  console.log(strike);
+  console.log("");
+  console.log(ball);
+  comparenum(rannum, mynum);
+  ballout(ball);
+  strikeout(strike);
+  notting(ball, strike);
+  showbutton(strike);
+});
