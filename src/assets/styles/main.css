@@ -1,0 +1,17 @@
+#app {
+  white-space: pre-wrap;
+}
+
+.hint-container {
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #333;
+  padding: 14px;
+  overflow-y: auto;
+}
+
+.hint-container li {
+  list-style: none;
+  padding: 3px 0;
+}
