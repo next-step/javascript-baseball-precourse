@@ -1,33 +1,26 @@
-import { displayRestart } from "./displayRestart";
-import { displayResult } from "./displayResult";
+import { getStrikeBall } from "./getStrikeBall";
+import { setRandomNumber } from "./setRandomNumber";
+import { setResult } from "./setResult";
+import { setUserNumber } from "./setUserNumber";
 
-export const playBaseball = (computer, user) => {
-  let strike = 0,
-    ball = 0;
-  user.forEach((curNum, index) => {
-    if (curNum === computer[index]) {
-      strike += 1;
-    } else if (computer.includes(curNum)) {
-      ball += 1;
+let computer = setRandomNumber();
+// console.log(computer);
+
+export const playBaseball = () => {
+  const userButton = document.getElementById("userButton");
+
+  userButton.onclick = () => {
+    const user = setUserNumber();
+    if (user) {
+      const { strike, ball } = getStrikeBall(computer, user);
+      setResult(user, strike, ball);
+      document.getElementById("userInput").value = "";
     }
-  });
+  };
+};
 
-  let message = `${user.join("")}: `;
-  if (strike === 3) {
-    message = `🎉정답을 맞추셨습니다.🎉`;
-    displayResult(message);
-    displayRestart();
-    return;
-  }
-
-  if (ball) {
-    message += `${ball}볼 `;
-  }
-  if (strike && strike !== 3) {
-    message += `${strike}스트라이크`;
-  }
-  if (!ball && !strike) {
-    message += `낫싱`;
-  }
-  displayResult(message);
+export const restartBaseball = () => {
+  computer = setRandomNumber();
+  console.log(computer);
+  // disableInput(false)
 };
