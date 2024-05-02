@@ -8,3 +8,9 @@ body {
 h4, strong, h3 {
 	font-weight: 700;
 }
+#app .result .result-correct {
+  display: none;
+}
+#app .result .result-correct.block {
+  display: block;
+}

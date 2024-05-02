@@ -67,5 +67,16 @@ function ballOrStrike (inputNum) {
   })
   res = createResult(ball, strike)
   console.log(document.querySelector('.result-hint').textContent = res);
+	
+	if (strike === 3) {
+    correct.classList.add('block');
+  } else {
+    correct.classList.remove('block');
+  }
 }
 
+// 재시작
+const restartBtn = document.querySelector('.restart');
+restartBtn.addEventListener('click', function () {
+  window.location.reload()
+})
