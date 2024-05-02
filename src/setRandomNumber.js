@@ -1,3 +1,4 @@
+/** 랜덤으로 중복이 없는 3수를 뽑아 컴퓨터 수를 설정한다. */
 export const setRandomNumber = () => {
   const num = new Set();
   while (num.size < 3) {

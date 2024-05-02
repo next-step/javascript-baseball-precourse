@@ -1,5 +1,6 @@
 import { removeDuplicateNumber } from "./removeDuplicateNumber";
 
+/** 글자수가 3인지, 중복이 있는 지 확인 후 클라이언트 수 리턴 */
 export const setUserNumber = () => {
   const userInput = document.getElementById("userInput");
   if (userInput.value.length < 3) {
