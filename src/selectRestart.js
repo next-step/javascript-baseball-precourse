@@ -1,5 +1,5 @@
+import { displayRestartButton, displayResultMessage } from "./controlDisplay";
 import { restartBaseball } from "./playBaseball";
-import { resetDisplay } from "./resetDisplay";
 
 /** 재시작 또는 종료 여부를 선택한다.
  * 재시작: 컴퓨터 수 다시 뽑기/ 게임 종료: 새로고침
@@ -10,7 +10,8 @@ export const selectRestart = () => {
   );
   if (isEnd) {
     alert("게임을 재시작합니다.");
-    resetDisplay();
+    displayRestartButton('none')
+    displayResultMessage('', 'none')
     restartBaseball();
   } else {
     alert("게임이 종료되었습니다.");

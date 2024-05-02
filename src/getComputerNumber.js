@@ -1,5 +1,7 @@
-/** 랜덤으로 중복이 없는 3수를 뽑아 컴퓨터 수를 설정한다. */
-export const setRandomNumber = () => {
+/** 랜덤으로 중복이 없는 3자리 수를 뽑는다.
+ * @returns {number[]} 랜덤으로 생성된 컴퓨터 수
+ */
+export const getComputerNumber = () => {
   const num = new Set();
   while (num.size < 3) {
     const cur_num = Math.floor(Math.random() * 10);

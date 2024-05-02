@@ -1,8 +1,11 @@
-import { disableInput } from "./disableInput";
-import { displayRestart } from "./displayRestart";
-import { displayResultMessage } from "./displayResultMessage";
+import { disableInput } from "./controlUserInput";
+import { displayRestartButton, displayResultMessage } from "./controlDisplay";
 
-/** 숫자 야구 게임 메세지 출력을 설정하고 정답을 처리한다. */
+/** 숫자 야구 게임 메세지 출력을 설정하고 정답을 처리한다. 
+ * @param {number[]} user
+ * @param {number} strike
+ * @param {number} ball
+*/
 export const setResult = (user, strike, ball) => {
   let message = `${user.join("")}: `;
 
@@ -10,8 +13,8 @@ export const setResult = (user, strike, ball) => {
   if (strike === 3) {
     message = `🎉정답을 맞추셨습니다.🎉`;
     disableInput(true);
-    displayResultMessage(message);
-    displayRestart();
+    displayResultMessage(message, "block");
+    displayRestartButton("block");
     return;
   }
 
@@ -25,6 +28,6 @@ export const setResult = (user, strike, ball) => {
   if (!ball && !strike) {
     message += `낫싱`;
   }
-  displayResultMessage(message);
+  displayResultMessage(message, "block");
   return;
 };
