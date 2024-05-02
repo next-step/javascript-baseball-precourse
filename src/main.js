@@ -100,3 +100,19 @@ function deleteball() {
 function deletestrike() {
   strikenumber.textContent = "";
 }
+
+//게임 재시작 관련
+// 클릭 이벤트에 대한 핸들러를 설정합니다.
+replayButton.addEventListener("click", function () {
+  ranmakenum(); // ranmakenum 함수 호출
+  console.log(rannum[0], rannum[1], rannum[2]);
+  replayButton.classList.remove("show");
+  strikenumber.textContent = "";
+});
+
+//버튼 보여주고 숨기기
+function showbutton(num) {
+  if (num === 3) {
+    replayButton.classList.add("show");
+  }
+}
