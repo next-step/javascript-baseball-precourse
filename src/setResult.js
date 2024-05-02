@@ -2,7 +2,7 @@ import { disableInput } from "./disableInput";
 import { displayRestart } from "./displayRestart";
 import { displayResultMessage } from "./displayResultMessage";
 
-/** 숫자 야구 게임 메세지 출력과 정답 처리 */
+/** 숫자 야구 게임 메세지 출력을 설정하고 정답을 처리한다. */
 export const setResult = (user, strike, ball) => {
   let message = `${user.join("")}: `;
 

@@ -9,7 +9,7 @@
   <body>
     <div id="app">
       <h1>⚾️ 숫자 야구 게임</h1>
-      
+
       <!-- 게임 설명 -->
       <div>
         <div>
@@ -22,7 +22,7 @@
 
       <!-- 클라이언트 숫자 입력 받기 -->
       <form id="play" class="mt-5">
-        <input type="number" maxlength="3" id="userInput" />
+        <input type="number" maxlength="3" min="0" id="userInput" />
         <button type="submit" id="userButton">확인</button>
       </form>
 
@@ -39,7 +39,6 @@
           게임 재시작
         </button>
       </div>
-
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>

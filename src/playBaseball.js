@@ -15,17 +15,17 @@ const playBaseball = () => {
     setResult(user, strike, ball);
     document.getElementById("userInput").value = "";
   }
-}
+};
 
 /** 클라이언트가 form을 제출하면 야구 게임을 진행한다. */
 export const getUserInput = () => {
   const userButton = document.getElementById("userButton");
-  userButton.addEventListener('click', playBaseball)
+  userButton.addEventListener("click", playBaseball);
 };
 
-/** 새로운 컴퓨터 수를 뽑는다. */
+/** 새로운 컴퓨터 수를 설정한다. */
 export const restartBaseball = () => {
   computer = setRandomNumber();
   console.log(computer);
-  disableInput(false)
+  disableInput(false);
 };

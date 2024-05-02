@@ -1,7 +1,7 @@
 import { restartBaseball } from "./playBaseball";
-import { resetScreen } from "./resetScreen";
+import { resetDisplay } from "./resetDisplay";
 
-/** 재시작 또는 종료 여부를 받는다.
+/** 재시작 또는 종료 여부를 선택한다.
  * 재시작: 컴퓨터 수 다시 뽑기/ 게임 종료: 새로고침
  */
 export const selectRestart = () => {
@@ -10,7 +10,7 @@ export const selectRestart = () => {
   );
   if (isEnd) {
     alert("게임을 재시작합니다.");
-    resetScreen();
+    resetDisplay();
     restartBaseball();
   } else {
     alert("게임이 종료되었습니다.");
