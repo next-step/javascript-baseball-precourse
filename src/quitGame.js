@@ -7,5 +7,5 @@ export const showQuitGameButton = () => {
 // 게임 종료 문구 표시
 export const showQuitMessage = () => {
   const quitMessage = document.getElementById("app");
-  quitMessage.innerHTML = "게임을 종료합니다!";
+  quitMessage.innerHTML = "게임을 종료합니다! 수고하셨습니다~";
 };
