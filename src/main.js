@@ -48,3 +48,19 @@ function checknumber(number) {
     numberchecking = !numberchecking;
   }
 }
+
+//내 숫자와 컴퓨터 숫자의 비교 -> indent 2번만 해서 구현하는걸 실패
+function comparenum(rannum, mynum) {
+  for (var i = 0; i < 3; i++) {
+    if (mynum[i] === rannum[i]) {
+      strike++;
+    } else {
+      for (var j = 0; j < 3; j++) {
+        if (mynum[i] === rannum[j]) {
+          ball++;
+          break;
+        }
+      }
+    }
+  }
+}
