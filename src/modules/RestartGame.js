@@ -1,4 +1,4 @@
-import { RandomNumber } from './RandomNumber';
+import { RandomNumber } from './RandomNumber.js';
 
 export const RestartMsg = () => {
 	const restartMessage = document.getElementById('restartGame');
