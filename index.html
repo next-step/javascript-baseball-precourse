@@ -6,7 +6,24 @@
     <title></title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <h1>⚾ 숫자 야구 게임</h1>
+      <p>
+        <b>1~9까지의 수</b>를 중복없이 <b>3개 </b> 입력해주세요.<br>
+        올바른 예) 139<br>
+        틀린 예) 122
+      </p>
+      <div>
+        <input type="text" style="height: 18px;" id="user-input"/>
+        <button id="user-submit" >확인</button>
+      </div>
+      <h2>📄결과</h2>
+      <h3 id="result"></h3>
+      <div style="display: none" id='restart-area'>
+        <p>게임을 새로 시작하시겠습니까?</p>
+        <button id="restart">게임 재시작</button>
+      </div>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
