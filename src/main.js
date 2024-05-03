@@ -22,7 +22,26 @@ function generateNumber() {
 
 function getUserInput() {
     let inputValue = inputEl.value
+    if (!isValidInput(inputValue)) {
+        return;
+    }
     checkStrikeAndBall(inputValue)
+}
+
+function isValidInput(inputValue) {
+    if (inputValue.length !== 3) {
+        alert("세 자리 수를 입력해야 합니다.");
+        return false;
+    }
+    if (!/^[1-9]{3}$/.test(inputValue)) {
+        alert("1부터 9까지의 숫자 세 개를 입력해야 합니다.");
+        return false;
+    }
+    if (new Set(inputValue).size !== 3) {  
+        alert("각 숫자는 중복되지 않아야 합니다.");
+        return false;
+    }
+    return true;
 }
 
 function checkStrikeAndBall(inputValue) {
