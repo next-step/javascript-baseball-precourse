@@ -2,6 +2,8 @@ const inputEl = document.getElementById('user-input')
 const submitBtn = document.getElementById('submit')
 const resultEl = document.getElementById('result')
 
+let answer = generateNumber()
+
 submitBtn.addEventListener('click', getUserInput)
 
 function generateNumber() {
@@ -22,7 +24,7 @@ function getUserInput() {
 
 function checkStrikeAndBall(inputValue) {
     let userNumber = inputValue
-    let computerNumber = generateNumber()
+    let computerNumber = answer
     let strike = 0
     let ball = 0
 
@@ -36,15 +38,16 @@ function checkStrikeAndBall(inputValue) {
     }
 
     printResult(strike, ball)
-    // console.log(userNumber)
-    // console.log(computerNumber)
-    // console.log("ball", ball)
-    // console.log("strike", strike)
+    console.log(userNumber)
+    console.log(computerNumber)
+    console.log("ball", ball)
+    console.log("strike", strike)
 }
 
 function printResult(strike, ball) {
     if (strike  === 3) {
         resultEl.innerText = "🎉정답을 맞추셨습니다🎉"
+        answer = generateNumber()
     }
     else if (strike === 0 && ball !== 0) {
         resultEl.innerText = `${ball}볼`
