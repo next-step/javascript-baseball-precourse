@@ -22,6 +22,20 @@ function getUserInput() {
 function checkStrikeAndBall(inputValue) {
     let userNumber = inputValue
     let computerNumber = generateNumber()
-    //console.log(userNumber)
-    //console.log(computerNumber)
+    let strike = 0
+    let ball = 0
+
+    for (let i = 0; i < 3; i++) {
+        if (userNumber[i] === computerNumber[i]) {
+            strike += 1
+        }
+        else if (computerNumber.indexOf(userNumber[i]) !== -1) {
+            ball += 1
+        }
+    }
+    console.log(userNumber)
+    console.log(computerNumber)
+    console.log("ball", ball)
+    console.log("strike", strike)
 }
+
