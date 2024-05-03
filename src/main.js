@@ -56,7 +56,7 @@ function onSubmitClick() {
 
 /**
  *
- * @param {Event<HTMLInputElement>} e
+ * @param {InputEvent<HTMLInputElement>} e
  */
 function onInputChange(e) {
   const target = e.target;
