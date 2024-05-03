@@ -57,6 +57,7 @@ function onSubmitClick() {
   }
   if(strikes === 3) {
     resultEl.textContent = '🎉정답을 맞추셨습니다🎉';
+    setRestartAreaVisible(true);
     return;
   }
   if(strikes === 0) {
