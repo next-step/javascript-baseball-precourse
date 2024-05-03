@@ -2,10 +2,10 @@ import Computer from './computer.js';
 
 let com = new Computer();
 
-let submitEl = document.querySelector('#user-submit');
-let inputEl = document.querySelector('#user-input');
+const submitEl = document.querySelector('#user-submit');
+const inputEl = document.querySelector('#user-input');
 
-let resultEl = document.querySelector('#result');
+const resultEl = document.querySelector('#result');
 
 submitEl.addEventListener('click', onSubmitClick);
 inputEl.addEventListener('input', onInputChange);
