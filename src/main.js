@@ -8,6 +8,7 @@ let strike = 0;
 let ball = 0;
 
 import ranmakenum from "./ranmake.js";
+import checknumber from "./inputcheck.js";
 
 let number = document.getElementById("myinput"); // 아이디를 선택 -> .붙이지 않음
 let btn = document.querySelector(".check"); //클래스를 선택 -> .붙여야함
@@ -19,21 +20,6 @@ function arraynumber(number, array) {
   for (var i = 2; i >= 0; i--) {
     if (number > 0) array[i] = number % 10;
     number = Math.floor(number / 10);
-  }
-}
-
-//숫자 체크 해주는 함수 입력 잘못되었으면 alert
-function checknumber(number) {
-  if (!isNaN(number)) {
-    // 입력된 값이 숫자일 경우
-    if (number.length !== 3) {
-      alert("3자리 숫자를 입력해주세요");
-      numberchecking = !numberchecking;
-    }
-  } else {
-    // 입력된 값이 숫자가 아닐 경우
-    alert("숫자를 입력해주세요");
-    numberchecking = !numberchecking;
   }
 }
 
