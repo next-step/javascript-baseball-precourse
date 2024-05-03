@@ -1,13 +1,15 @@
 const inputEl = document.getElementById('user-input')
 const submitBtn = document.getElementById('submit')
 const resultEl = document.getElementById('result')
-const restartSection = document.getElementById('restart-section')
+const gameOverSection = document.getElementById('game-over-section')
 const restartBtn = document.getElementById('restart');
+const quitBtn = document.getElementById('quit');
 
 let answer = generateNumber()
 
 submitBtn.addEventListener('click', getUserInput)
-restartBtn.addEventListener('click', restartGame);
+restartBtn.addEventListener('click', restartGame)
+quitBtn.addEventListener('click', quitGame)
 
 function generateNumber() {
     let answer = ''
@@ -60,17 +62,16 @@ function checkStrikeAndBall(inputValue) {
     }
 
     printResult(strike, ball)
-    console.log(userNumber)
-    console.log(computerNumber)
-    console.log("ball", ball)
-    console.log("strike", strike)
+    // console.log(userNumber)
+    // console.log(computerNumber)
+    // console.log("ball", ball)
+    // console.log("strike", strike)
 }
 
 function printResult(strike, ball) {
     if (strike  === 3) {
         resultEl.innerText = "🎉정답을 맞추셨습니다🎉"
-        restartSection.style.display = "block"
-        //answer = generateNumber()
+        gameOverSection.style.display = "block"
     }
     else if (strike === 0 && ball !== 0) {
         resultEl.innerText = `${ball}볼`
@@ -88,8 +89,15 @@ function printResult(strike, ball) {
 
 function restartGame() {
     answer = generateNumber(); 
-    restartSection.style.display = "none"; 
+    gameOverSection.style.display = "none"; 
     resultEl.innerText = ""; 
     inputEl.value = "";
+}
+
+function quitGame() {
+    gameOverSection.style.display = "none";
+    resultEl.innerText = "게임이 종료되었습니다."; 
+    inputEl.style.display = "none"; 
+    submitBtn.style.display = "none"; 
 }
 
