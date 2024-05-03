@@ -94,7 +94,14 @@ function displayResult() {
   results.style.display = "block";
   const result = calculateResult();
   const resultItem = document.createElement('li');
+  const correctAnswer = document.createElement('h4');
+  correctAnswer.textContent = "🎉정답을 맞추셨습니다🎉";
 
+  // 정답을 맞춘 경우
+  if (result === "3스트라이크") {
+    results.appendChild(correctAnswer);
+    return;
+  }
   resultItem.textContent = `${playerInput.value} : ${result}`;
   resultsList.appendChild(resultItem);
   playerInput.value = '';
