@@ -35,19 +35,6 @@ class Rival {
     this.makeResult(s, b);
   }
 
-  makeResult(s, b) {
-    let resultStr = '';
-    if (s === 3) {
-      resultStr = `축하합니다 정답입니다🎉`;
-      document.getElementById("result").innerHTML = resultStr;
-    } else {
-      resultStr = `${b}B${s}S`;
-      document.getElementById("result").innerHTML = `${this.count}번째 시도 : ${resultStr}`;
-      this.recordStr += ` ${resultStr}<br>`;
-      document.getElementById("record").innerHTML = this.recordStr;
-    }
-  }
-
   checkValue(value) {
     if (value === null || value === '') {
       alert(`입력을 취소하셨습니다. 다시 시도해주세요.`);
@@ -58,6 +45,32 @@ class Rival {
     }
     return true;
   }
+
+  makeResult(s, b) {
+    let resultStr = '';
+    if (s === 3) {
+      resultStr = `축하합니다 정답입니다🎉`;
+      document.getElementById("result").innerHTML = resultStr;
+      this.showResetButton(); // 리셋 버튼 보여주기
+    } else {
+      resultStr = `${b}B${s}S`;
+      document.getElementById("result").innerHTML = `${this.count}번째 시도 : ${resultStr}`;
+      this.recordStr += `  ${resultStr}<br>`;
+      document.getElementById("record").innerHTML = this.recordStr;
+    }
+  }
+  
+  showResetButton() {
+    let resetButton = document.getElementById("reset");
+    if (!resetButton) {
+      resetButton = document.createElement("button");
+      resetButton.textContent = "게임 재시작";
+      resetButton.id = "reset";
+      resetButton.addEventListener('click', resetGame);
+      document.body.appendChild(resetButton);
+    }
+    resetButton.style.display = "block";
+  }  
 }
 
 export { Rival };

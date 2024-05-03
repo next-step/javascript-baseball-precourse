@@ -1,6 +1,8 @@
 import { Rival } from "./rival";
 
 let game = new Rival();
+const resetButton = document.getElementById("reset");
+resetButton.style.display = "none";
 
 document.getElementById("form").onsubmit = function (event) {
   event.preventDefault();
@@ -8,13 +10,9 @@ document.getElementById("form").onsubmit = function (event) {
   game.getValue(input);
 }
 
-function resetGame() {
+document.getElementById("reset").onclick = function () {
   document.getElementById("input").value = '';
   document.getElementById("result").innerHTML = '';
   game = new Rival();
+  resetButton.style.display = "none";
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById("reset").addEventListener('click', resetGame);
-  resetGame();
-});
