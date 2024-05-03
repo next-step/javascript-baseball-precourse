@@ -1,6 +1,7 @@
 const inputEl = document.getElementById('user-input')
 const submitBtn = document.getElementById('submit')
 const resultEl = document.getElementById('result')
+const restartEl = document.getElementById('restart-section')
 
 let answer = generateNumber()
 
@@ -47,6 +48,7 @@ function checkStrikeAndBall(inputValue) {
 function printResult(strike, ball) {
     if (strike  === 3) {
         resultEl.innerText = "🎉정답을 맞추셨습니다🎉"
+        restartEl.style = "display: block;"
         answer = generateNumber()
     }
     else if (strike === 0 && ball !== 0) {
