@@ -57,7 +57,7 @@ function onSubmitClick() {
   }
   if(strikes === 3) {
     resultEl.textContent = '🎉정답을 맞추셨습니다🎉';
-    return
+    return;
   }
   if(strikes === 0) {
     resultEl.textContent = `${balls}볼`;
