@@ -10,5 +10,8 @@ class Computer {
     const arr = this.getShuffledArray();
     return arr.slice(0, 3);
   }
+  reallocateAnswer() {
+    this.answer = this.generateAnswer();
+  }
 }
 export default Computer;
