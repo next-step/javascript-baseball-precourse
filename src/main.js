@@ -11,7 +11,14 @@ const restartButton = document.querySelector('#restart');
 
 submitEl.addEventListener('click', onSubmitClick);
 inputEl.addEventListener('input', onInputChange);
+restartButton.addEventListener('click', onRestartClick);
 
+function onRestartClick() {
+  resultEl.textContent = '';
+  com.reallocateAnswer();
+  setRestartAreaVisible(false);
+  inputEl.value = '';
+}
 function setRestartAreaVisible(visible) {
   if(visible) {
     restartArea.style.display = 'block';
@@ -50,7 +57,6 @@ function onSubmitClick() {
   }
   if(strikes === 3) {
     resultEl.textContent = '🎉정답을 맞추셨습니다🎉';
-    // 게임 종료 후 동적 element 추가
     return
   }
   if(strikes === 0) {
