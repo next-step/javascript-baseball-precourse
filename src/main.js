@@ -51,6 +51,24 @@ function onSubmitClick() {
   resultEl.textContent = `${balls}볼 ${strikes}스트라이크`
 }
 
+/**
+ *
+ * @param {Event<HTMLInputElement>} e
+ */
+function onInputChange(e) {
+  const target = e.target;
+  const lastInput = target.charAt(-1);
+  const exceptLast = target.slice(0, -1);
+  if(! isNumericString(lastInput)) {
+    alert('숫자만 입력 가능합니다.')
+    e.preventDefault();
+    return;
+  }
+  if(exceptLast.indexOf(lastInput) !== -1) {
+    alert('중복된 숫자는 입력이 불가능합니다.');
+    e.preventDefault();
+  }
+}
 function isNumericString(str) {
   return /^\d+$/.test(str);
 }
