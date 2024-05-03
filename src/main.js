@@ -1,5 +1,7 @@
-const submitBtn = document.querySelector('#submit')
-submitBtn.addEventListener('click', generateNumber)
+const inputEl = document.getElementById('user-input')
+const submitBtn = document.getElementById('submit')
+
+submitBtn.addEventListener('click', getUserInput)
 
 function generateNumber() {
     let answer = ''
@@ -10,4 +12,16 @@ function generateNumber() {
         }
     }
     return answer
+}
+
+function getUserInput() {
+    let inputValue = inputEl.value
+    checkStrikeAndBall(inputValue)
+}
+
+function checkStrikeAndBall(inputValue) {
+    let userNumber = inputValue
+    let computerNumber = generateNumber()
+    //console.log(userNumber)
+    //console.log(computerNumber)
 }
