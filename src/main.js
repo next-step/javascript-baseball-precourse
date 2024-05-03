@@ -4,13 +4,15 @@ let com = new Computer();
 
 /**
  *
- * @param {int[]} userInput
+ * @param {string} userInput
  * @return {int[]}
  */
 function getStrikeBallCount(userInput) {
+  const inputArray = [...userInput];
   let strikes = 0;
   let balls = 0;
-  userInput.forEach((value, index, _) => {
+  inputArray.forEach((value, index, _) => {
+    value = parseInt(value)
     if(! com.existsInAnswer(value)) return;
 
     strikes += com.isStrike(value, index) ? 1 : 0;
