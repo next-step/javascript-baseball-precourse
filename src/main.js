@@ -2,6 +2,11 @@ import Computer from './computer.js';
 
 let com = new Computer();
 
+let submitEl = document.querySelector('#user-submit');
+let inputEl = document.querySelector('#user-input');
+
+let resultEl = document.querySelector('#result');
+
 /**
  *
  * @param {string} userInput
@@ -20,4 +25,28 @@ function getStrikeBallCount(userInput) {
   });
 
   return [strikes, balls];
+}
+function onSubmitClick() {
+  const userInput = inputEl.value;
+  const strikeBall = getStrikeBallCount(userInput);
+
+  const [strikes, balls] = strikeBall;
+  if(strikes === 0 && balls === 0) {
+    // strike, ball이 모두 0개
+    resultEl.textContent = '낫싱';
+    return;
+  }
+  if(strikes === 3) {
+    resultEl.textContent = '🎉정답을 맞추셨습니다🎉';
+    // 게임 종료 후 동적 element 추가
+  }
+  if(strikes === 0) {
+    resultEl.textContent = `${balls}볼`;
+    return;
+  }
+  if(balls === 0){
+    resultEl.textContent = `${strikes}스트라이크`;
+    return;
+  }
+  resultEl.textContent = `${balls}볼 ${strikes}스트라이크`
 }
