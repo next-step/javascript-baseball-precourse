@@ -14,7 +14,7 @@ class Computer {
     this.answer = this.generateAnswer();
   }
   existsInAnswer(num) {
-    return this.answer.contains(num);
+    return this.answer.includes(num);
   }
 
   /**
