@@ -41,6 +41,7 @@ function onSubmitClick() {
   if(strikes === 3) {
     resultEl.textContent = '🎉정답을 맞추셨습니다🎉';
     // 게임 종료 후 동적 element 추가
+    return
   }
   if(strikes === 0) {
     resultEl.textContent = `${balls}볼`;
