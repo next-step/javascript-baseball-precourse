@@ -76,19 +76,32 @@ const addResetAndEndButton = (resultBoardRef, startNewGame) => {
 
     const endButton = createEndButton();
     const resetButton = createResetButton();
+    let endButtonTimer = null;
+    let isEndButtonAdded = false;
 
     const removeButton = (buttonRef) => resultBoardRef.removeChild(buttonRef);
 
     resetButton.addEventListener('click', () => {
         startNewGame();
         removeButton(resetButton);
-        removeButton(endButton);
+
+        if (endButtonTimer) {
+            clearTimeout(endButtonTimer);
+            endButtonTimer = null;
+        }
+
+        if (isEndButtonAdded){
+            removeButton(endButton);
+            isEndButtonAdded = false;
+        }
+
         writeOnBoard(resultBoardRef, BOARD_HEADER_READY, "");
     })
 
     resultBoardRef.appendChild(resetButton);
 
-    setTimeout(() => {
+    endButtonTimer = setTimeout(() => {
         resultBoardRef.appendChild(endButton);
+        isEndButtonAdded = true;
     }, 2000);
 };
