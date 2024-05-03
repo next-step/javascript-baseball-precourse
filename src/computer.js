@@ -16,5 +16,16 @@ class Computer {
   existsInAnswer(num) {
     return this.answer.contains(num);
   }
+
+  /**
+   * Returns true if the number is 'Strike' number, false if not
+   *
+   * @param {int} num
+   * @param {int} index
+   * @returns {boolean}
+   */
+  isStrike(num, index) {
+    return this.answer[index] === num;
+  }
 }
 export default Computer;
