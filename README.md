@@ -1,5 +1,3 @@
-# javascript-baseball-precourse
-
 ## 기능 구현 순서
 
 # 1. 인터페이스 구현

@@ -1,6 +1,4 @@
-
 export default function random() {
-
     
     let three =  Math.floor(Math.random()*9+1)
     let two =  Math.floor(Math.random()*9+1)
