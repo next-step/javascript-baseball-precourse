@@ -20,7 +20,7 @@ checkButton.onclick = function() {
   
   const outList = ckNum(result,correctNum)
 
-  console.log(outList)
+  //console.log(outList)
   
   if(result===correctNum)
   { 

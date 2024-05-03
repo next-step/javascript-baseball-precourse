@@ -26,8 +26,6 @@ export default function ckNum(inA,correctB){
 
     const inList= [inThree, inTwo, inOne]
 
-
-
     const correctThree= Math.floor(correctB/100)
     const correctTwo= Math.floor((correctB - correctThree*100)/10)
     const correctOne= correctB  - correctThree*100 - correctTwo*10
