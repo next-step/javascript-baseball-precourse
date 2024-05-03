@@ -12,6 +12,13 @@ const restartButton = document.querySelector('#restart');
 submitEl.addEventListener('click', onSubmitClick);
 inputEl.addEventListener('input', onInputChange);
 
+function setRestartAreaVisible(visible) {
+  if(visible) {
+    restartArea.style.display = 'block';
+  } else {
+    restartArea.style.display = 'none';
+  }
+}
 /**
  *
  * @param {string} userInput
