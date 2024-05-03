@@ -50,3 +50,7 @@ function onSubmitClick() {
   }
   resultEl.textContent = `${balls}볼 ${strikes}스트라이크`
 }
+
+function isNumericString(str) {
+  return /^\d+$/.test(str);
+}
