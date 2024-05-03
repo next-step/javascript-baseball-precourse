@@ -14,6 +14,7 @@ document.getElementById("form").onsubmit = function (event) {
 document.getElementById("reset").onclick = function () {
   document.getElementById("input").value = '';
   document.getElementById("result").innerHTML = '';
+  document.getElementById("record").innerHTML = '';
   game = new Rival();
   resetButton.style.display = "none";
 }
