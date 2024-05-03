@@ -42,6 +42,12 @@ class Rival {
     } else if (value.length !== 3) {
       alert(`3자리 수의 숫자만 입력해야 합니다.`);
       return false;
+    } else if (isNaN(value)) {
+      alert(`문자는 입력할 수 없습니다.`);
+      return false;
+    } else if (value.includes("0")) {
+      alert(`1부터 9까지의 수만 입력해주세요.`);
+      return false;
     }
     return true;
   }
@@ -51,7 +57,7 @@ class Rival {
     if (s === 3) {
       resultStr = `축하합니다 정답입니다🎉`;
       document.getElementById("result").innerHTML = resultStr;
-      this.showResetButton(); // 리셋 버튼 보여주기
+      this.showResetButton();
     } else {
       resultStr = `${b}B${s}S`;
       document.getElementById("result").innerHTML = `${this.count}번째 시도 : ${resultStr}`;
