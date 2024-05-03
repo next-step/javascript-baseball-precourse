@@ -1,4 +1,4 @@
-const computerNumbers = generateNumbers();
+let computerNumbers = generateNumbers();
 
 const playerInput = document.querySelector("#playerInput");
 playerInput.oninput = validateInput;
@@ -9,7 +9,16 @@ submitBtn.onclick = displayResult;
 const results = document.querySelector(".results");
 results.style.display = "none";
 
+const correctAnswer = document.createElement('h4');
+correctAnswer.textContent = "🎉정답을 맞추셨습니다🎉";
+
 const resultsList = document.querySelector(".results-list");
+
+const btnGroup = document.querySelector(".btn-group");
+btnGroup.style.display = "none";
+
+const restartBtn = document.querySelector("#restart-btn");
+const quitBtn = document.querySelector("#quit-btn");
 
 // 컴퓨터가 임의의 수 3개 선택
 function generateNumbers() {
@@ -94,15 +103,38 @@ function displayResult() {
   results.style.display = "block";
   const result = calculateResult();
   const resultItem = document.createElement('li');
-  const correctAnswer = document.createElement('h4');
-  correctAnswer.textContent = "🎉정답을 맞추셨습니다🎉";
 
   // 정답을 맞춘 경우
   if (result === "3스트라이크") {
+    playerInput.disabled = true;  // 입력란 비활성화
+    submitBtn.disabled = true;  // 확인 버튼 비활성화
     results.appendChild(correctAnswer);
+    btnGroup.style.display = "block";
     return;
   }
   resultItem.textContent = `${playerInput.value} : ${result}`;
   resultsList.appendChild(resultItem);
   playerInput.value = '';
 }
+
+// 게임 재시작
+function restartGame() {
+  computerNumbers = generateNumbers();
+  playerInput.disabled = false;  // 입력란 활성화
+  submitBtn.disabled = false;  // 확인 버튼 활성화
+  playerInput.value = '';
+  resultsList.innerHTML = '';  // 결과 목록 초기화
+  results.removeChild(correctAnswer);
+  results.style.display = "none";
+  btnGroup.style.display = "none";
+}
+
+// 게임 종료
+function quitGame() {
+  btnGroup.style.display = "none";
+  playerInput.value = '';
+  results.innerHTML = "<h4>게임을 종료합니다.</h4>";
+}
+
+restartBtn.addEventListener('click', restartGame);
+quitBtn.addEventListener('click', quitGame);
