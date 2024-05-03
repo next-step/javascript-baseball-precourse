@@ -7,6 +7,8 @@ let inputEl = document.querySelector('#user-input');
 
 let resultEl = document.querySelector('#result');
 
+submitEl.addEventListener('click', onSubmitClick);
+
 /**
  *
  * @param {string} userInput
@@ -57,8 +59,9 @@ function onSubmitClick() {
  */
 function onInputChange(e) {
   const target = e.target;
-  const lastInput = target.charAt(-1);
-  const exceptLast = target.slice(0, -1);
+  const value = target.value;
+  const lastInput = value.charAt(-1);
+  const exceptLast = value.slice(0, -1);
   if(! isNumericString(lastInput)) {
     alert('숫자만 입력 가능합니다.')
     e.preventDefault();
