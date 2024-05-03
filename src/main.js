@@ -1,5 +1,6 @@
 import cknum from './check_result.js';
 import random from './getRandom.js';
+import retry from './wrong_in.js';
 
 const Button_refresh = document.getElementById('myButton');
 const checkButton = document.querySelector('input[name=check]');
@@ -12,6 +13,13 @@ checkButton.onclick = function() {
   const inputText = document.querySelector('input[name=number]').value;
   
   const result = processInput(inputText);
+
+  const iserror = retry(result)
+
+  if(iserror===1)
+  {
+    return 0
+  }
   
   const out_list = cknum(result,correct_num)
 
