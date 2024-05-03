@@ -64,3 +64,9 @@ e.g.
   - 클릭시 완전 종료
 - [x] 모듈화
   - main.js 모듈화
+
+<br/>
+
+![temporary_image](./public/숫자야구.gif)
+
+
