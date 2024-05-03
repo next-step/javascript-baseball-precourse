@@ -55,17 +55,24 @@ class Rival {
   makeResult(s, b) {
     let resultStr = '';
     if (s === 3) {
-      resultStr = `축하합니다 정답입니다🎉`;
-      document.getElementById("result").innerHTML = resultStr;
-      this.showResetButton();
+      this.endGame();
     } else {
       resultStr = `${b}B${s}S`;
       document.getElementById("result").innerHTML = `${this.count}번째 시도 : ${resultStr}`;
-      this.recordStr += `  ${resultStr}<br>`;
-      document.getElementById("record").innerHTML = this.recordStr;
+      this.makeRecord(resultStr)
     }
   }
-  
+
+  makeRecord(resultStr) {
+    this.recordStr += `   ${resultStr}<br>`;
+    document.getElementById("record").innerHTML = this.recordStr;
+  }
+
+  endGame() {
+    document.getElementById("result").innerHTML = `🎉축하합니다 정답입니다🎉`;
+    this.showResetButton();
+  }
+
   showResetButton() {
     let resetButton = document.getElementById("reset");
     if (!resetButton) {
