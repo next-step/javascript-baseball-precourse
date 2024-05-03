@@ -7,6 +7,8 @@ export const animateResultHeader = (resultHeaderRef, delay) => {
         .map((char, idx) => createSpan(char, idx, delay))
         .join('');
 
+    setTimeout(() => resultHeaderRef.innerHTML = tokens.join(''), tokens.length * delay);
+
     return tokens.length;
 };
 
@@ -25,7 +27,7 @@ const concatEmoji = (acc, char, i) => {
 };
 
 const millisToFloat = (delay) => {
-    return "" + (delay / 1000).toFixed(1);
+    return (delay / 1000).toFixed(1);
 };
 
 const createSpan = (char, idx, delay) => {

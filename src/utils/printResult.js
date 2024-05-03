@@ -1,27 +1,10 @@
 import {
-    BALL_POINT,
-    BOARD_HEADER_CORRECT,
-    BOARD_HEADER_READY,
+    BOARD_HEADER_CORRECT, BOARD_HEADER_READY,
     BOARD_HEADER_WRONG,
     BOARD_PARAGRAPH_CORRECT,
-    END_BUTTON_CONTENT,
-    NOT_FOUND_VALUE,
-    RESET_BUTTON_CONTENT,
+    END_BUTTON_CONTENT, RESET_BUTTON_CONTENT,
     STRIKE_POINT
-} from "../constants.js";
-
-export const countStrikeAndBall = (currentValue, targetDigits) => {
-    return currentValue
-        .split('')
-        .reduce((acc, curr, i) => {
-            if (curr === targetDigits[i]) {
-                acc += STRIKE_POINT;
-            } else if (targetDigits.indexOf(curr) > NOT_FOUND_VALUE ) {
-                acc += BALL_POINT;
-            }
-            return acc;
-        }, 0);
-};
+} from "./constants.js";
 
 export const printResultOnBoard = (score, resultBoardRef, startNewGame) => {
     if (score === 3 * STRIKE_POINT) {

@@ -4,30 +4,18 @@ import {
     RESULT_HEAD,
     SUBMIT_BUTTON,
     USER_INPUT
-} from "./constants.js";
+} from "./utils/constants.js";
 import {
     countStrikeAndBall,
-    printResultOnBoard
-} from "./input/handleInput.js";
+} from "./utils/handleInput.js";
 import {
     declineNonNumericInput,
     isInputInvalid
-} from "./input/validateInput.js";
-import { animateResultHeader } from "./tools/animateSpan.js";
-import { generateNewDistinct3Digits } from "./tools/target.js";
-
-const selectElements = () => {
-    const userInput = document.querySelector(USER_INPUT);
-    const submitButton = document.querySelector(SUBMIT_BUTTON);
-    const resultBoard = document.querySelector(RESULT_BOARD);
-    const resultHead = document.querySelector(RESULT_HEAD);
-
-    return new Map()
-        .set(USER_INPUT, userInput)
-        .set(SUBMIT_BUTTON, submitButton)
-        .set(RESULT_BOARD, resultBoard)
-        .set(RESULT_HEAD, resultHead);
-}
+} from "./utils/validateInput.js";
+import { animateResultHeader } from "./utils/animateText.js";
+import { generateNewDistinct3Digits } from "./utils/generateTarget.js";
+import { printResultOnBoard } from "./utils/printResult.js";
+import { selectElements } from "./utils/selectElements.js";
 
 const runGame = () => {
     const elements = selectElements();

@@ -5,7 +5,7 @@ import {
     ARROW_RIGHT,
     BACKSPACE,
     ENTER
-} from "../constants.js";
+} from "./constants.js";
 
 export const declineNonNumericInput = (e) => {
     if ((e.keyCode >= 48 && e.keyCode <= 57)

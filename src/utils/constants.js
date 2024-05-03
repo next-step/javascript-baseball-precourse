@@ -1,4 +1,4 @@
-export const ANIMATION_DURATION = 700; // 변경 가능
+export const ANIMATION_DURATION = 500; // 변경 가능
 export const DIGIT_MIN = 0;
 export const DIGIT_MAX = 9;
 export const USER_INPUT = "#user-input";

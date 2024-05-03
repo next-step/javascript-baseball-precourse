@@ -1,4 +1,4 @@
-import {DIGIT_MAX, DIGIT_MIN} from "../constants.js";
+import {DIGIT_MAX, DIGIT_MIN} from "./constants.js";
 
 export const generateNewDistinct3Digits = () => {
     const digitSet = new Set();
