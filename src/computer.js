@@ -13,5 +13,8 @@ class Computer {
   reallocateAnswer() {
     this.answer = this.generateAnswer();
   }
+  existsInAnswer(num) {
+    return this.answer.contains(num);
+  }
 }
 export default Computer;
