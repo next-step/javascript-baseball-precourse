@@ -8,7 +8,7 @@ import {
 } from "./constants.js";
 
 export const declineNonNumericInput = (e) => {
-    if ((e.keyCode >= 48 && e.keyCode <= 57)
+    if ((e.keyCode >= 49 && e.keyCode <= 57)
         || e.keyCode === BACKSPACE
         || e.keyCode === ARROW_LEFT
         || e.keyCode === ARROW_RIGHT
