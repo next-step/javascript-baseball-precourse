@@ -8,6 +8,7 @@ let inputEl = document.querySelector('#user-input');
 let resultEl = document.querySelector('#result');
 
 submitEl.addEventListener('click', onSubmitClick);
+inputEl.addEventListener('input', onInputChange);
 
 /**
  *
@@ -54,6 +55,7 @@ function onSubmitClick() {
   resultEl.textContent = `${balls}볼 ${strikes}스트라이크`
 }
 
+let lastInput = '';
 /**
  *
  * @param {InputEvent<HTMLInputElement>} e
@@ -61,17 +63,25 @@ function onSubmitClick() {
 function onInputChange(e) {
   const target = e.target;
   const value = target.value;
-  const lastInput = value.charAt(-1);
-  const exceptLast = value.slice(0, -1);
-  if(! isNumericString(lastInput)) {
-    alert('숫자만 입력 가능합니다.')
-    e.preventDefault();
+
+  // 현재 입력된 값에서 이전의 값을 ''로 대체. 사용자가 이제 막 입력한 값이 저장될 것.
+  const exceptLast = value.replace(lastInput, '');
+  if(! isNumericString(exceptLast) && exceptLast.length !== 0) {
+    alert('숫자만 입력 가능합니다.');
+    target.value = lastInput;
     return;
   }
-  if(exceptLast.indexOf(lastInput) !== -1) {
-    alert('중복된 숫자는 입력이 불가능합니다.');
-    e.preventDefault();
+  if(lastInput.indexOf(exceptLast) !== -1
+    && lastInput.length < value.length) {
+    alert('중복된 값은 입력할 수 없습니다.');
+    target.value = lastInput;
+    return;
   }
+  if(value.length > 3) {
+    target.value = lastInput;
+    return;
+  }
+  lastInput = value;
 }
 function isNumericString(str) {
   return /^\d+$/.test(str);
