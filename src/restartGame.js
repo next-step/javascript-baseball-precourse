@@ -15,7 +15,7 @@ export const showRestartMessage = () => {
 // 게임 재시작 함수
 export const restartGame = () => {
   randomNumberGenerate();
-  document.getElementById("inputBox") = "";
+  document.getElementById("inputBox").value = "";
   document.getElementById("resultMessage").textContent = "";
   document.getElementById("restartMessage").style.display = "none";
   document.getElementById("restartButton").style.display = "none";
