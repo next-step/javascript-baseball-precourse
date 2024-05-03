@@ -8,6 +8,7 @@ document.getElementById("form").onsubmit = function (event) {
   event.preventDefault();
   const input = document.getElementById("input").value;
   game.getValue(input);
+  document.getElementById("input").value = '';
 }
 
 document.getElementById("reset").onclick = function () {
