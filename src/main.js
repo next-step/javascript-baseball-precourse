@@ -6,6 +6,8 @@ const submitEl = document.querySelector('#user-submit');
 const inputEl = document.querySelector('#user-input');
 
 const resultEl = document.querySelector('#result');
+const restartArea = document.querySelector('#restart-area');
+const restartButton = document.querySelector('#restart');
 
 submitEl.addEventListener('click', onSubmitClick);
 inputEl.addEventListener('input', onInputChange);
