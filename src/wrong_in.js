@@ -1,8 +1,8 @@
-export default function retry(in_a)
+export default function retry(inA)
 {
-    const inThree= Math.floor(in_a / 100)
-    const inTwo= Math.floor((in_a - inThree*100)/10)
-    const inOne= in_a  - inThree*100 - inTwo*10
+    const inThree= Math.floor(inA / 100)
+    const inTwo= Math.floor((inA - inThree*100)/10)
+    const inOne= inA  - inThree*100 - inTwo*10
 
     if( inThree>=10 || inThree===0 )
     {
