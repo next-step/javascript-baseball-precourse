@@ -1,5 +1,6 @@
 const inputEl = document.getElementById('user-input')
 const submitBtn = document.getElementById('submit')
+const resultEl = document.getElementById('result')
 
 submitBtn.addEventListener('click', getUserInput)
 
@@ -33,9 +34,29 @@ function checkStrikeAndBall(inputValue) {
             ball += 1
         }
     }
-    console.log(userNumber)
-    console.log(computerNumber)
-    console.log("ball", ball)
-    console.log("strike", strike)
+
+    printResult(strike, ball)
+    // console.log(userNumber)
+    // console.log(computerNumber)
+    // console.log("ball", ball)
+    // console.log("strike", strike)
+}
+
+function printResult(strike, ball) {
+    if (strike  === 3) {
+        resultEl.innerText = "🎉정답을 맞추셨습니다🎉"
+    }
+    else if (strike === 0 && ball !== 0) {
+        resultEl.innerText = `${ball}볼`
+    }
+    else if (strike !== 0 && ball === 0) {
+        resultEl.innerText = `${strike}스트라이크`
+    }
+    else if (strike === 0 && ball === 0) {
+        resultEl.innerText = "낫싱"
+    }
+    else {
+        resultEl.innerText = `${ball}볼 ${strike}스트라이크`
+    }
 }
 
