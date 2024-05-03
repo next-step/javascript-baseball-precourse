@@ -9,6 +9,8 @@ let ball = 0;
 
 import ranmakenum from "./ranmake.js";
 import checknumber from "./inputcheck.js";
+import comparestrike from "./comparestrike.js";
+import compareball from "./compareball.js";
 
 let number = document.getElementById("myinput"); // 아이디를 선택 -> .붙이지 않음
 let btn = document.querySelector(".check"); //클래스를 선택 -> .붙여야함
@@ -20,22 +22,6 @@ function arraynumber(number, array) {
   for (var i = 2; i >= 0; i--) {
     if (number > 0) array[i] = number % 10;
     number = Math.floor(number / 10);
-  }
-}
-
-//내 숫자와 컴퓨터 숫자의 비교 -> indent 2번만 해서 구현하는걸 실패
-function comparenum(rannum, mynum) {
-  for (var i = 0; i < 3; i++) {
-    if (mynum[i] === rannum[i]) {
-      strike++;
-    } else {
-      for (var j = 0; j < 3; j++) {
-        if (mynum[i] === rannum[j]) {
-          ball++;
-          break;
-        }
-      }
-    }
   }
 }
 
@@ -78,7 +64,8 @@ function deletestrike() {
 //게임 재시작 관련
 // 클릭 이벤트에 대한 핸들러를 설정합니다.
 replayButton.addEventListener("click", function () {
-  ranmakenum(); // ranmakenum 함수 호출
+  var a = ranmakenum(); // ranmakenum 함수 호출
+  arraynumber(a, rannum);
   console.log(rannum[0], rannum[1], rannum[2]);
   replayButton.classList.remove("show");
   strikenumber.textContent = "";
@@ -113,10 +100,12 @@ btn.addEventListener("click", function () {
   }
   realmynumber = parseInt(mynumber);
   arraynumber(realmynumber, mynum);
-  console.log(strike);
-  console.log("");
-  console.log(ball);
-  comparenum(rannum, mynum);
+
+  const stresult = comparestrike(rannum, mynum);
+  strike = stresult.strike;
+  const ballresult = compareball(rannum, mynum);
+  ball = ballresult.ball;
+
   ballout(ball);
   strikeout(strike);
   notting(ball, strike);
