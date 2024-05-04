@@ -6,20 +6,14 @@ const buttonRefresh = document.getElementById('myButton')
 const checkButton = document.querySelector('input[name=check]')
 const correctNum = getRandom()
 
-console.log(correctNum)
-
 checkButton.onclick = function() {
   const inputText = document.querySelector('input[name=number]').value
   const result = processInput(inputText)
   const isError = wrongIn(result)
-  if(isError === 1)
-  {
+  if(isError === 1) {
     return 0
   }
   const outList = checkResult(result,correctNum)
-
-  console.log(outList)
-  
   if(result===correctNum)  { 
     document.getElementById('text-output-1').innerHTML = "<b>🎉정답을 맞추셨습니다.🎉</b>"
     document.getElementById('text-output-2').innerText = "게임을 새로 시작하겠습니까?"
