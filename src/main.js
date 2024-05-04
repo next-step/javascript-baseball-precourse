@@ -8,27 +8,18 @@ import {
 
 const main = async () => {
   let computerNumbers = createRandomNumber();
-  console.log(computerNumbers);
-  let restart = true;
 
-  const submitButton = document.getElementById("submit");
-  const restartButton = document.getElementById("game-restart-button");
+  document
+    .getElementById("game-restart-button")
+    .addEventListener("click", async () => {
+      computerNumbers = createRandomNumber();
+      restartGame();
+    });
 
-  restartButton.addEventListener("click", async () => {
-    restart = true;
-    computerNumbers = createRandomNumber();
-    console.log(computerNumbers);
-    restartButton.style.display = "none"; // 정답 재시작 버튼 숨기기
-  });
-
-  submitButton.addEventListener("click", async (event) => {
+  document.getElementById("submit").addEventListener("click", async (event) => {
     event.preventDefault();
     let userNumbers = await inputUserNumber();
-    console.log(userNumbers);
-
-    if (printResult(checkResult(userNumbers, computerNumbers))) {
-      restartButton.style.display = "block"; // 정답 재시작 버튼 보이기
-    }
+    printResult(checkResult(userNumbers, computerNumbers));
   });
 };
 
