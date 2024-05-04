@@ -74,3 +74,7 @@ function restartGame() {
   document.getElementById("output").innerHTML = "";
   gameOver = false;
 }
+
+// 접근 오류 해결 - 함수들을 window 객체에 할당하여 HTML에서 접근 가능하게 만듬
+window.checkNum = checkNum;
+window.restartGame = restartGame;
