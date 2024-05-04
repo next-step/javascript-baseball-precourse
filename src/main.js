@@ -39,12 +39,12 @@ function generateNumbers() {
 function validateInput() {
   const inputField = document.getElementById('playerInput');
   const inputValue = inputField.value;
-  const numbers = inputValue.split('').map(Number);
+  const values = inputValue.split('').map(Number);
   
-  // 0을 입력한 경우
-  if (numbers[numbers.length - 1] === 0) {
+  // 0 또는 숫자가 아닌 값을 입력한 경우
+  if (!/[1-9]/.test(values[values.length - 1])) {
     alert('1~9까지의 수를 입력해주세요.');
-    inputField.value = inputValue.slice(0, numbers.length - 1);
+    inputField.value = inputValue.slice(0, values.length - 1);
     return;
   }
 
@@ -56,9 +56,9 @@ function validateInput() {
   }
   
   // 중복되는 숫자를 입력한 경우
-  if (new Set(numbers).size !== numbers.length) {
+  if (new Set(values).size !== values.length) {
     alert('중복되는 숫자가 있습니다. 다른 숫자를 입력해주세요.');
-    inputField.value = inputValue.slice(0, numbers.length - 1);
+    inputField.value = inputValue.slice(0, values.length - 1);
     return;
   }
 }
