@@ -3,6 +3,7 @@ import {
   inputUserNumber,
   checkResult,
   printResult,
+  restartGame,
 } from "./components";
 
 const main = async () => {
@@ -11,20 +12,23 @@ const main = async () => {
   let restart = true;
 
   const submitButton = document.getElementById("submit");
+  const restartButton = document.getElementById("game-restart-button");
 
-  submitButton.addEventListener("click", async () => {
+  restartButton.addEventListener("click", async () => {
+    restart = true;
+    computerNumbers = createRandomNumber();
+    console.log(computerNumbers);
+    restartButton.style.display = "none"; // 정답 재시작 버튼 숨기기
+  });
+
+  submitButton.addEventListener("click", async (event) => {
     event.preventDefault();
     let userNumbers = await inputUserNumber();
     console.log(userNumbers);
 
-    do {
-      let userNumbers = await inputUserNumber();
-      if (printResult(checkResult(userNumbers, computerNumbers))) {
-        restart = false;
-        // restart = await restartGame();
-        // if (restart) computerNumbers = createRandomNumber();
-      }
-    } while (restart);
+    if (printResult(checkResult(userNumbers, computerNumbers))) {
+      restartButton.style.display = "block"; // 정답 재시작 버튼 보이기
+    }
   });
 };
 

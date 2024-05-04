@@ -1,6 +1,8 @@
 /* 결과를 출력하는 기능 */
 export const printResult = (data) => {
   const resultDiv = document.getElementById("result");
+  const correctMessageDiv = document.getElementById("correct-message");
+  const restartButton = document.getElementById("game-restart-button");
 
   let resultMessage = "";
   if (data.ball !== 0 || data.strike !== 0) {
@@ -20,12 +22,11 @@ export const printResult = (data) => {
   resultDiv.textContent = resultMessage;
 
   if (data.strike === 3) {
-    const correctMessageDiv = document.getElementById("correct-message");
     correctMessageDiv.style.display = "block";
-    const restartButton = document.getElementById("game-restart-button");
     restartButton.style.display = "block";
     return true;
   }
   correctMessageDiv.style.display = "none";
+  restartButton.style.display = "none";
   return false;
 };
