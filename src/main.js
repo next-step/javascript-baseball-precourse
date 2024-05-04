@@ -68,3 +68,9 @@ function isValidInput(input) {
     !input.includes("0")
   );
 }
+
+function restartGame() {
+  answer = generateAnswer();
+  document.getElementById("output").innerHTML = "";
+  gameOver = false;
+}
