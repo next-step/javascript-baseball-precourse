@@ -3,10 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>⚾️ 숫자 야구 게임</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <h1>⚾️ 숫자 야구 게임</h1>
+      <div class="게임설명">
+        <div><b>1~9까지의 수를 중복없이 3개 입력해주세요.</b></div>
+        <div>올바른 예) 139</div>
+        <div>틀린 예) 122</div>
+        <input type="text" name="number" size="30"/>
+        <input type="button" name="check" value="확인" title="확인" style="width: 40px; height: 25px;">
+      </div>
+      <h2>📄결과</h2>
+      <div id="text-output-1"><b>여기에 결과가 표시됩니다</b></div>
+      <div id="text-output-2"></div>
+      <input type="button" id="myButton" value="게임 재시작" title="게임 재시작" style="width: 80px; height: 25px; display: none;">
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
