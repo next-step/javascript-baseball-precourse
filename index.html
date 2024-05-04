@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
+
+    <link rel="stylesheet" href="./src/main.css" />
+    <script defer type="module" src="./src/main.js"></script>
   </head>
   <body>
     <div id="app"></div>
@@ -19,20 +22,15 @@
     <br />
 
     <section class="input">
-      <input type="text" />
-      <input type="button" value="확인" />
+      <input type="text" id="input__textfield" />
+      <input type="button" value="확인" id="input__btn" />
     </section>
 
     <section class="result">
       <h3>📄 결과</h3>
       <div class="result__text"></div>
       <div class="result__restartMessage"></div>
-
-      <span class="result__message"></span>
-
-      <span class="result__btn"></span>
-        
-      </span>
+      <input type="hidden" value="게임 재시작" class="result__btn" />
     </section>
 
     <script type="module" src="/src/main.js"></script>
