@@ -3,10 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Baseball Game</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      
+      <h1 style="display: inline;">⚾ 숫자 야구 게임</h1>
+      <p><b>1~9까지의 수</b>를 중복 없이 <b>3개</b> 입력해주세요.</p>
+      <p>올바른 예) 139</p>
+      <p>틀린 예) 122</p>
+
+      <input type="text" id="userInput" maxlength="3">
+      <button onclick="submitGuess">확인</button>
+
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
