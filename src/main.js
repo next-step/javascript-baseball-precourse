@@ -4,7 +4,7 @@ const inputEl = document.querySelector(".input #input__textfield");
 const inputBtnEl = document.querySelector(".input #input__btn");
 const resultTxtEl = document.querySelector(".result .result__text");
 const restartBtnEl = document.querySelector(".result .result__btn");
-const restartMsgEl = document.querySelector(".result .result__message");
+const restartMsgEl = document.querySelector(".result .result__restartMessage");
 
 const game = new Game();
 console.log(game.answer);
