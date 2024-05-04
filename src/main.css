@@ -1,5 +1,8 @@
-.result .reult__btn--end {
+.result .result__text {
+  font-weight: 700;
+  margin-bottom: 24px;
 }
 
-.result .result__btn--new {
+.result .result__restartMessage {
+  margin-bottom: 24px;
 }
