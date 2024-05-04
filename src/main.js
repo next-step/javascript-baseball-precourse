@@ -1,5 +1,8 @@
 // pc - 정답 만들기
-let ans = generateAnswer();
+let answer = generateAnswer();
+
+// 게임 상태
+let gameOver = false;
 
 // pc - 정답 생성 함수
 function generateAnswer() {
