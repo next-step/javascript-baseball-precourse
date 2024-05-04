@@ -42,6 +42,29 @@ class App {
         console.log(result);
         return result;
     }
+
+    // 입력이 올바른지 검사
+    validateInput(userInput) {
+        if (!this.validateLength(userInput)) {
+            alert("세 자리 숫자를 입력해주세요!");
+            document.getElementById("userInput").value = "";
+            return false;
+        }
+        if (!this.validateDuplicates(userInput)) {
+            alert("중복 없이 입력해주세요!");
+            document.getElementById("userInput").value = "";
+            return false;
+        }
+        return true;
+    }
+
+    validateLength(userInput) {
+        return /^\d{3}$/.test(userInput);
+    }
+
+    validateDuplicates(userInput) {
+        return new Set(userInput).size === userInput.length;
+    }
 }
 
 
@@ -88,6 +111,10 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("checkButton").addEventListener("click", function() {
         
         const userInput = document.getElementById("userInput").value;
+        if(!app.validateInput(userInput)) {
+            return;
+        }
+
         const result = app.compareResult(userInput);
         displayResult(result);
 
