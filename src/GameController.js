@@ -1,12 +1,22 @@
 import GameLogic from './GameLogic.js';
 import InputValidator from './inputValidator.js';
+import StartGame from "./StartGame.js";
 
 export default class GameController {
     constructor() {
-        this.randomNumber = GameLogic.getRandomNumber(); // 새로운 랜덤 번호 생성
         this.resultElement = document.getElementById("result");
+        this.initializeGame(); // 게임 초기화 메서드 호출
         this.setupEventListeners();
-        this.startGame();
+    }
+
+    initializeGame() {
+        this.randomNumber = GameLogic.getRandomNumber();
+    }
+
+    restartGame() {
+        this.initializeGame();
+        this.resultElement.innerHTML = '';
+        document.getElementById("userInput").value = ""; 
     }
 
     setupEventListeners() {
@@ -27,18 +37,12 @@ export default class GameController {
                     <button id="restartButton">게임 재시작</button>
                 `;
                 document.getElementById("restartButton").addEventListener("click", () => {
-                    this.startGame();
+                    this.restartGame();
                 });
             } else {
                 document.getElementById("userInput").value = "";
             }
         });
-    }
-
-    startGame() {
-        // 초기화
-        this.resultElement.innerHTML = '';
-        document.getElementById("userInput").value = "";
     }
 
     displayResult(result) {
