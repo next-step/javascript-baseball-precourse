@@ -1,4 +1,4 @@
-import { createRandomNumber, inputUserNumber } from "./components";
+import { createRandomNumber, inputUserNumber, checkResult } from "./components";
 
 const main = async () => {
   let computerNumber = createRandomNumber();
@@ -11,6 +11,9 @@ const main = async () => {
     event.preventDefault();
     let userNumbers = await inputUserNumber();
     console.log(userNumbers);
+
+    let data = checkResult(userNumbers, computerNumber);
+    console.log(data);
   });
 };
 
