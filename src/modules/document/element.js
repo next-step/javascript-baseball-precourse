@@ -1,12 +1,4 @@
-function createElementWithText(tag, text) {
-  const element = document.createElement(tag);
-  element.textContent = text;
-  return element;
-}
-
-function appendChildren({ parent, childrens }) {
-  childrens.forEach((child) => parent.appendChild(child));
-}
+import { appendChildren, createElementWithText } from "../utils/ui";
 
 // export modules
 
