@@ -6,12 +6,14 @@ export default function wrongIn(inA) {
         alert('⚠️ 숫자를 입력해주세요 !!')
         return 1
     }
-    if( inThree>=10 || inThree===0 ) {
+    if(inThree>=10 || inThree===0) {
         alert('⚠️ 3개의 숫자를 입력해주세요 !!')
         return 1
-    } else if(inThree === inTwo || inThree === inOne || inTwo===inOne ) {
+    } else if(inThree === inTwo || inThree === inOne || inTwo===inOne) {
         alert('⚠️ 중복되는 값이 있습니다. 다시 입력해주세요 !!');
         return 1
+    } else if(inThree === 0 || inTwo === 0 || inOne === 0) {
+        alert('⚠️ 1~9 사이의 값만 입력해주세요 !!');
     }
     return 0
 }
