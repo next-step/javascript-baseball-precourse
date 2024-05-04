@@ -17,19 +17,23 @@ export function getInputValue(userFormInput) {
 
 // UI
 
-export function showResultUi({ target, result, input }) {
+export function showResultUi({ target, score, input }) {
   resetElement(target);
 
   const userInputDiv = createElementWithText(
     "div",
     "입력값 : " + input.join("")
   );
-  const strikeDiv = createElementWithText("div", "Strike : " + result.strike);
-  const balleDiv = createElementWithText("div", "Ball : " + result.ball);
+
+  const strikeCountText = "🟢".repeat(score.strike);
+  const ballCountText = "🔴".repeat(score.ball);
+
+  const strikeDiv = createElementWithText("div", "Strike : " + strikeCountText);
+  const balleDiv = createElementWithText("div", "Ball : " + ballCountText);
 
   appendChildren({
     parent: target,
-    childrens: [userInputDiv, strikeDiv, balleDiv],
+    childrens: [userInputDiv, balleDiv, strikeDiv],
   });
 }
 
