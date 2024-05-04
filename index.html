@@ -3,10 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>숫자 야구 게임</title>
+    <link rel="icon" href="./favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div class="container">
+      <div class="title">
+        <span class="material-symbols-outlined ball">sports_baseball</span>
+        <h1>숫자 야구 게임</h1>
+      </div>
+      <div class="description">
+        <p><strong>1~9까지의 수</strong>를 중복없이 3개 입력해주세요</p>
+        <p>올바른 예) 139</p>
+        <p>틀린 예) 122</p>
+      </div>
+      <div class="answer">
+        <input type="text" id="userInput" placeholder="3자리 숫자를 입력해주세요" maxlength="3">
+        <button class="btn" id="checkButton">확인</button>
+      </div>
+      <div id="result"></div>
+    </div>
+    <script type="module" src="src/main.js"></script>
   </body>
 </html>
