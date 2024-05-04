@@ -1,5 +1,5 @@
-import { ANSWER_MAX_LENGTH } from "../constants/constant.js";
-import { checkIsDuplicate, getRandomNumber } from "./util.js";
+import { ANSWER_MAX_LENGTH } from "../../constants/constant.js";
+import { checkIsDuplicate, getRandomNumber } from "../utils/util.js";
 
 export function makeAnswer() {
   const answer = [];
