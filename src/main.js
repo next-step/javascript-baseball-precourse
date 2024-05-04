@@ -14,6 +14,21 @@ let secreteNum = createRandomNumbers();
 console.log(`${secreteNum}`); //확인용
 
 // #2 게임 플레이어 숫자 입력 버튼 클릭 시 결과 출력
+
+// 숫자만 필터링하고 중복 제거
+function filterValue(inputValue, filteredValue) {
+    var numberSet = new Set();
+
+    for (var i = 0; i < inputValue.length; i++) {
+        var char = inputValue[i];
+        if (!isNaN(char) && char !== ' ' && !numberSet.has(char)) {
+            filteredValue += char;
+            numberSet.add(char);
+        }
+    }
+    return filteredValue;
+}
+
 function checkGuess() {
     const userInput = document.querySelector('.requirement-put input').value;
     let ball = 0;
@@ -26,16 +41,9 @@ function checkGuess() {
         let inputField = document.querySelector('.requirement-put input');
         let inputValue = inputField.value;
         let filteredValue = '';
-        var numberSet = new Set();
 
         // 숫자만 필터링하고 중복 제거
-        for (var i = 0; i < inputValue.length; i++) {
-            var char = inputValue[i];
-            if (!isNaN(char) && char !== ' ' && !numberSet.has(char)) {
-                filteredValue += char;
-                numberSet.add(char);
-            }
-        }
+        filteredValue = filterValue(inputValue, filteredValue);
 
         inputField.value = filteredValue; // 조건에 맞는 값만 다시 설정
         inputField.focus(); // 입력 필드에 포커스 맞추기
