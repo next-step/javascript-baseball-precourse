@@ -6,6 +6,8 @@ const checkBtn = document.querySelector(".btn--check");
 const problemSection = document.querySelector(".problem");
 const form = document.querySelector("form");
 const answerInput = document.querySelector("#input--answer");
+const resultSection = document.querySelector(".result");
+const resultText = document.querySelector(".result__text");
 
 let randomNumber;
 
@@ -18,9 +20,7 @@ startBtn.addEventListener("click", () => {
 
 answerInput.addEventListener("input", (event) => {
   if (validateInputNumber(event.target.value)) {
-    if (event.target.value.length === 3) {
-      checkBtn.disabled = false;
-    }
+    checkBtn.disabled = event.target.value.length !== 3;
   } else {
     event.target.value = event.target.value.slice(0, -1);
     return;
@@ -31,9 +31,11 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const answer = answerInput.value;
   if (answer === randomNumber.toString()) {
-    alert("정답입니다!");
+    resultText.textContent = "🎉 정답을 맞추셨습니다 🎉";
+    resultSection.classList.remove("hidden");
   } else {
-    alert("틀렸습니다!");
+    resultText.textContent = "틀렸습니다! 다시 시도해보세요 🥲";
+    resultSection.classList.remove("hidden");
     event.target.reset();
   }
 });
