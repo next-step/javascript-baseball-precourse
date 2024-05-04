@@ -54,6 +54,34 @@ document.addEventListener("DOMContentLoaded", function() {
         resultElement = document.getElementById("result");
         document.getElementById("userInput").value = "";
     }
+    
+    function displayResult(result) {
+        const resultElement = document.getElementById("result");
+        if (result.nothing) { // strike = 0, ball = 0
+            resultElement.innerHTML = `
+                <h4>낫싱</h4>
+            `;
+        }
+        else {
+            if (result.strike != 0 && result.ball != 0) {
+                resultElement.innerHTML = `
+                    <h4>${result.strike}스트라이크</h4>
+                    <h4>${result.ball}볼</h4>
+                `;
+            }
+            else if (result.strike === 0 ) {
+                resultElement.innerHTML = `
+                    <h4>${result.ball}볼</h4>
+                `;
+            }
+            else if (result.ball === 0) {
+                resultElement.innerHTML = `
+                    <h4>${result.strike}스트라이크</h4>
+                `;
+            }
+        }
+        
+    }
 
     startGame();
 
