@@ -56,3 +56,15 @@ function checkNum() {
     output.innerHTML = `${strikes} 스트라이크, ${balls} 볼`;
   }
 }
+
+function isValidInput(input) {
+  // 정규식을 사용하여 입력값이 3자리 숫자인지 확인
+  // 그리고 split과 every 메소드를 사용하여 각 자리 숫자 모두 다른지 확인하고 0이 포함되지 않았는지 검증
+  return (
+    /^\d{3}$/.test(input) &&
+    input
+      .split("")
+      .every((digit, index, array) => array.indexOf(digit) === index) &&
+    !input.includes("0")
+  );
+}
