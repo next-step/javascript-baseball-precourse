@@ -1,12 +1,12 @@
 import { ANSWER_MAX_LENGTH } from "./constants/constant";
-import { makeAnswer } from "./utils/answer";
-import { showCorrectAnswer, showResult } from "./utils/element";
-import { checkIsCorrect } from "./utils/score";
+import { makeAnswer } from "./modules/answer";
+import { showCorrectAnswer, showResult } from "./modules/element";
+import { checkIsCorrect } from "./modules/score";
 import {
   checkIsValidateInput,
   getUserInput,
   resetUserInput,
-} from "./utils/userInput";
+} from "./modules/userInput";
 
 const userForm = document.querySelector("#user-form");
 const userFormInput = userForm.querySelector("input");
@@ -17,16 +17,20 @@ const handleSubmitInput = (event, answer) => {
 
   const userInput = getUserInput(userFormInput);
   const isValidateInput = checkIsValidateInput(userInput);
+
   if (!isValidateInput) {
     alert("중복 없이 " + ANSWER_MAX_LENGTH + "자리 숫자를 입력해주세요.");
     return;
   }
+
   const result = checkIsCorrect(answer, userInput);
-  resetUserInput(userFormInput);
 
   const isCorrect = result.strike === ANSWER_MAX_LENGTH;
+
   if (isCorrect) showCorrectAnswer(resultBox);
   else showResult(resultBox, result, userInput);
+
+  resetUserInput(userFormInput);
 };
 
 function init() {
