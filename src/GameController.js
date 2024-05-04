@@ -1,21 +1,19 @@
 import GameLogic from './GameLogic.js';
-import InputValidator from './InputValidator.js';
+import InputValidator from './inputValidator.js';
 
 export default class GameController {
     constructor() {
         this.randomNumber = GameLogic.getRandomNumber(); // 새로운 랜덤 번호 생성
         this.resultElement = document.getElementById("result");
+        this.setupEventListeners();
         this.startGame();
     }
 
-    startGame() {
-        this.resultElement.innerHTML = '';
-        document.getElementById("userInput").value = "";
-
+    setupEventListeners() {
         document.getElementById("checkButton").addEventListener("click", () => {
             const userInput = document.getElementById("userInput").value;
             if (!InputValidator.validateInput(userInput)) {
-                console.log(InputValidator.validateInput(userInput));
+                document.getElementById("userInput").value = "";
                 return;
             }
             const result = GameLogic.compareResult(this.randomNumber, userInput);
@@ -35,6 +33,12 @@ export default class GameController {
                 document.getElementById("userInput").value = "";
             }
         });
+    }
+
+    startGame() {
+        // 초기화
+        this.resultElement.innerHTML = '';
+        document.getElementById("userInput").value = "";
     }
 
     displayResult(result) {
