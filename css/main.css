@@ -1,0 +1,100 @@
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #333;
+}
+
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.container .title {
+    font-size : 24px;
+    font-weight:900;
+    margin : auto;
+    height : 80px;
+    position : relative;
+}
+
+.container .title .material-symbols-outlined {
+    height: 24px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    margin: auto;
+}
+.container .title h1 {
+    height: 35px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 40px;
+    margin: auto;
+}
+
+.container .description {
+    height : 80px;
+}
+
+.container .answer {
+    display :flex;
+}
+
+input {
+
+    padding: 8px;
+    width: 200px;
+}
+/*BUTTON*/
+.btn {
+    width: 70px;
+    padding: 8px;
+    margin-left: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-block;
+  }
+  .btn:hover {
+    background-color: #333;
+    color: #FFF;
+  }
+
+.btn-re {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-block;
+  }
+.btn-re:hover {
+    background-color: #333;
+    color: #FFF;
+}
+
+#result {
+    padding : 20px 0;
+    margin: 20px 0;
+    font-size: 20px;
+    line-height: 2;
+}
