@@ -1,8 +1,13 @@
-import { createRandomNumber, inputUserNumber, checkResult } from "./components";
+import {
+  createRandomNumber,
+  inputUserNumber,
+  checkResult,
+  printResult,
+} from "./components";
 
 const main = async () => {
-  let computerNumber = createRandomNumber();
-  console.log(computerNumber);
+  let computerNumbers = createRandomNumber();
+  console.log(computerNumbers);
   let restart = true;
 
   const submitButton = document.getElementById("submit");
@@ -12,8 +17,14 @@ const main = async () => {
     let userNumbers = await inputUserNumber();
     console.log(userNumbers);
 
-    let data = checkResult(userNumbers, computerNumber);
-    console.log(data);
+    do {
+      let userNumbers = await inputUserNumber();
+      if (printResult(checkResult(userNumbers, computerNumbers))) {
+        restart = false;
+        // restart = await restartGame();
+        // if (restart) computerNumbers = createRandomNumber();
+      }
+    } while (restart);
   });
 };
 
