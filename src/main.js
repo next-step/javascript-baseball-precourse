@@ -14,8 +14,8 @@ function generateRandomNumber() {
   //return numbers.join(""); // 배열의 숫자를 문자열로 합쳐서 반환
 }
 
-const randomNumber = generateRandomNumber();
-//console.log("randomNumber: ", randomNumber);
+let randomNumber = generateRandomNumber();
+console.log("randomNumber: ", randomNumber);
 
 let strikeCount = 0;
 let ballCount = 0;
@@ -94,6 +94,7 @@ function nothing() {
   if (strikeCount === 0 && ballCount === 0) return true;
 }
 
+let result;
 //결과 출력 함수
 function printResult() {
   let footer = document.querySelector("footer");
@@ -104,18 +105,42 @@ function printResult() {
     footer.removeChild(previousResult);
   }
 
-  let result = document.createElement("p");
+  result = document.createElement("p");
   result.setAttribute("class", "result");
   if (strikeCount == 3) {
     result.innerHTML = "&#127881;정답을 맞추셨습니다!&#127881;";
+    footer.appendChild(result);
+    //재시작 함수
     restart();
   } else if (!isNothing) {
     result.innerHTML = ballCount + "볼 " + strikeCount + "스트라이크";
+    footer.appendChild(result);
   } else {
     result.innerHTML = "낫싱";
+    footer.appendChild(result);
   }
-  footer.appendChild(result);
 }
 
-//정답 후 재시작 함수
-function restart() {}
+//정답 후 재시작코멘트, 재시작 버튼 생성
+function restart() {
+  let footer = document.querySelector("footer");
+  let restartComment = document.createElement("p");
+  let restartButton = document.createElement("button");
+
+  restartComment.setAttribute("class", "restart");
+  restartComment.innerHTML = "게임을 새로 시작하시겠습니까?";
+  restartButton.setAttribute("class", "restart");
+  restartButton.innerHTML = "게임 재시작";
+
+  footer.appendChild(restartComment);
+  footer.appendChild(restartButton);
+
+  //재시작 버튼 클릭 시
+  restartButton.addEventListener("click", function () {
+    footer.removeChild(result);
+    footer.removeChild(restartComment);
+    footer.removeChild(restartButton);
+    randomNumber = generateRandomNumber();
+    console.log("randomNumber: ", randomNumber);
+  });
+}
