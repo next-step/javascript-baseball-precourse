@@ -9,6 +9,11 @@ console.log(targetNumber);
 document.getElementById("checkButton").addEventListener("click", function () {
   const userInput = document.getElementById("userInput").value;
   checkNumber(userInput);
-
-  result(userInput, targetNumber);
+  result(userInput, targetNumber, restart);
 });
+
+function restart() {
+  targetNumber = generateNumber();
+  document.getElementById("userInput").value = "";
+  document.getElementById("result").innerHTML = "";
+}
