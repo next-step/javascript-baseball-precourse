@@ -19,9 +19,26 @@ function checkGuess() {
     let ball = 0;
     let strike = 0;
 
-    // 사용자가 입력한 값 검증(예비)
+    // #3-2 잘못된 값 입력 -> alert() 에러 메시지 출력
     if (userInput.length !== 3 || isNaN(userInput) || new Set(userInput).size !== 3) {
         alert('1부터 9까지의 숫자를 중복 없이 3개 입력해주세요.');
+        // 부적합한 입력값을 지웁니다.
+        let inputField = document.querySelector('.requirement-put input');
+        let inputValue = inputField.value;
+        let filteredValue = '';
+        var numberSet = new Set();
+
+        // 숫자만 필터링하고 중복 제거
+        for (var i = 0; i < inputValue.length; i++) {
+            var char = inputValue[i];
+            if (!isNaN(char) && char !== ' ' && !numberSet.has(char)) {
+                filteredValue += char;
+                numberSet.add(char);
+            }
+        }
+
+        inputField.value = filteredValue; // 조건에 맞는 값만 다시 설정
+        inputField.focus(); // 입력 필드에 포커스 맞추기
         return;
     }
 
