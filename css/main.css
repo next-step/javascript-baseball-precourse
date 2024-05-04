@@ -75,7 +75,7 @@ input {
   }
 
 .btn-re {
-    width: 300px;
+    width: 250px;
     padding: 8px;
     border: 1px solid #333;
     border-radius: 4px;
@@ -93,6 +93,8 @@ input {
 }
 
 #result {
+    text-align: center;
+    width : 270px;
     padding : 20px 0;
     margin: 20px 0;
     font-size: 20px;
