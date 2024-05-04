@@ -27,6 +27,12 @@ checkButton.addEventListener("click", function () {
   const input = document.querySelector("#number").value;
   const inputNumber = input.split("").map(Number);
 
+  //올바른 수 입력했는지 확인
+  if (hasDuplicate(inputNumber) || input.length !== 3) {
+    alert("잘못된 수를 입력하셨습니다. 다시 입력해주세요.");
+    return; // 중복된 숫자가 있을 경우 함수 종료
+  }
+
   //새로운 수 입력하고 버튼 누를때마다 초기화
   strikeCount = 0;
   ballCount = 0;
@@ -35,6 +41,12 @@ checkButton.addEventListener("click", function () {
   //정답 체크 함수
   answerCheck(inputNumber);
 });
+
+// 중복된 숫자 있는지 확인하는 함수
+function hasDuplicate(inputNumber) {
+  // 입력된 숫자 배열에서 중복을 제거한 배열의 길이가 입력된 숫자 배열의 길이보다 작으면 중복된 숫자가 있는 것
+  return new Set(inputNumber).size !== inputNumber.length;
+}
 
 //정답 체크 함수
 function answerCheck(inputNumber) {
