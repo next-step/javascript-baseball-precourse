@@ -62,7 +62,7 @@ function checkValid(inputArr) {
 
   // 중복 숫자 검사
   let inputSet = new Set(inputArr);
-  if(inputSet.size !== 3) {
+  if(inputSet.size !== 3 || ![...inputSet].every(x => x>=1 && x<=9)) {
     alert("1부터 9까지의 숫자를 중복 없이 3개 입력해주세요");
     return false;
   }
