@@ -2,7 +2,7 @@ class App {
     constructor() {
         this.randomNumber = this.getRandomNumber(); // 랜덤 숫자 생성
     }
-
+    
     getRandomNumber() {
         const randomNumber = [];
         while (randomNumber.length < 3) {
@@ -52,11 +52,10 @@ document.addEventListener("DOMContentLoaded", function() {
     function startGame() {
         app = new App(); // App 클래스의 인스턴스 생성
         resultElement = document.getElementById("result");
-        resultElement.innerHTML = `
-            <p>🧢숫자를 입력하면 야구 게임이 시작됩니다.⚾️</p>
-        `
         document.getElementById("userInput").value = "";
     }
+
+    startGame();
 
     document.getElementById("checkButton").addEventListener("click", function() {
         
@@ -74,6 +73,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 <p>게임을 새로 시작하시겠습니까?</p>
                 <button id="restartButton">게임 재시작</button>
             `
+            document.getElementById("restartButton").addEventListener("click", function() {
+                startGame(); // 게임 재시작
+            });
         } else {
             document.getElementById("userInput").value = "";
         }
