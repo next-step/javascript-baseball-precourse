@@ -30,6 +30,11 @@ strong {
       margin: 10px 0;
 }
 
+.container .answer .error {
+            color: red;
+            font-size: 0.9em;
+}
+
 .container .result {
       margin-top: 20px;
 }
