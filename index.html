@@ -9,18 +9,22 @@
   <body>
     <div class="wrapper">
       <h1>⚾숫자 야구 게임</h1>
-      <h3><a>1~9까지의 수</a>를 중복없이 <a>3개</a> 입력해주세요.</h3>
-      <h3>올바른 예) 139</h3>
-      <h3>틀린 예) 122</h3>
-      <input id="playerInput" type="text" placeholder="숫자를 입력하세요." />
-      <button onclick="goGame()">확인</button>
-      <!-- <div class="result-container">
+      <button id="startGameBtn">게임 시작하기</button>
+      <form id="gameForm" style="display: none">
+        <h3><a>1~9까지의 수</a>를 중복없이 <a>3개</a> 입력해주세요.</h3>
+        <h3>올바른 예) 139</h3>
+        <h3>틀린 예) 122</h3>
+        <input id="playerInput" type="text" placeholder="숫자를 입력하세요." />
+        <button type="submit">확인</button>
+      </form>
+      <div class="result-container" style="display: none">
         <h2>📄결과</h2>
+        <!-- 결과 출력 -->
         <h3>게임을 새로 시작하시겠습니까?</h3>
-        <button>게임 재시작</button>
+        <button type="button" onclick="restartGame()">게임 재시작</button>
+        <button type="button" onclick="endGame()">게임 종료</button>
       </div>
-      <button>게임 종료</button>
-    </div> -->
+    </div>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
