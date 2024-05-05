@@ -5,6 +5,7 @@ import {
     END_BUTTON_CONTENT, RESET_BUTTON_CONTENT,
     STRIKE_POINT
 } from "./constants.js";
+import {animateText} from "./animateText.js";
 
 export const printResultOnBoard = (score, resultBoardRef, startNewGame) => {
     if (score === 3 * STRIKE_POINT) {
@@ -48,7 +49,7 @@ const writeOnBoard = (resultBoardRef, headerContent, paragraphContent) => {
     const boardParagraph = resultBoardRef.querySelector('p');
 
     boardHeader.innerHTML = headerContent;
-    boardParagraph.textContent = paragraphContent;
+    animateText(boardParagraph, paragraphContent);
 };
 
 const createEndButton = () => {
