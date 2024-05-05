@@ -17,9 +17,6 @@ inputEl.addEventListener("input", (event) => {
 });
 
 submitEl.addEventListener("click", () => {
-  console.log("randomNumbers =", randomNumbers);
-  console.log("userNumbers =", userNumbers);
-  console.log(validateUserNumbers(userNumbers));
   if (!validateUserNumbers(userNumbers)) {
     alert(
       "잘못된 입력값입니다. 1에서 9까지의 중복되지 않는 세 자리 수를 입력하세요."
@@ -34,10 +31,14 @@ submitEl.addEventListener("click", () => {
 function displayResult(resultText, isCorrect) {
   resultContainerEl.style.display = "block";
   resultTextEl.textContent = resultText;
+
   if (isCorrect) {
     restartContainerEl.style.display = "block";
-    restartBtnEl.addEventListener("click", () => {
-      location.reload();
-    });
+    restartBtnEl.removeEventListener("click", restartGame);
+    restartBtnEl.addEventListener("click", restartGame);
   }
+}
+
+function restartGame() {
+  location.reload();
 }
