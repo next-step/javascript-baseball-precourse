@@ -1,4 +1,5 @@
 import game from "./game";
+import getResultView from "./getResultView";
 
 // get input
 const inputBtnEl = document.querySelector('.get-input .__form button');
@@ -8,7 +9,7 @@ inputBtnEl.addEventListener('click', evt => {
     const inputVal = inputEl.value;
     try{
         let result = game.getResult(inputVal);
-        console.log(result); // TODO result에 따른 판단하기
+        getResultView(result);
         inputEl.value = '';
     } catch(error){
         if(error!=="inValid input") throw error;
