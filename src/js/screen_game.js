@@ -8,13 +8,10 @@ import {
 } from "./game_tip";
 
 const usage_numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-let _answer = [];
 let _problem = [];
 
 const generateProblem = () => {
-  _answer = [];
   _problem = usage_numbers.sort(() => Math.random() - 0.5).slice(0, 3);
-  console.log(_problem);
 };
 
 const getStrikeCount = (answer) => {
@@ -29,6 +26,11 @@ const getAnswerResult = (answer) => {
   const strike = getStrikeCount(answer);
   const ball = getBallCount(answer) - strike;
   return { strike, ball };
+};
+
+const successGame = () => {
+  const game_btns = document.getElementById("screen--game__btns");
+  game_btns.style.display = "flex";
 };
 
 const excludeAnswer = (answer) => {
@@ -46,14 +48,15 @@ const requireAnswer = (answer) => {
 const onEndInput = (answer) => {
   const { strike, ball } = getAnswerResult(answer);
 
-  if (strike + ball === 0) excludeAnswer(answer);
+  if (strike === 3) successGame();
+  else if (strike + ball === 0) excludeAnswer(answer);
   else if (strike + ball === 3) requireAnswer(answer);
 
   rendering_log({ answer, strike, ball });
   start_input();
 };
 
-const init_screen_game = () => {
+const init_screen_game = (onEndGame) => {
   const screen_game = document.getElementById("screen--game");
   screen_game.style.display = "none";
 
@@ -65,6 +68,18 @@ const init_screen_game = () => {
 
   const game_tip = document.getElementById("screen--game__tip");
   init_game_tip(game_tip, usage_numbers);
+
+  const restart_button = document.getElementById("screen--game__btn--restart");
+  restart_button.addEventListener("click", () => {
+    onStartGame();
+  });
+
+  const end_button = document.getElementById("screen--game__btn--end");
+  end_button.addEventListener("click", () => {
+    const screen_game = document.getElementById("screen--game");
+    screen_game.style.display = "none";
+    onEndGame();
+  });
 };
 
 const onStartGame = () => {
@@ -78,6 +93,9 @@ const onStartGame = () => {
   reset_game_log();
 
   resetAllTips();
+
+  const game_btns = document.getElementById("screen--game__btns");
+  game_btns.style.display = "none";
 };
 
 export { init_screen_game, onStartGame };
