@@ -1,0 +1,16 @@
+/* COMMON */
+
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* PROBLEM */
+
+.rule {
+  list-style: none;
+  padding: 0;
+}

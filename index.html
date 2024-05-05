@@ -1,12 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>⚾️ 숫자 야구 게임</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="app">
+      <h1 id="title">⚾️ 숫자 야구 게임</h1>
+      <button class="btn--start">시작하기</button>
+
+      <section class="problem hidden">
+        <ul class="rule">
+          <li>
+            <span class="bold">1~9까지의 수</span>를 중복없이
+            <span class="bold">3개</span>
+            입력해주세요.
+          </li>
+          <li>올바른 예) 139</li>
+          <li>잘못된 예) 122</li>
+        </ul>
+        <form>
+          <input type="text" id="input--answer" />
+          <button disabled class="btn--check">확인</button>
+        </form>
+      </section>
+
+      <section class="result hidden">
+        <h2>📝 결과</h2>
+        <p class="result__text bold"></p>
+        <div class="result__btn hidden">
+          <p>게임을 새로 시작하시겠습니까?</p>
+          <button class="btn--restart">게임 재시작</button>
+          <p>게임을 종료하시겠습니까?</p>
+          <button class="btn--exit">게임 종료</button>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/computer.js"></script>
+    <script type="module" src="/src/js/validate.js"></script>
   </body>
 </html>
