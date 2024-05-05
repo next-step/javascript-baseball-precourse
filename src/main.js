@@ -26,5 +26,18 @@ submitEl.addEventListener("click", () => {
     );
     inputEl.focus();
   } else {
+    const { resultText, isCorrect } = getResult(randomNumbers, userNumbers);
+    displayResult(resultText, isCorrect);
   }
 });
+
+function displayResult(resultText, isCorrect) {
+  resultContainerEl.style.display = "block";
+  resultTextEl.textContent = resultText;
+  if (isCorrect) {
+    restartContainerEl.style.display = "block";
+    restartBtnEl.addEventListener("click", () => {
+      location.reload();
+    });
+  }
+}
