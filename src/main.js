@@ -38,3 +38,9 @@ function strikeBall(answerNumber, userInput) {
   return { strikes, balls };
 }
 
+// 결과 출력
+function displayResult(result) {
+  const resultDiv = document.getElementById('result');
+  resultDiv.textContent = result;
+}
+
