@@ -1,3 +1,5 @@
+import { init_answer_input, start_input } from "./answer_input";
+
 const usage_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let _answer = [];
 let _problem = [];
@@ -16,6 +18,9 @@ const generateProblem = () => {
 const init_screen_game = () => {
   const screen_game = document.getElementById("screen--game");
   screen_game.style.display = "none";
+
+  const answer_input = document.getElementById("screen--game__input");
+  init_answer_input(answer_input, () => {});
 };
 
 const onStartGame = () => {
@@ -23,6 +28,8 @@ const onStartGame = () => {
   screen_game.style.display = "flex";
 
   generateProblem();
+
+  start_input();
 };
 
 export { init_screen_game, onStartGame };

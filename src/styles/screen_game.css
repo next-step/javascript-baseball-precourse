@@ -1,3 +1,23 @@
-#screen_game {
+#screen--game {
   display: none;
+  flex-direction: column;
+}
+
+#screen--game__input {
+  display: flex;
+  padding-bottom: 1rem;
+  justify-content: center;
+  gap: 3rem;
+}
+
+#screen--game__input > input {
+  width: 8rem;
+  height: 6rem;
+  text-align: center;
+  font-size: 5rem;
+  padding-bottom: 1rem;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: transparent;
 }
