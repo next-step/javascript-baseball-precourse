@@ -1,9 +1,11 @@
+import { ballOrStrike } from "./ballOrStrike.js";
+
 export const playBaseball = () => {
 	const inputNum = document.querySelector('.search input').value;
 	var checkVal = checkValue(inputNum);
 
 	if (checkVal) {
-		//볼 스트라이크 판정 로직
+		ballOrStrike(inputNum)
 	}
 	else {
 		document.querySelector('.search input').focus();
