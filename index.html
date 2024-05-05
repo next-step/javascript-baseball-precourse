@@ -1,12 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>숫자 야구 게임</title>
+    <script type="module" src="./src/main.js"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <h1>⚾️ 숫자 야구 게임</h1>
+    <span
+      ><strong>1~9까지의 수</strong>를 중복없이
+      <strong>3개</strong> 입력해주세요</span>
+    <p><span>올바른 예) 139</span>
+    <p><span>틀린 예) 122</span>
+    <p><input type="text" id="userInput" placeholder="숫자를 입력하세요." />
+    <button id="checkBtn">확인</button>
+
+    <p><span>📄<strong> 결과</strong></span></p>
+
+    <p><span id="resultMessage"></span></p>
+    <div id="restartSection" style="display: none">
+      <span>게임을 새로 시작하시겠습니까?</span>
+      <p><button id="restartBtn">게임 재시작</button></p>
+    </div>
   </body>
 </html>
