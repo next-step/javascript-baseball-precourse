@@ -4,6 +4,8 @@
 
 ## commit Message Convention
 
+### angular JS commit convention
+
 https://gist.github.com/stephenparish/9941e89d80e2bc58a153
 
 ## 기능 목록
