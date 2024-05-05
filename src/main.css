@@ -1,8 +1,113 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#app {
+  margin: 50px;
+}
+
+.titleScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #edeae1;
+  transition: 0.4s;
+  visibility: visible;
+  opacity: 1;
+  user-select: none;
+  z-index: 5;
+}
+
+.titleScreen.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.titleScreen .triangle-red {
+  top: 0;
+  left: 0;
+  border-bottom: 40vh solid transparent;
+  border-left: 60vw solid #f1535a;
+  border-right: 360px solid transparent;
+}
+
+.titleScreen .triangle-offblack {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-top: 30vh solid transparent;
+  border-left: 50vw solid transparent;
+  border-right: 70vw solid #2f2f2f;
+}
+
+.titleScreen .container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: 2s;
+}
+
+.titleScreen .container.hidden {
+  opacity: 0;
+}
+
+.titleScreen .titleScreen__image {
+  font-size: 300px;
+}
+
+.titleScreen .titleScreen__title {
+  color: #2f2f2f;
+  font-weight: 700;
+  font-size: 120px;
+  margin-bottom: 100px;
+}
+
+.titleScreen .titleScreen__startBtn {
+  font-size: 40px;
+  margin-bottom: 120px;
+  color: #2f2f2f;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.titleScreen .titleScreen__startBtn:hover {
+  color: #f1535a;
+}
+
+.result {
+  min-height: 150px;
+}
+
 .result .result__text {
   font-weight: 700;
-  margin-bottom: 24px;
 }
 
 .result .result__restartMessage {
   margin-bottom: 24px;
+}
+
+.log {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  overflow: auto;
+  margin: 20px;
+  background-color: rgba(95, 95, 95, 0.15);
+  border-radius: 20px;
+}
+
+.log .loglist {
+}
+
+.log .loglist li {
+  margin: 30px;
 }
