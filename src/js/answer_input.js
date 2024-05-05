@@ -8,7 +8,7 @@ const validateAnswerUnit = (unit) => {
 };
 
 const fillAnswerUnit = (unit) => {
-  _answer.push(parseInt(unit));
+  _answer.push(unit);
   if (_answer.length < 3) {
     _answer_inputs[_answer.length].focus();
   } else {
