@@ -13,6 +13,10 @@ const wrongView = result => {
     rightAnswerEl.style.display = "none";
     wrongAnswerEl.style.display = "block";
 }
+const initView = () => {
+    rightAnswerEl.style.display = "none";
+    wrongAnswerEl.style.display = "none";
+}
 
 const getResultView = result => {
     if(result.strike==3) rightView();
@@ -20,3 +24,4 @@ const getResultView = result => {
 }
 
 export default getResultView;
+export {initView};
