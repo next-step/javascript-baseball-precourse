@@ -12,3 +12,15 @@ function checkInput(input) {
   return unums.size === 3;
 }
 
+// 랜덤 숫자 생성
+function generateNumber() {
+  const numbers = [];
+  while (numbers.length < 3) {
+    const randomNumber = Math.floor(Math.random() * 9) + 1;
+    if (!numbers.includes(randomNumber)) {
+      numbers.push(randomNumber);
+    }
+  }
+  return numbers;
+}
+
