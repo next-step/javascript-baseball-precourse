@@ -1,3 +1,4 @@
+//userData의 값에 맞는 문구 생성
 export default (userData) => {
     if(userData.ballcount > 0 && userData.strikecount > 0){
         return `${userData.ballcount}볼 ${userData.strikecount}스트라이크`
