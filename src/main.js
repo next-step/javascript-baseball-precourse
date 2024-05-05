@@ -24,3 +24,17 @@ function generateNumber() {
   return numbers;
 }
 
+// 스트라이크와 볼을 계산
+function strikeBall(answerNumber, userInput) {
+  let strikes = 0;
+  let balls = 0;
+  for (let i = 0; i < 3; i++) {
+    if (answerNumber[i] === userInput[i]) {
+      strikes++;
+    } else if (answerNumber.includes(userInput[i])) {
+      balls++;
+    }
+  }
+  return { strikes, balls };
+}
+
