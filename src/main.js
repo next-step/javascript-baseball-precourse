@@ -59,3 +59,41 @@ function restartGame() {
   document.getElementById('checkBtn').disabled = false; // 확인 버튼 활성화 추가
 }
 
+// 게임 초기화 함수
+function newGame() {
+  const answerNumber = generateNumber();
+  const checkBtn = document.getElementById('checkBtn');
+  const retryBtn = document.getElementById('retryBtn');
+
+  function checkTheClick() {
+    const userInput = document.getElementById('userInput').value;
+    const processedInput = processInput(userInput);
+    if (!checkInput(processedInput)) {
+      alert('올바른 숫자를 입력하세요.');
+      return;
+    }
+    const score = strikeBall(answerNumber, processedInput);
+    if (score.strikes === 3) {
+      displayResult('🎉정답을 맞추셨습니다!🎉');
+      displayRetry('게임을 새로 시작하시겠습니까?');
+      retryBtn.style.display = 'block';
+      checkBtn.disabled = true;
+    } else if (score.strikes === 0 && score.balls ===0) {
+      displayResult(`낫싱`);
+    }
+    else {
+      displayResult(`${score.balls}볼 ${score.strikes}스트라이크`);
+    }
+  }
+
+  function checkRetryClick() {
+    restartGame();
+    newGame();
+  }
+
+  checkBtn.addEventListener('click', checkTheClick);
+  retryBtn.addEventListener('click', checkRetryClick);
+}
+
+// 게임 초기화
+newGame();
