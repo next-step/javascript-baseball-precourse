@@ -26,3 +26,38 @@ document.querySelector('#input_btn').addEventListener('click', function() {
   // 제대로 입력 됐다면, 게임 시작
     game(input);
   });
+
+function game(input){
+  // 문자열로 정답과 입력 값을 비교
+  input = input.toString()
+  // 정답과 입력값이 같다면 정답 코드를 출력하고 끝냄
+  if(result === input){
+    count +=1
+    document.querySelector('.incorrect_nothing').style.display = 'none';
+    document.querySelector('.incorrect').style.display = 'none';
+    document.querySelector('.correct').style.display = 'block';
+    return;
+  }
+  else{ // 정답과 틀리다면 힌트 함수를 실행하여 힌트 출력
+    resultArr=getResult(result,input)
+    count +=1
+    try_num1.textContent = count;
+    try_num2.textContent = count;
+  }
+
+  // 힌크 결과를 출력하는 조건문
+
+  if(resultArr[0] === 0 && resultArr[1] === 0){
+    document.querySelector('.incorrect').style.display = 'none';
+    document.querySelector('.incorrect_nothing').style.display = 'block';
+
+  }else{
+
+    strike.textContent = resultArr[0];
+    ball.textContent = resultArr[1];
+    
+    document.getElementById('input_num').value = '';
+    document.querySelector('.incorrect_nothing').style.display = 'none';
+    document.querySelector('.incorrect').style.display = 'block';
+  }
+}
