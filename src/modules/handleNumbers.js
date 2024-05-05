@@ -27,8 +27,8 @@ function getPlayerNumbers() {
 //플레이어vs컴퓨터 숫자 비교
 function compareNumbers(playerNumbers, computerNumbers) {
   //비교 후 힌트 제공
-  const strike = 0;
-  const ball = 0;
+  let strike = 0;
+  let ball = 0;
 
   for (let i = 0; i < 3; i++) {
     if (playerNumbers[i] === computerNumbers[i]) {
