@@ -24,4 +24,28 @@ function getPlayerNumbers() {
   return playerNumbers;
 }
 
-export { createRandomNumbers, getPlayerNumbers };
+//플레이어vs컴퓨터 숫자 비교
+function compareNumbers(playerNumbers, computerNumbers) {
+  //비교 후 힌트 제공
+  const strike = 0;
+  const ball = 0;
+
+  for (let i = 0; i < 3; i++) {
+    if (playerNumbers[i] === computerNumbers[i]) {
+      //같은 수가 같은 자리에 있는 경우
+      strike++;
+    } else if (computerNumbers.includes(playerNumbers[i])) {
+      // 다른 자리에 있는 경우
+      ball++;
+    }
+  }
+
+  if (strike === 0 && ball === 0) {
+    //같은 수가 전혀 없는 경우
+    return "낫싱";
+  }
+
+  return { strike, ball };
+}
+
+export { getPlayerNumbers, createRandomNumbers, compareNumbers };
