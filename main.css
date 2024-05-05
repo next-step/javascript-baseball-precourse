@@ -1,0 +1,10 @@
+span{
+    display: block;
+}
+#resultText{
+    visibility: hidden;
+}
+.restart{
+    display: none;
+}
+
