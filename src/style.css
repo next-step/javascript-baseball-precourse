@@ -1,0 +1,17 @@
+@import url("/src/styles/screen_start.css");
+@import url("/src/styles/screen_game.css");
+
+#screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#screen > div {
+  width: 40rem;
+  height: 25rem;
+  padding: 0 5rem 0 5rem;
+  background-color: #f0f0f0;
+}
