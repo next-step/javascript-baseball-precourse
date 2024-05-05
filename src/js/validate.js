@@ -1,7 +1,14 @@
+// 입력값을 검증하는 함수
 export function validateInputNumber(inputNumber) {
   // 숫자로만 이루어졌는지 확인
   if (!/^\d+$/.test(inputNumber)) {
     alert("숫자만 입력해주세요.");
+    return false;
+  }
+
+  // 입력이 1~3자리인지 확인
+  if (inputNumber.length < 1 || inputNumber.length > 3) {
+    alert("3자리 숫자를 입력해주세요.");
     return false;
   }
 
@@ -12,12 +19,6 @@ export function validateInputNumber(inputNumber) {
       alert("1~9 사이의 숫자를 입력해주세요");
       return false;
     }
-  }
-
-  // 입력이 1~3자리인지 확인
-  if (inputNumber.length < 1 || inputNumber.length > 3) {
-    alert("3자리 숫자를 입력해주세요.");
-    return false;
   }
 
   // 각 숫자가 고유한지 확인

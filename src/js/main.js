@@ -1,4 +1,4 @@
-import { generateRanDomNumber } from "./computer.js";
+import { generateRandomNumber } from "./computer.js";
 import { validateInputNumber } from "./validate.js";
 
 const startBtn = document.querySelector(".btn--start");
@@ -17,8 +17,7 @@ let randomNumber;
 startBtn.addEventListener("click", () => {
   startBtn.classList.add("hidden");
   problemSection.classList.remove("hidden");
-  randomNumber = generateRanDomNumber();
-  console.log(randomNumber);
+  randomNumber = generateRandomNumber();
 });
 
 answerInput.addEventListener("input", (event) => {
@@ -66,7 +65,6 @@ form.addEventListener("submit", (event) => {
 
 restartBtn.addEventListener("click", () => {
   resultSection.classList.add("hidden");
-
   randomNumber = generateRanDomNumber();
   console.log(randomNumber);
 });
