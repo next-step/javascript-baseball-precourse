@@ -1,12 +1,32 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>숫자 야구 게임</title>
+    <script type="module">
+      import { randomNumber, checkNum, restartGame } from './src/main.js';
+
+      let ranNum = randomNumber();
+      document.getElementById("checkButton").addEventListener("click", () => {
+        checkNum(ranNum);
+      });
+
+      document.getElementById("restartGameButton").addEventListener("click", restartGame);
+    </script>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <h1>&#x26BE숫자 야구 게임</h1>
+    <b>1~9까지의 수를 중복없이 3개 입력해주세요.</b>
+    <p>올바른 예) 139<br />틀린 예) 122</p>
+    <input type="text" id="userInput" maxlength="3" />
+    <button id="checkButton">확인</button>
+    <h2>&#x1F4C4결과</h2>
+    <div id="result"></div>
+    <div id="restartButton" style="display: none">
+      <b><br />&#x1F389정답을 맞추셨습니다&#x1F389<br /></b>
+      <p>게임을 새로 시작하시겠습니까?<br /></p>
+      <button id="restartGameButton">게임 재시작</button>
+    </div>
   </body>
 </html>
