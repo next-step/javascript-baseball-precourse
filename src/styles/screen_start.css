@@ -1,0 +1,20 @@
+#screen--start {
+  display: flex;
+  height: 25rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#screen--start h1 {
+  font-size: 4rem;
+}
+
+#screen--start button {
+  width: 100%;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  background-color: white;
+  border: 1px solid black;
+}

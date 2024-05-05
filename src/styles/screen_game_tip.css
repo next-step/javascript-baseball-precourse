@@ -1,0 +1,24 @@
+#screen--game__tip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#screen--game__tip > span {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#screen--game__tip > .require {
+  border-radius: 100%;
+  border: 2px solid green;
+}
+
+#screen--game__tip > .exclude {
+  opacity: 0.2;
+}

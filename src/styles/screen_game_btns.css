@@ -1,0 +1,20 @@
+#screen--game__btns {
+  display: none;
+  justify-content: center;
+  gap: 5rem;
+  width: 100%;
+}
+
+#screen--game__btns button {
+  width: 15rem;
+  height: 5rem;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+#screen--game__btns button:hover {
+  font-size: 1.8rem;
+}

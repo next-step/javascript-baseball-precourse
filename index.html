@@ -1,12 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>⚾️ 숫자 야구 게임</title>
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <div id="screen">
+      <div id="screen--start">
+        <h1>⚾️ 숫자 야구 게임</h1>
+        <button id="screen--start__btn">게임 시작</button>
+      </div>
+      <div id="screen--game" hidden>
+        <h1>⚾️ 숫자 야구 게임</h1>
+        <div id="screen--game__tip"></div>
+        <div id="screen--game__input">
+          <input type="text" maxlength="1" />
+          <input type="text" maxlength="1" />
+          <input type="text" maxlength="1" />
+        </div>
+        <div id="screen--game__btns" hidden>
+          <button id="screen--game__btn--restart">다시시작</button>
+          <button id="screen--game__btn--end">종료</button>
+        </div>
+        <table id="screen--game__logs">
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

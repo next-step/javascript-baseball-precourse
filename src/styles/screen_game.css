@@ -1,0 +1,10 @@
+@import url("./screen_game_input.css");
+@import url("./screen_game_logs.css");
+@import url("./screen_game_tip.css");
+@import url("./screen_game_btns.css");
+
+#screen--game {
+  display: none;
+  height: 40rem;
+  flex-direction: column;
+}
