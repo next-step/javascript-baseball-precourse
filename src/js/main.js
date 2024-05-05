@@ -32,14 +32,33 @@ answerInput.addEventListener("input", (event) => {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const answer = answerInput.value;
-  if (answer === randomNumber.toString()) {
-    resultText.textContent = `${answer} -> 🎉 정답을 맞추셨습니다 🎉`;
-    resultSection.classList.remove("hidden");
-    event.target.reset();
+
+  let strikes = 0;
+  let balls = 0;
+
+  const randomNumberStr = randomNumber.toString();
+
+  for (let i = 0; i < answer.length; i++) {
+    if (answer[i] === randomNumberStr[i]) {
+      strikes++;
+    } else if (randomNumberStr.includes(answer[i])) {
+      balls++;
+    }
+  }
+
+  let resultMessage = `${answer} -> `;
+  if (strikes === 0 && balls === 0) {
+    resultMessage += "낫싱 🥲";
   } else {
-    resultText.textContent = `${answer} -> 틀렸습니다! 다시 시도해보세요 🥲`;
-    resultSection.classList.remove("hidden");
-    event.target.reset();
+    resultMessage += `${strikes} 스트라이크, ${balls} 볼`;
+  }
+
+  resultText.textContent = resultMessage;
+  resultSection.classList.remove("hidden");
+  event.target.reset();
+
+  if (strikes === 3) {
+    resultText.textContent += " 🎉 정답을 맞추셨습니다 🎉";
   }
 });
 
@@ -48,4 +67,10 @@ restartBtn.addEventListener("click", () => {
 
   randomNumber = generateRanDomNumber();
   console.log(randomNumber);
+});
+
+exitBtn.addEventListener("click", () => {
+  startBtn.classList.remove("hidden");
+  problemSection.classList.add("hidden");
+  resultSection.classList.add("hidden");
 });
