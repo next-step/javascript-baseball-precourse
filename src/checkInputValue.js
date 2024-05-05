@@ -24,6 +24,7 @@ export const status = () => {
     showStatus();
   } else if (strike == 3) {
     gameStatus = "Strike OUT!";
+    showStatus();
     showRestartButton();
   } else {
     gameStatus = `${strike} 스트라이크, ${ball} 볼 입니다.`;
