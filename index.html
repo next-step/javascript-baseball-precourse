@@ -1,12 +1,65 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚾️숫자 야구 게임</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header p span,
+    .result p:nth-child(1) {
+      font-weight: 700;
+    }
+
+    header,
+    header h1,
+    main,
+    footer h3,
+    footer p {
+      margin-bottom: 20px;
+    }
+
+    footer .result__first {
+      display: none;
+    }
+
+    footer .result__second {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="container">
+    <header>
+      <h1>⚾️숫자 야구 게임</h1>
+      <p><span>1~9까지의 수</span>를 중복없이 <span>3개</span> 입력해주세요</p>
+      <p>올바른 예&#41; 139</p>
+      <p>틀린 예&#41; 122</p>
+    </header>
+    <main>
+      <input type="text" class="userNumberInput" />
+      <button class="userNumberBtn">확인</button>
+    </main>
+    <footer>
+      <h3>📄결과</h3>
+      <div class="result__first">
+        <p>🎉정답을 맞추셨습니다🎉</p>
+        <p>게임을 새로 시작하시겠습니까?</p>
+        <button>게임 재시작</button>
+      </div>
+      <div class="result__second">
+        <p></p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
