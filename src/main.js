@@ -19,8 +19,11 @@ inputBtnEl.addEventListener('click', evt => {
 });
 
 // init game
-const initGameBtn = document.querySelector('.result-view .__box.--right-answer button');
-initGameBtn.addEventListener('click', () => {
+const initGameBtns = document.querySelectorAll('.result-view .__box.--right-answer button');
+initGameBtns[0].addEventListener('click', () => {
     game.init();
     initView();
+});
+initGameBtns[1].addEventListener('click', () => {
+    document.querySelector('#app').innerHTML = "";
 });
