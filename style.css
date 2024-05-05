@@ -1,0 +1,9 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #333;
+}
+
+.restart {
+  display: none;
+}
+  
