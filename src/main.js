@@ -1,10 +1,16 @@
-import randomnum from './random'
+import random from './random'
+import comparison from './comparison'
 
 let numbers = []
 
-randomnum()
+random(numbers)
+console.log(numbers)
 
 const pushB = document.querySelector('#pushBtn')
 pushB.addEventListener('click',() =>{
     let userinputEl = document.querySelector('#userInput').value
+    comparison(numbers, userinputEl)
 })
+
+
+

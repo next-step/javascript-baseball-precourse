@@ -1,4 +1,4 @@
-export default function randomNumberCreation(){    
+export default (numbers) => {    
     let randomNumber = Math.floor(Math.random() * 9) + 1
     numbers.push(randomNumber)
     while(numbers.length < 3){
