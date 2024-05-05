@@ -4,9 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Baseball Game With Hyoeun</title>
+    
+    <script type="module" src="./src/main.js"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="app">
+      <div class="inner">
+
+        <h1>⚾숫자 야구 게임⚾</h1>
+        <div class="baseball-game">
+          <p class="descripion">
+            <strong>1~9까지의 수</strong>를 중복없이 <strong>3개</strong> 입력해주세요<br>
+            올바른 예&rpar; 139<br>
+            틀린 예&rpar; 122
+          </p>
+          <div class="search">
+            <input type="text" />
+            <input type="button" class="search-submit btn" value="확인"></input>
+          </div>
+        </div>
+      
+        <div class="result">
+          <h3>📄결과</h3>
+          <div class="result-hint"></div>
+          <div class="result-correct">
+            <h4 class="result-ment">🎉정답을 맞추셨습니다🎉</h4>
+            <p>게임을 새로 시작하시겠습니까?</p>
+            <button class="restart btn">게임 재시작</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </body>
 </html>
