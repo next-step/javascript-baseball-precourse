@@ -14,9 +14,10 @@ const int2Arr = input => {
 }
 const isValidInput = input => {
     // int input이 3자리의 distinct한 수인지 확인
-    // TODO 0 있는지도 확인하기
     if(input > 999 || input < 100) return false;
     let arr = int2Arr(input);
+    // 각 자리 수가 1~9인가?
+    for(let i=0; i<3; i++) if(arr[i]==0) return false;
     if(arr[0]===arr[1] || arr[0]===arr[2] || arr[1]===arr[2]) return false;
     return true;
 }

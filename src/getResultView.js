@@ -5,11 +5,13 @@ const rightView = () => {
     rightAnswerEl.style.display = "block";
     wrongAnswerEl.style.display = "none";
 }
-const resultStrikeEl = wrongAnswerEl.querySelector('#div--result-strike');
-const resultBallEl = wrongAnswerEl.querySelector('#div--result-ball');
 const wrongView = result => {
-    resultStrikeEl.innerText = result.strike +'개';
-    resultBallEl.innerText = result.ball  + '개';
+    if(result.strike==0 && result.ball==0)
+        wrongAnswerEl.innerText = '낫싱';
+    else
+        wrongAnswerEl.innerHTML =
+            `${result.ball>0 ? result.ball+'볼 ':''} ${result.strike>0 ? result.strike+'스트라이크':''}`;
+        
     rightAnswerEl.style.display = "none";
     wrongAnswerEl.style.display = "block";
 }
