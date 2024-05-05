@@ -19,6 +19,22 @@ function chkResult(j, k) {
     }
 }
 
+
+function chkError() {
+    console.log('chkError.numArr : ' + numArr);
+    console.log('chkError.input : ' + input.value);
+    if(isNaN(input.value) || input.value == ''){
+        alert('숫자를 입력하세요');
+        return 1;
+    } else if (numArr.length !==3){
+        alert('3자리 숫자를 입력하세요');
+        return 1;
+    } else if (numArr[0] == numArr[1] | numArr[0] == numArr[2] | numArr[1] == numArr[2]){
+        alert('중복 값은 입력할 수 없습니다');
+        return 1;
+    }
+}
+
 function restart() {
     resultText.style.display = 'none';
     element.style.display = 'none';
@@ -39,6 +55,7 @@ function chkAnswer() {
     restartBtn.style.display = 'none';
     let num = input.value;
     numArr = num.split('');
+    let err = chkError();
     strike = 0;
     ball = 0;
     for (let j = 0; j < 3; j++) {
@@ -53,11 +70,16 @@ function chkAnswer() {
         restartText.style.display = 'block';
         restartBtn.style.display = 'block';
 
-    } else {
+    } else if (err !== 1) {
         resultText.style.display = 'block';
-        element.innerHTML = '다시 시도해보세요';
-    }
+        element.innerHTML = strike + 'strike ' + ball + 'ball', 'blue';
+    } 
 
 
+}
+
+function setResult() {
+    const element = document.getElementById('result--print');
+    element.innerHTML = '완료'
 }
 
