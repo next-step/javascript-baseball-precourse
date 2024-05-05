@@ -1,12 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>숫자 야구 게임</title>
+    <script type="module" defer src="./src/main.js"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <h1>⚾숫자 야구 게임</h1>
+    <section class="manual">
+      <p><b>1~9까지의 수</b>를 중복없이 <b>3개</b> 입력해주세요.<br>
+        올바른 예) 139<br>
+        틀린 예) 122<br>
+      </p>
+    </section>
+    <section class="input-field">
+      <input type="text" class="input-box"></input>
+      <button class="send-btn" onclick="">확인</button>
+    </section>
+    <section class="result-field">
+      <h2>📄결과</h2>
+      <h3 class="score"></h3>
+    </section>
   </body>
 </html>
