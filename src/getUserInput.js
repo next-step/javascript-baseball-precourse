@@ -6,7 +6,6 @@ export const userInput = () => {
   const getInput = document.querySelector(".user-input").value;
 
   user_input = getInput;
-  console.log(user_input);
   if (user_input == "") {
     alert("값을 입력하시오.");
     return userInput;

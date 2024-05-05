@@ -8,8 +8,6 @@ export let gameStatus = "";
 export let input_num = "";
 
 export const status = () => {
-  console.log(answer);
-  console.log(user_input);
   input_num = `입력된 수는 ${user_input}입니다.`;
   let strike = 0;
   let ball = 0;

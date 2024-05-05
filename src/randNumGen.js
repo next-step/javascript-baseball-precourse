@@ -7,7 +7,6 @@ export const randNumGenerator = () => {
     const randNum = Math.floor(Math.random() * 9) + 1;
     if (!answer.includes(randNum)) {
       answer += randNum;
-    }
-    console.log(answer);
-  }
+    };
+  };
 };
