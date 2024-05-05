@@ -1,4 +1,5 @@
 import getRandom from "../src/getRandom.js";
+import getResult from "../src/getResult.js";
 
 // 시스템상에서 랜덤으로 중복되지않는 3자리 숫자를 만들어내는 코드
 let result = getRandom()
