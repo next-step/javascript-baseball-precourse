@@ -1,0 +1,23 @@
+.app {
+  position: relative;
+}
+.inputALL {
+  margin-top: 20px;
+}
+
+.answer {
+  position: absolute;
+}
+
+.result,
+.nowanswer,
+.replay {
+  margin-top: 20px;
+}
+
+.replay {
+  display: none;
+}
+.replay.show {
+  display: block;
+}
