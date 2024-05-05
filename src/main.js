@@ -61,3 +61,8 @@ function game(input){
     document.querySelector('.incorrect').style.display = 'block';
   }
 }
+
+// 재시작 버튼을 누른다면 게임을 처음부터 다시 시작
+document.getElementById('restart').addEventListener('click', function() {
+  location.reload();
+});
