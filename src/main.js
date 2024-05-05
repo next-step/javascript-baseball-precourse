@@ -26,6 +26,8 @@ function checkAnswer(event) {
     if (matchingPositions === TARGET_LENGTH) {
       displayResult('🎉정답을 맞추셨습니다🎉');
       restartForm.style.display = 'block';
+    } else if (matchingPositions === 0 && matchingNumbers === 0) {
+      displayResult('낫싱');
     } else {
       displayResult(`${matchingPositions} 스트라이크, ${matchingNumbers} 볼`);
     }
