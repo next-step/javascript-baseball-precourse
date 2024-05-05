@@ -8,6 +8,9 @@ let userNumbers;
 const inputEl = document.querySelector("#number-input");
 const submitEl = document.querySelector("#number-submit");
 const resultContainerEl = document.querySelector("#result-container");
+const resultTextEl = document.querySelector("#result-text");
+const restartContainerEl = document.querySelector("#restart-container");
+const restartBtnEl = document.querySelector("#btn-restart");
 
 inputEl.addEventListener("input", (event) => {
   userNumbers = event.target.value;
@@ -23,6 +26,5 @@ submitEl.addEventListener("click", () => {
     );
     inputEl.focus();
   } else {
-    const { resultText, isCorrect } = getResult(randomNumbers, userNumbers);
   }
 });
