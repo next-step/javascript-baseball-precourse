@@ -1,5 +1,5 @@
 import { getRandomNumbers } from './random';
-import { checkIsValidate } from './game.js';
+import { checkIsValidate, compareNumbers } from './game.js';
 
 const input = document.querySelector('.input input');
 const inputButton = document.querySelector('.input button');
@@ -20,4 +20,7 @@ inputButton.addEventListener('click', () => {
     alert('올바른 형식으로 입력해주세요.');
     return;
   }
+  
+  // 입력과 난수 비교
+  const { strikes, balls } = compareNumbers(userNumbers, randNumbers);
 });
