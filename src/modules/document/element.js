@@ -17,7 +17,7 @@ export function getInputValue(userFormInput) {
 
 // UI
 
-export function showResultUi({ target, score, input }) {
+export function showResultUi(target, score, input) {
   resetElement(target);
 
   const userInputDiv = createElementWithText(
@@ -37,7 +37,7 @@ export function showResultUi({ target, score, input }) {
   });
 }
 
-export function showCorrectAnswerUi({ target }) {
+export function showCorrectAnswerUi(target) {
   resetElement(target);
 
   const answerH3 = createElementWithText("h3", "🎉정답을 맞추셨습니다🎉");

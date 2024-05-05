@@ -24,12 +24,7 @@ const handleSubmitInput = (event, answer) => {
   const score = calculateScore(answer, userInput);
   const isCorrect = score.strike === ANSWER_MAX_LENGTH;
   if (isCorrect) showCorrectAnswerUi({ target: resultBox });
-  else
-    showResultUi({
-      target: resultBox,
-      score,
-      input: userInput,
-    });
+  else showResultUi(resultBox, score, userInput);
 
   clearInput(userFormInput);
 };
