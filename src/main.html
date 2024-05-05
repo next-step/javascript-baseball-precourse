@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>숫자 야구 게임</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <div id="game">
+        <h1>숫자 야구 게임</h1>
+        <h2>1~9까지의 수를 중복 없이 3개 입력해주세요.</h2>
+        <input type="text" id="userInput" placeholder="숫자 입력 (예: 425)" maxlength="3">
+        <button onclick="checkInput()">확인</button>
+        <div id="result"></div>
+        <button id="restartButton" onclick="initializeGame()" style="display: none;">게임 재시작</button>
+    </div>
+    <script>
+        let targetNumber = generateTarget();
+
+        function generateTarget() {
+            let digits = [];
+            while (digits.length < 3) {
+                let num = Math.floor(Math.random() * 9) + 1;
+                if (!digits.includes(num)) {
+                    digits.push(num);
+                }
+            }
+            return digits.join('');
+        }
+
+        function checkInput() {
+            const input = document.getElementById('userInput').value;
+            if (!input || input.length !== 3 || !/^[1-9]{3}$/.test(input)) {
+                alert('1부터 9까지 서로 다른 수 3개를 입력하세요.');
+                return;
+            }
+
+            if (new Set(input).size !== input.length) {
+            alert('서로 다른 숫자를 입력해주세요.');
+            return;
+            }
+
+            let strikes = 0, balls = 0;
+            for (let i = 0; i < 3; i++) {
+                if (input[i] === targetNumber[i]) {
+                    strikes++;
+                } else if (targetNumber.includes(input[i])) {
+                    balls++;
+                }
+            }
+
+            let result = document.getElementById('result');
+            if (strikes === 3) {
+                result.innerHTML = '<span>정답을 맞추셨습니다!</span><br>게임을 새로 시작하시겠습니까?';
+                document.getElementById('restartButton').style.display = 'block';
+                document.getElementById('userInput').disabled = true;
+            } else if (strikes === 0 && balls === 0) {
+                result.textContent = '낫싱';
+            } else {
+                result.textContent = `${strikes} 스트라이크, ${balls} 볼`;
+            }
+        }
+
+        function initializeGame() {
+            targetNumber = generateTarget();
+            document.getElementById('userInput').value = '';
+            document.getElementById('userInput').disabled = false;
+            document.getElementById('result').textContent = '';
+            document.getElementById('restartButton').style.display = 'none';
+        }
+
+        window.onload = function() {
+            initializeGame();
+        };
+    </script>
+</body>
+</html>
