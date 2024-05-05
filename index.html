@@ -1,12 +1,56 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>숫자 야구</title>
+    <link rel="icon" href="./images/favicon.png" />
+
+    <link rel="stylesheet" href="./src/main.css" />
+    <script defer type="module" src="./src/main.js"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="app">
+      <div class="titleScreen">
+        <div class="triangle-red"></div>
+        <div class="triangle-offblack"></div>
+        <div class="container hidden">
+          <div class="titleScreen__image">⚾️</div>
+          <div class="titleScreen__title">Bulls and Cows</div>
+          <div class="titleScreen__startBtn">Start</div>
+        </div>
+      </div>
+
+      <h1>⚾️ 숫자 야구 게임</h1>
+
+      <section class="rules">
+        <b>1~9까지의 수</b>를 중복없이 <b>3개</b> 입력해주세요.
+
+        <div>올바른 예) 139</div>
+        <div>틀린 예) 122</div>
+      </section>
+
+      <br />
+
+      <section class="input">
+        <input type="text" id="input__textfield" />
+        <input type="button" value="확인" id="input__btn" />
+      </section>
+
+      <section class="result">
+        <h3>📄 결과</h3>
+        <div class="result__text"></div>
+        <div class="result__restartMessage"></div>
+        <input type="hidden" value="게임 재시작" class="result__btn--restart" />
+        <input type="hidden" value="게임 종료" class="result__btn--finish" />
+      </section>
+
+      <h3>📋 기록</h3>
+      <section class="log">
+        <ul class="loglist"></ul>
+      </section>
+
+      <script type="module" src="/src/main.js"></script>
+    </div>
   </body>
 </html>
