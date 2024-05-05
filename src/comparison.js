@@ -1,6 +1,6 @@
 import compar from './compar'
 import strMake from './strmake'
-import result from './result'
+import result from './result.js'
 
 const userData ={
     ballcount : 0 ,
