@@ -67,6 +67,6 @@ e.g.
 
 <br/>
 
-![temporary_image](./public/숫자야구.gif)
+![temporary_image](./public/숫자야구2.gif)
 
 
