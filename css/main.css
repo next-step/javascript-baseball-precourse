@@ -30,7 +30,7 @@ strong {
       margin: 10px 0;
 }
 
-.container .answer .error {
+.container .answer .error-text {
             color: red;
             font-size: 0.9em;
 }
@@ -42,5 +42,11 @@ strong {
 .container .result h2 {
       font-weight: 700;
       font-size: 20px;
+      margin-bottom: 10px;
+}
+
+.container .result .result-text{
+      font-weight: 700;
+      font-size: 18px;
       margin-bottom: 10px;
 }
