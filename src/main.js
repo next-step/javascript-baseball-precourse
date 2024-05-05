@@ -44,3 +44,9 @@ function displayResult(result) {
   resultDiv.textContent = result;
 }
 
+// 재시작을 묻는 함수
+function displayRetry(comment) {
+  const retryDiv = document.getElementById('retry');
+  retryDiv.textContent = comment;
+}
+
