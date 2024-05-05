@@ -8,6 +8,7 @@ const form = document.querySelector("form");
 const answerInput = document.querySelector("#input--answer");
 const resultSection = document.querySelector(".result");
 const resultText = document.querySelector(".result__text");
+const resultBtn = document.querySelector(".result__btn");
 const restartBtn = document.querySelector(".btn--restart");
 const exitBtn = document.querySelector(".btn--exit");
 
@@ -59,6 +60,7 @@ form.addEventListener("submit", (event) => {
 
   if (strikes === 3) {
     resultText.textContent += " 🎉 정답을 맞추셨습니다 🎉";
+    resultBtn.classList.remove("hidden");
   }
 });
 
