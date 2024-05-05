@@ -7,7 +7,6 @@ playGame()
 
 function playGame() {
     answer = setAnswer()
-    console.log(answer)
 }
 
 const sendBtn = document.querySelector('.send-btn')
@@ -19,7 +18,7 @@ sendBtn.addEventListener('click', () => {
         let score = calculateStrikeBall(guessNum, answer)
         printResult(score)
     } else {
-        alert("잘못된 값이 입력되었어요. 다시 입력해주세요.");
+        alert("잘못된 값이 입력되었어요. 다시 입력해주세요.")
     }
 });
 
@@ -37,11 +36,37 @@ function printResult(score) {
     if (strike > 0){
         if (strike === 3) {
             result = "🎉정답을 맞추셨습니다🎉"
-            restart()
+            endOfGame()
         } else {
             result += `${strike}스트라이크`
         }
     }
-    console.log(result)
-    document.querySelector('.score').innerText = result; // 결과 표시
+    document.querySelector('.score').innerText = result // 결과 표시
 }
+
+function endOfGame() {
+    const restartMsg = document.createElement('p')
+    restartMsg.innerText = "게임을 새로 시작하시겠습니까?"
+    const restartBtn = document.createElement('button')
+    restartBtn.textContent = '게임 재시작'
+    const endBtn = document.createElement('button')
+    endBtn.textContent = '게임 종료'
+
+    document.querySelector('.result-field').appendChild(restartMsg);
+    document.querySelector('.result-field').appendChild(restartBtn);
+    document.querySelector('.result-field').appendChild(endBtn);
+
+    restartBtn.addEventListener('click', function() {
+        document.querySelector('.score').innerText = ''
+        document.querySelector('.result-field').removeChild(restartMsg);
+        document.querySelector('.result-field').removeChild(restartBtn);
+        document.querySelector('.result-field').removeChild(endBtn);
+        document.querySelector('.input-box').value = ''
+        playGame();
+    })
+    endBtn.addEventListener('click', function() {
+        document.querySelector('.result-field').remove()
+        document.querySelector('.input-field').remove()
+        document.querySelector('.manual').innerText = '게임이 종료되었습니다.'
+    })
+};
