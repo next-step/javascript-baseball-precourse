@@ -1,0 +1,41 @@
+body {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+}
+button {
+      cursor: pointer;
+}
+strong {
+      font-weight: 800;
+}
+
+.container {
+      background: white;
+}
+.container h1 {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 20px;
+}
+
+.container .description {
+      font-size: 15px;
+      margin: 10px 0;
+}
+
+.container .result {
+      margin-top: 20px;
+}
+
+.container .result h2 {
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 10px;
+}
