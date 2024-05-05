@@ -17,10 +17,31 @@ sendBtn.addEventListener('click', () => {
     let valid = checkNumbers(guessNum)
     if (valid === true) {
         let score = calculateStrikeBall(guessNum, answer)
-        console.log("score", score)
+        printResult(score)
     } else {
         alert("잘못된 값이 입력되었어요. 다시 입력해주세요.");
     }
 });
 
 // console.log(checkNumbers(guessNum))
+
+function printResult(score) {
+    let result = ''
+    let strike = score.strike
+    let ball = score.ball
+    if (strike + ball === 0) {
+        result = '낫싱';
+    } else if (ball > 0) {
+        result += `${ball}볼 `
+    }
+    if (strike > 0){
+        if (strike === 3) {
+            result = "🎉정답을 맞추셨습니다🎉"
+            restart()
+        } else {
+            result += `${strike}스트라이크`
+        }
+    }
+    console.log(result)
+    document.querySelector('.score').innerText = result; // 결과 표시
+}
