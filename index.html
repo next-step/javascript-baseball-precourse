@@ -3,10 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>야구게임_FE_전남대_이은진</title>
+    <style>
+      body{
+        font-family: "San Francisco";
+        font-weight: 500;
+        src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff");
+      }
+      .correct{
+        display: none;
+      }
+      .incorrect{
+        display: none;
+      }
+      .incorrect_nothing{
+        display: none;
+      }
+
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+       <!-- 설명문  -->
+
+       <h1>⚾숫자 야구 게임</h1>
+       <strong>1~9까지의 수</strong>를 중복없이 <strong>3개</strong> 입력해주세요.<br>
+       올바른 예)139<br>
+       틀린 예)122
+       </p>
+       <form action="./src/main.js">
+         <input type="text" id = "input_num">
+         <input type="button" value="확인" id = "input_btn">
+       </form>
+      <!-- 결과 출력 코드 -->
+      <h2>📄결과</h2>
+
+      <!-- 정답 출력 -->
+
+      <div class="correct">
+        <p><strong>🎉정답을 맞추셨습니다🎉</strong><br>
+          게임을 새로 시작하시겠습니까?
+        </p>
+        <input type="button" value="게임 재시작" id = "restart">
+      </div>
+
+      <!-- 힌트 출력 -->
+      <div class="incorrect">
+        <p>현재 <span id ="try_num1"></span>번째 시도입니다.</p>
+        <br>
+        <p>✅힌트✅</p>
+        <p>스트라이크 : <span id = "strike"></span> </p>
+        <p>볼 : <span id = "ball"></span> </p>
+        <p> 다시 한번 값을 입력해보세요 🥹</p>
+      </div>
+
+      <div class="incorrect_nothing">
+        <p><span  id ="try_num2"></span>번째 시도입니다.</p>
+        <br>
+        <p>✅힌트✅ </p>
+        <p>낫싱 </p>
+        <p> 다시 한번 값을 입력해보세요 🥹</p>
+      </div>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
