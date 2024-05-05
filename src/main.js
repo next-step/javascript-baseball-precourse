@@ -1,3 +1,4 @@
+import { getRandomNumbers } from './random';
 import { checkIsValidate, compareNumbers } from './game.js';
 import { printHint, printResult } from './print.js';
 
@@ -5,6 +6,7 @@ const input = document.querySelector('.input input');
 const inputButton = document.querySelector('.input button');
 const result = document.querySelector('.result');
 const restart = document.querySelector('.restart');
+const restartButton = document.querySelector('.restart .restart-btn');
 
 let gameOver = false;
 let randNumbers = getRandomNumbers();
@@ -33,4 +35,12 @@ inputButton.addEventListener('click', () => {
   } else {
     result.innerHTML = printHint(strikes, balls);
   }
+});
+
+restartButton.addEventListener('click', () => {
+  randNumbers = getRandomNumbers();
+  gameOver = false;
+  result.textContent = '';
+  restart.style.display = 'none';
+  input.value = '';
 });
