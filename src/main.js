@@ -1,7 +1,9 @@
 import { init_screen_start } from "./js/screen_start";
+import { init_screen_game, onStartGame } from "./js/screen_game";
 
 const init = () => {
-  init_screen_start(() => {});
+  init_screen_start(onStartGame);
+  init_screen_game();
 };
 
 init();
