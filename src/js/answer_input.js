@@ -8,11 +8,10 @@ const validateAnswerUnit = (unit) => {
 };
 
 const fillAnswerUnit = (unit) => {
-  if (_answer.length < 2) {
-    _answer.push(unit);
+  _answer.push(parseInt(unit));
+  if (_answer.length < 3) {
     _answer_inputs[_answer.length].focus();
   } else {
-    _answer.push(unit);
     _onEndInput(_answer);
   }
 };
