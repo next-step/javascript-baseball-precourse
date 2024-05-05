@@ -3,10 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>BaseBall Game</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <header>
+        <h1 class="__h1">⚾숫자 야구 게임⚾</h1>
+      </header>
+      <section class="get-input">
+        <p class="__p">
+          <span class="bold">1~9까지의 수</span>를 중복없이 <span class="bold">3개</span> 입력해주세요
+          <br/> 올바른 예&#41; 139
+          <br/> 틀린 예&#41; 13, 122
+        </p>
+        <form class="__form">
+          <input type="number"/>
+          <button>확인</button>
+        </form>
+      </section>
+      <section class="result-view">
+        <h2 class="__h2">📜결과</h2>
+        <div class="__box--right-answer">
+          <h3 class="__h3">🎇정답을 맞추셨습니다🎇</h3>
+          <div>
+            <p>게임을 새로 시작하시겠습니까?</p>
+            <button>게임 재시작</button>
+          </div>
+        </div>
+        <div class="__box--wrong-answer">
+          <div id="div--result-strike" class="bold">strike: </div>
+          <div id="div--result-ball" class="bold">ball: </div>
+        </div>
+      </section>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
