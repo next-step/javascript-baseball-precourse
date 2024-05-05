@@ -3,11 +3,10 @@
 ## 기능
 
 - 초기화
-  - 임의의 수 생성
-  - input value 비우기
+  - ~~임의의 수 생성~~
 - 입력확인
-  - 입력이 잘못되면 에러 띄우기
-- {strike: int, ball: int} getResult(int input)
+  - ~~입력이 잘못되면 에러 띄우기~~
+  - ~~{strike: int, ball: int} getResult(int input)~~
 - 결과에 따라 페이지 변경
   - strike 3개: "정답입니다" + 재시작버튼
   - else: input + strike와 ball 개수 각각 띄우기

@@ -34,6 +34,7 @@ BaseBallGame.prototype.init = function(){
     this.answer[2] = num;
 }
 BaseBallGame.prototype.getResult = function(input){
+    // 3자리 정수 input에 따라 결과(스트라이크, 볼 수) 리턴
     if(!isValidInput(input)) throw "inValid input";
     let arr = int2Arr(input);
     let result = {
