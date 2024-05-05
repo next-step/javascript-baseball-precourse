@@ -1,12 +1,14 @@
-import "./isNotIncludes.js";
+import "../utils/isNotIncludes.js";
+import { ERROR_MESSAGE, RESULT_NOTHING, RESULT_CORRECT } from "../utils/constants.js";
 
 export class Game {
   #answer;
 
   constructor() {
-    this.#answer = this.generateRandomNumber();
+    this.#answer = undefined;
     this.result = "";
     this.isGameSet = false;
+    this.logs = [];
   }
 
   generateRandomNumber() {
@@ -18,26 +20,28 @@ export class Game {
         number += randomNumber;
       }
     }
-
     console.log(number);
-    return number;
+    this.#answer = number;
   }
 
   compareResult(inputEl) {
     let inputValue = inputEl.value;
     if (!this.#isValid(inputValue)) {
       this.#alertHandler(inputEl);
-      return;
+      return false;
     }
     const { strikeCount, ballCount, nothingCount } = this.#countHits(inputValue);
-    this.#setResult(strikeCount, ballCount, nothingCount);
+    this.#setResult(strikeCount, ballCount, nothingCount, () => {
+      this.logs.push(`${inputValue}: ${this.result}`);
+    });
+
+    return true;
   }
 
   #countHits(inputValue) {
     let nothingCount = 0;
     let strikeCount = 0;
     let ballCount = 0;
-
     for (let i = 0; i < this.#answer.length; i++) {
       if (inputValue[i] === this.#answer[i]) {
         strikeCount += 1;
@@ -55,7 +59,7 @@ export class Game {
   }
 
   #alertHandler(inputEl) {
-    alert("1~9까지의 수를 중복없이 3개 입력해주세요.");
+    alert(ERROR_MESSAGE);
     this.#resetInputEl(inputEl);
   }
 
@@ -64,11 +68,11 @@ export class Game {
     inputEl.focus();
   }
 
-  #setResult(strikeCount, ballCount, nothingCount) {
+  #setResult(strikeCount, ballCount, nothingCount, callback) {
     if (nothingCount === 3) {
-      this.result = "낫싱";
+      this.result = RESULT_NOTHING;
     } else if (strikeCount === 3) {
-      this.result = "🎉정답을 맞추셨습니다🎉";
+      this.result = RESULT_CORRECT;
       this.isGameSet = true;
     } else {
       if (strikeCount === 0) {
@@ -79,10 +83,22 @@ export class Game {
         this.result = `${ballCount}볼 ${strikeCount}스트라이크`;
       }
     }
+
+    callback();
   }
 
   getResult() {
     return this.result;
+  }
+
+  getLastLog() {
+    return this.logs[this.logs.length - 1];
+  }
+
+  addLog(logsEl) {
+    const li = document.createElement("li");
+    li.textContent = game.getLastLog();
+    logsEl.appendChild(li);
   }
 
   #isValid(input) {
@@ -102,10 +118,9 @@ export class Game {
   }
 
   restart(complete) {
-    this.#answer = this.generateRandomNumber();
+    this.generateRandomNumber();
     this.result = "";
     this.isGameSet = false;
-
     complete();
   }
 }
