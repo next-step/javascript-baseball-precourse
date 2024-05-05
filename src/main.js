@@ -50,3 +50,12 @@ function displayRetry(comment) {
   retryDiv.textContent = comment;
 }
 
+// 게임 재시작 함수
+function restartGame() {
+  document.getElementById('userInput').value = '';
+  document.getElementById('result').textContent = '';
+  document.getElementById('retry').textContent = '';
+  document.getElementById('retryBtn').style.display = 'none';
+  document.getElementById('checkBtn').disabled = false; // 확인 버튼 활성화 추가
+}
+
