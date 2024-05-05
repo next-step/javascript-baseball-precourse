@@ -89,6 +89,7 @@ body {
 
 .result .result__text {
   font-weight: 700;
+  margin-bottom: 24px;
 }
 
 .result .result__restartMessage {
