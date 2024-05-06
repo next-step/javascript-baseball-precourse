@@ -1,3 +1,4 @@
+// 컴퓨터 랜덤 숫자 선택 ----------------------------------------------------------------------------------
 // 전역 변수로 선택된 숫자를 저장
 let computerNumbers = [];
 
@@ -32,3 +33,30 @@ startGame();
 
 // 필요한 경우 게임 재시작
 // restartGame();
+
+// 사용자 숫자 입력 ----------------------------------------------------------------------------------
+function checkInput() {
+  const inputField = document.getElementById("inputNumber");
+  const inputValue = inputField.value;
+
+  // 입력 값 검증
+  if (isValidInput(inputValue)) {
+    console.log("입력한 숫자: ", inputValue);
+    // 입력한 숫자를 게임 로직과 비교하는 함수 등 추가 구현
+  } else {
+    alert(
+      "잘못된 입력입니다. 1부터 9까지 서로 다른 숫자 세 개를 입력해주세요."
+    );
+  }
+}
+
+function isValidInput(input) {
+  const uniqueDigits = new Set(input);
+
+  // 입력이 세 자리 숫자이고, 모든 자릿수가 1-9 사이이며, 중복된 숫자가 없어야 함
+  return (
+    input.length === 3 &&
+    [...uniqueDigits].every((digit) => digit >= "1" && digit <= "9") &&
+    uniqueDigits.size === 3
+  );
+}
