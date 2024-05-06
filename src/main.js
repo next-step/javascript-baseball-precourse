@@ -23,12 +23,27 @@ function startGame() {
 // 게임 시작
 startGame();
 
-// 사용자 숫자 입력 ----------------------------------------------------------------------------------
+// 버튼 ----------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  const button = document.querySelector(".checkInput"); // 클래스 선택자로 버튼 선택
-  button.addEventListener("click", checkInput);
+  const button = document.querySelector(".checkInput"); // 확인 버튼
+  const restartButton = document.querySelector(".restartButton"); // 재시작 버튼
+
+  button.addEventListener("click", checkInput); // 확인 버튼 클릭 이벤트
+  restartButton.addEventListener("click", restartGame); // 재시작 버튼 클릭 이벤트
 });
 
+// 재시작 버튼 ----------------------------------------------------------------------------------
+function restartGame() {
+  startGame(); // 게임 재시작
+  const resultElement = document.querySelector(".displayResult");
+  resultElement.textContent = "진행 중 입니다."; // 결과 표시 초기화
+  document.getElementById("inputNumber").value = ""; // 입력 필드 초기화
+
+  const restartButton = document.querySelector(".restartButton");
+  restartButton.style.display = "none"; // 재시작 버튼 숨김
+}
+
+// 사용자 숫자 입력 ----------------------------------------------------------------------------------
 function displayResult(message) {
   const resultElement = document.querySelector(".displayResult");
   resultElement.textContent = message;
@@ -48,6 +63,7 @@ function checkInput() {
     }
     if (result.strikes === 3) {
       displayResult("축하합니다! 모든 숫자를 맞췄습니다.");
+      restartButton.style.display = "block";
     }
   } else {
     alert(
