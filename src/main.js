@@ -35,6 +35,11 @@ startGame();
 // restartGame();
 
 // 사용자 숫자 입력 ----------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.querySelector(".checkInput"); // 클래스 선택자
+  button.addEventListener("click", checkInput);
+});
+
 function checkInput() {
   const inputField = document.getElementById("inputNumber");
   const inputValue = inputField.value;
@@ -42,11 +47,8 @@ function checkInput() {
   // 입력 값 검증
   if (isValidInput(inputValue)) {
     console.log("입력한 숫자: ", inputValue);
-    // 입력한 숫자를 게임 로직과 비교하는 함수 등 추가 구현
   } else {
-    alert(
-      "잘못된 입력입니다. 1부터 9까지 서로 다른 숫자 세 개를 입력해주세요."
-    );
+    alert("1 ~ 9까지의 수를 중복없이 3개 입력해주세요.");
   }
 }
 
