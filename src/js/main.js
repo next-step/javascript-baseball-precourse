@@ -1,19 +1,38 @@
 let randomNumbers;
 
 const startBtn = document.querySelector('.btn--start');
-// const restartBtn = document.querySelector('.btn--restart');
+const restartBtn = document.querySelector('.btn--restart');
+const quitBtn = document.querySelector('.btn--quit');
 const answerInput = document.getElementById('input--answer');
 const form = document.querySelector("form");
 const answerBtn = document.querySelector('.btn--answer');
 const gameStart = document.querySelector('.game-start');
 const gameRestart = document.querySelector('.game-restart');
+const gameQuit = document.querySelector('.game-quit');
 const resultEl = document.querySelector(".result--text");
 
 
 startBtn.addEventListener('click', () =>{
     gameStart.classList.add('hide');
-    // gameRestart.classList.remove('hide');
+    gameRestart.classList.add('hide');
+    gameQuit.classList.add('hide');
+    answerInput.disabled = false;
     randomNumbers = getRandomNumbers();
+});
+
+restartBtn.addEventListener('click', function(){
+    gameRestart.classList.add('hide');
+    gameStart.classList.add('hide');
+    gameQuit.classList.add('hide');
+    answerInput.disabled = false;
+    randomNumbers = getRandomNumbers();
+});
+
+quitBtn.addEventListener('click', function(){
+    gameRestart.classList.add('hide');
+    gameQuit.classList.add('hide');
+    gameStart.classList.remove('hide');
+    answerInput.disabled = true;
 });
 
 form.addEventListener('submit', (event) => {
@@ -48,6 +67,9 @@ function showResult(inputArray, randomNumbers){
 
     if(strike === 3){
         resultEl.textContent = " 🎉정답을 맞추셨습니다🎉";
+        answerInput.disabled = true;
+        gameRestart.classList.remove('hide');
+        gameQuit.classList.remove('hide');
     }else if(strike == 0 && ball == 0){
         resultEl.textContent = "닛싱";
     }else if(strike == 0){
@@ -67,11 +89,3 @@ function isValid(input){
         alert("잘못된 입력 형식입니다!");
     }
 }
-
-
-// restartBtn.addEventListener('click', function(){
-//     gameStarted = true;
-//     gameRestart.classList.add('hide');
-//     gameStart.classList.remove('hide');
-//     randomNumbers = getRandomNumbers();
-// });

@@ -30,7 +30,6 @@
 }
 
 .result .result--text{
-    height: 50px;
     font-weight: 700;
     font-size: 17px;
 }
@@ -44,7 +43,6 @@
 .game-start.hide{
     display: none;
 }
-
 
 .game-start .question--start{
     margin-bottom: 10px;
@@ -60,5 +58,18 @@
 }
 
 .game-restart .question--restart{
+    margin-bottom: 10px;
+}
+
+.game-quit{
+    display: block;
+}
+
+.game-quit.hide{
+    display: none;
+}
+
+.game-quit .question--quit{
+    margin-top: 10px;
     margin-bottom: 10px;
 }
