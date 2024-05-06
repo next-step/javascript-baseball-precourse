@@ -57,16 +57,16 @@ window.onload = function () {
   const inputButton = document.getElementById("inputbutton");
   const userInput = document.getElementById("userinput");
 
-  inputButton.addEventListener("click", function () {
+  // 버튼 클릭 또는 엔터 키 입력 시
+  const handleInputEvent = function () {
     ({ strikes, balls } = handleInput(randomNumber, userInput));
-    console.log(strikes, ", ", balls);
-  });
+    console.log(`strikes: ${strikes}, balls: ${balls}`);
+  };
 
-  // 키보드에서 엔터 키 입력
+  inputButton.addEventListener("click", handleInputEvent);
   userInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-      ({ strikes, balls } = handleInput(randomNumber, userInput));
-      console.log(strikes, ", ", balls);
+      handleInputEvent();
     }
   });
 };
