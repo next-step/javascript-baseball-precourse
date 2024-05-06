@@ -1,13 +1,13 @@
-import generateRandomNumber from './randNumber.js';
+import generateRandomNumber from './generateRandomNumber.js';
 import checkNumber from './checkNumber.js';
 import result from './result.js';
+import restartGame from './restart.js';
 
 // 정답 랜덤 수 생성
-const resultNum = generateRandomNumber();
-console.log(resultNum);
+let resultNum = generateRandomNumber(false);
 
-// 입력된 수가 3자리이고 각 자리가 중복되지 않는지 확인
 document.getElementById("check-button").addEventListener("click", function () {
+      // 사용자의 입력을 가져옴
       const userInput = document.getElementById("user-input").value;
       if (checkNumber(userInput)) {
             // 입력된 수가 조건에 맞으면 결과 출력
@@ -16,4 +16,9 @@ document.getElementById("check-button").addEventListener("click", function () {
             // 입력된 수가 조건에 맞지 않으면 결과 초기화
             document.getElementById("result-message").textContent = "";
       }
+});
+
+document.getElementById("restart-button").addEventListener("click", function () {
+      // 게임 재시작
+      resultNum = restartGame();
 });

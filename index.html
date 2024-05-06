@@ -1,12 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>숫자 야구 게임</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -17,22 +26,27 @@
       </div>
       <!-- 설명 -->
       <div class="description">
-        <p><strong>1~9까지의 수</strong>를 중복없이 <strong>3개</strong> 입력해주세요</p>
+        <p>
+          <strong>1~9까지의 수</strong>를 중복없이
+          <strong>3개</strong> 입력해주세요
+        </p>
         <p>올바른 예) 139</p>
         <p>틀린 예) 122</p>
       </div>
       <!-- 사용자 입력 -->
       <div class="answer">
-        <input type="text" id="user-input" placeholder="입력하세요">
+        <input type="text" id="user-input" placeholder="입력하세요" />
         <button id="check-button">확인</button>
-        <p id="error-message" class="error-text"></p>
       </div>
+      <!-- 에러 메세지 -->
+      <p id="error-message" class="error-text"></p>
       <!-- 결과 -->
       <div class="result">
-          <h2>📋 결과</h2>
-          <p id="result-message" class="result-text"></p>
+        <h2>📋 결과</h2>
+        <p id="result-message" class="result-text"></p>
+        <button id="restart-button" style="display: none">게임 재시작</button>
       </div>
     </div>
     <script type="module" src="src/main.js"></script>
-</body>
+  </body>
 </html>
