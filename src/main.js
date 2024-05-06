@@ -2,7 +2,7 @@
 // 전역 변수로 선택된 숫자를 저장
 let computerNumbers = [];
 
-function generateRandomNumbers() {
+function randomNumbers() {
   const digits = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const chosenDigits = [];
 
@@ -16,8 +16,8 @@ function generateRandomNumbers() {
 }
 
 function startGame() {
-  computerNumbers = generateRandomNumbers(); // 게임 시작 시 숫자 생성
-  console.log("게임이 시작되었습니다. 컴퓨터가 선택한 숫자: ", computerNumbers);
+  computerNumbers = randomNumbers(); // 게임 시작 시 숫자 생성
+  console.log("컴퓨터 랜덤 숫자 선택: ", computerNumbers);
 }
 
 // 게임 시작
@@ -25,7 +25,7 @@ startGame();
 
 // 버튼 ----------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  const button = document.querySelector(".checkInput"); // 확인 버튼
+  const button = document.querySelector(".inputButton"); // 확인 버튼
   const restartButton = document.querySelector(".restartButton"); // 재시작 버튼
 
   button.addEventListener("click", checkInput); // 확인 버튼 클릭 이벤트
@@ -57,12 +57,18 @@ function checkInput() {
     const result = compareNumbers(computerNumbers, inputValue);
 
     if (result.strikes == 0 && result.balls == 0) {
-      displayResult("닛싱");
+      displayResult("닛싱 😔");
+    } else if (result.strikes == 0) {
+      displayResult(`볼 - ${result.balls} 🧢`);
+    } else if (result.balls == 0) {
+      displayResult(`스트라이크 - ${result.strikes} 💥`);
     } else {
-      displayResult(`${result.strikes} 스트라이크, ${result.balls} 볼`);
+      displayResult(
+        `스트라이크 - ${result.strikes} 💥, 볼 - ${result.balls} 🧢`
+      );
     }
     if (result.strikes === 3) {
-      displayResult("축하합니다! 모든 숫자를 맞췄습니다.");
+      displayResult(" 🥳 축하합니다! 🥳");
       restartButton.style.display = "block";
     }
   } else {
