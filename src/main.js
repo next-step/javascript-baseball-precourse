@@ -101,3 +101,12 @@ function compareNumbers(computerNumbers, userInput) {
   }
   return { strikes, balls };
 }
+
+// 종료 ----------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const exitButton = document.querySelector(".exitButton");
+  exitButton.addEventListener("click", function () {
+    document.getElementById("app").style.display = "none"; // 인터페이스 숨기기
+    alert("게임이 종료되었습니다. 창을 닫아주세요.");
+  });
+});
