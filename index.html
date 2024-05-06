@@ -1,12 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Baseball - Sugoring</title>
+    <!-- <link
+      href="
+https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
+"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/main.css" /> -->
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="app">
+      <h1>⚾ Let's Play Ball! ⚾</h1>
+      <p>1 ~ 9까지의 수를 중복없이 3개 입력해주세요.</p>
+      <p>Example: 1️⃣3️⃣9️⃣</p>
+      <p>Try Again: 1️⃣2️⃣2️⃣</p>
+
+      <div class="input-container">
+        <input type="text" id="inputNumber" placeholder="숫자를 입력해주세요" />
+        <button class="inputButton">확인</button>
+      </div>
+
+      <h2>결과</h2>
+      <p class="displayResult">게임 진행 중 입니다... ⏳</p>
+
+      <button class="restartButton" style="display: none">재시작</button>
+
+      <button class="exitButton">게임 종료</button>
+    </div>
+
+    <script type="module" src="/src/main.js" defer></script>
   </body>
 </html>
