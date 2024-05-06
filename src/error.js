@@ -14,8 +14,11 @@ export default (userinputElValue) => {
     let list = []
     list.push(userInputList[0])
     for(let i = 1 ; i<3 ; i+=1){
-        if(list.includes(userInputList[i]))
+        if(list.includes(userInputList[i])){
             return false
+        }else{
+            list.push(userInputList[i])
+        }
     }
     return true
 }
