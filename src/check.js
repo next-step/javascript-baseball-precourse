@@ -39,6 +39,5 @@ export function answerCheck(answer, inputValue) {
             ball++;
         }
     }
-
     return { strike, ball };
 }
