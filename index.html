@@ -3,10 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>⚾️숫자 야구 게임⚾️</title>
+    <link rel="stylesheet" href="/src/css/main.css"/>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="app">
+
+      <div class="container">
+        <h1>⚾️숫자 야구 게임⚾️</h1>
+        <div><b>1~9까지의 수</b>를 <b>중복없이 3개</b> 입력해주세요.</div>
+        <div>올바른 예) 139</div>
+        <div>틀린 예) 122</div>
+
+        <form class="input">
+          <input type="text" id="input--answer" />
+          <button class="btn--answer">확인</button>
+        </form>
+
+        <div class="result">
+          <h2>⚾️ 결과</h2>
+          <div class="result--text"></div>
+        </div>
+
+        <div class="game-start">
+          <div class="question--start">게임을 시작하시겠습니까?</div>
+          <button class="btn--start">게임 시작</button>
+        </div>
+
+        <div class="game-restart hide">
+          <div class="question--restart">게임을 새로 시작하시겠습니까?</div>
+          <button class="btn--restart">게임 재시작</button>
+        </div>
+      </div>
+
+
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>
