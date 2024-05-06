@@ -17,14 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // 확인 버튼에 대한 이벤트 리스너 추가
     confirmButton.addEventListener('click', () => {
       // 입력값에 대한 에러 체크
-      const error = checkError(input.value);
+      const error = checkError(userInput.value);
       if (error) {
         alert(error); 
         return;
       }
   
       // 게임 결과 확인
-      const result = gameResult(input.value, answer);
+      const result = gameResult(userInput.value, answer);
       alert(result.message); 
   
       // 정답을 맞췄을 경우, 게임 재시작 버튼을 화면에 추가
