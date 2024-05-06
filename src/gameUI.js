@@ -9,6 +9,12 @@ export function gameResult() {
         resultQuestion.textContent = '게임을 새로 시작하시겠습니까?';
         document.querySelector('.restart__btn').style.display = 'block';
         document.querySelector('.end__btn').style.display = 'none';
+    } else if (strike === 0 && ball === 0) {
+        // 낫싱일 때 UI 추가
+        resultText.innerHTML = '<strong>낫싱😥</strong>';
+        resultQuestion.textContent = '게임을 종료하시겠습니까?';
+        document.querySelector('.restart__btn').style.display = 'none';
+        document.querySelector('.end__btn').style.display = 'block';
     } else {
         // 정답이아닐 때 UI 추가
         resultText.innerHTML = `<strong>${ball}볼 ${strike}스트라이크</strong>⚾️`;
