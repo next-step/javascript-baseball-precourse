@@ -20,23 +20,12 @@ function startGame() {
   console.log("게임이 시작되었습니다. 컴퓨터가 선택한 숫자: ", computerNumbers);
 }
 
-function restartGame() {
-  computerNumbers = generateRandomNumbers(); // 게임 재시작 시 숫자 재생성
-  console.log(
-    "게임이 재시작되었습니다. 컴퓨터가 선택한 숫자: ",
-    computerNumbers
-  );
-}
-
 // 게임 시작
 startGame();
 
-// 필요한 경우 게임 재시작
-// restartGame();
-
 // 사용자 숫자 입력 ----------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  const button = document.querySelector(".checkInput"); // 클래스 선택자
+  const button = document.querySelector(".checkInput"); // 클래스 선택자로 버튼 선택
   button.addEventListener("click", checkInput);
 });
 
@@ -44,21 +33,40 @@ function checkInput() {
   const inputField = document.getElementById("inputNumber");
   const inputValue = inputField.value;
 
-  // 입력 값 검증
   if (isValidInput(inputValue)) {
-    console.log("입력한 숫자: ", inputValue);
+    const result = compareNumbers(computerNumbers, inputValue);
+    alert(`결과: ${result.strikes} 스트라이크, ${result.balls} 볼`);
+    if (result.strikes === 3) {
+      alert("축하합니다! 모든 숫자를 맞췄습니다.");
+      // 여기에서 게임 재시작 또는 종료 로직을 추가할 수 있습니다.
+    }
   } else {
-    alert("1 ~ 9까지의 수를 중복없이 3개 입력해주세요.");
+    alert(
+      "잘못된 입력입니다. 1부터 9까지 서로 다른 숫자 세 개를 입력해주세요."
+    );
   }
 }
 
 function isValidInput(input) {
   const uniqueDigits = new Set(input);
-
   // 입력이 세 자리 숫자이고, 모든 자릿수가 1-9 사이이며, 중복된 숫자가 없어야 함
   return (
     input.length === 3 &&
     [...uniqueDigits].every((digit) => digit >= "1" && digit <= "9") &&
     uniqueDigits.size === 3
   );
+}
+
+// 숫자 비교 ----------------------------------------------------------------------------------
+function compareNumbers(computerNumbers, userInput) {
+  let strikes = 0;
+  let balls = 0;
+  for (let i = 0; i < 3; i++) {
+    if (computerNumbers[i] === Number(userInput[i])) {
+      strikes++;
+    } else if (computerNumbers.includes(Number(userInput[i]))) {
+      balls++;
+    }
+  }
+  return { strikes, balls };
 }
