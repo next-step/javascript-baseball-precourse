@@ -1,15 +1,20 @@
-export function gameResult(userInput, comValue) {
+import { randomNum } from "./\brandomNum";
+
+let comValue = randomNum();
+
+export function gameResult(userInput) {
     let strike = 0;
     let ball = 0;
+    
 
     for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            if (userInput.charAt(i) === comValue.charAt(j)) {
-                if (i === j) {
-                    strike++;
-                } else {
-                    ball++;
-                }
+        if (userInput[i] === comValue[i]) {
+            strike++;
+        } else {
+            const index = comValue.indexOf(userInput[i]);
+            if (index !== -1 && index !== i) {
+                // comValue 내에 userInput[i]가 존재하지만, 위치가 다를 경우
+                ball++;
             }
         }
     }
