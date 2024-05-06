@@ -30,15 +30,15 @@ export function answerCheck(answer, inputValue) {
     strike = 0;
     ball = 0;
     for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            if (answer[i] === inputValue[j]) {
-                if (i === j) {
-                    strike++;
-                } else {
-                    ball++;
-                }
-            }
+        const isStrike = answer[i] === inputValue[i];
+        const isBall = !isStrike && inputValue.includes(answer[i]);
+
+        if (isStrike) {
+            strike++;
+        } else if (isBall) {
+            ball++;
         }
     }
+
     return { strike, ball };
 }
