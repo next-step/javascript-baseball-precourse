@@ -4,7 +4,7 @@ import handleInput from "./functions/handleInput.js";
 // 시작
 window.onload = function () {
   let randomNumber = generateRandomNumber();
-  console.log("random number: ", randomNumber);
+  //   console.log("random number: ", randomNumber);
   let strikes = 0;
   let balls = 0;
 
