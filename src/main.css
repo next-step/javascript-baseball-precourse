@@ -1,0 +1,12 @@
+.form {
+    display: flex; 
+    align-items: stretch; 
+}
+
+#input {
+    margin-right: 5px;
+}
+
+#restartBtn {
+    margin-top: 15px;
+}
