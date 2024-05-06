@@ -29,16 +29,25 @@ document.addEventListener("DOMContentLoaded", () => {
   button.addEventListener("click", checkInput);
 });
 
+function displayResult(message) {
+  const resultElement = document.querySelector(".displayResult");
+  resultElement.textContent = message;
+}
+
 function checkInput() {
   const inputField = document.getElementById("inputNumber");
   const inputValue = inputField.value;
 
   if (isValidInput(inputValue)) {
     const result = compareNumbers(computerNumbers, inputValue);
-    alert(`결과: ${result.strikes} 스트라이크, ${result.balls} 볼`);
+
+    if (result.strikes == 0 && result.balls == 0) {
+      displayResult("닛싱");
+    } else {
+      displayResult(`${result.strikes} 스트라이크, ${result.balls} 볼`);
+    }
     if (result.strikes === 3) {
-      alert("축하합니다! 모든 숫자를 맞췄습니다.");
-      // 여기에서 게임 재시작 또는 종료 로직을 추가할 수 있습니다.
+      displayResult("축하합니다! 모든 숫자를 맞췄습니다.");
     }
   } else {
     alert(
