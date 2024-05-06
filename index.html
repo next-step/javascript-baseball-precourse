@@ -10,14 +10,14 @@
     </div>
     <script type="module" src="/src/main.js"></script>
     <h1>⚾숫자 야구 게임</h1>
-    <div class ="maintext">
-      1~9까지의 숫자를 중복없이 3개 입력해주세요. <br />
-      올바른 예) 139 <br>틀린 예) 122<br />
-    </div>
-      <div class="input">
-        <input type="text" id="input" />
-        <input type="button" class ="check" value = "확인" id="submit-button"/>
-      </div>
+    <p><b>1~9까지의 숫자</b>를 중복없이 <b>3개</b> 입력해주세요. </p>
+      <p>올바른 예)139</p>
+      <p>틀린 예)122</p>
+    <input type="text" id="input" maxlength="3" />
+    <button onclick="checkinput()">확인</button>
+    <h2><b>📝결과</b></h2>
+    <p>게임을 새로 시작하시겠습니까?</p>
+    <button onclick="replay()">게임 재시작</button>
 
   </body>
 </html>
