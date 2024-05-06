@@ -1,0 +1,58 @@
+#app{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 150px;
+}
+
+
+
+.result .result--text{
+    font-weight: 700;
+    font-size: 17px;
+}
+
+
+
+.game-start{
+    display: block;
+}
+
+.game-start.hide{
+    display: none;
+}
+
+.game-start .question--start{
+    margin-bottom: 10px;
+}
+
+
+.game-restart{
+    display: block;
+}
+
+.game-restart.hide{
+    display: none;
+}
+
+.game-restart .question--restart{
+    margin-bottom: 10px;
+}
+
+.game-quit{
+    display: block;
+}
+
+.game-quit.hide{
+    display: none;
+}
+
+.game-quit .question--quit{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
