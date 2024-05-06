@@ -1,4 +1,4 @@
-import generateRandomNumber from './generateRandomNumber.js';
+import generateRandomNumber from './randNumber.js';
 
 export default function restartGame() {
       // 게임 재시작을 위해 resultNum 제거

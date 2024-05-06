@@ -1,4 +1,4 @@
-import generateRandomNumber from './generateRandomNumber.js';
+import generateRandomNumber from './randNumber.js';
 import checkNumber from './checkNumber.js';
 import result from './result.js';
 import restartGame from './restart.js';
