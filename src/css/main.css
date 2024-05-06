@@ -30,7 +30,9 @@
 }
 
 .result .result--text{
-
+    height: 50px;
+    font-weight: 700;
+    font-size: 17px;
 }
 
 
