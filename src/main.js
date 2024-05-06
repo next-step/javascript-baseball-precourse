@@ -52,3 +52,15 @@ function checkGuess() {
   }
   
   
+// 게임 재시작 함수
+function restartGame() {
+    secretNumber = generateSecretNumber();
+    document.getElementById("output").textContent = "";
+    document.getElementById("guessInput").value = "";
+    document.getElementById("restartButton").style.display = "none";
+  }
+  
+  document.getElementById("guessButton").addEventListener("click", checkGuess);
+  document.getElementById("restartButton").addEventListener("click", restartGame);
+  
+  secretNumber = generateSecretNumber(); // 게임 시작 시 비밀 숫자 생성
