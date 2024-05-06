@@ -7,7 +7,7 @@ successBoard.style.display = "none";
 //컴퓨터 랜덤 수 생성
 const computer = makeRandom();
 console.log(computer);
-
+ 
 //입력수 검사
 document.getElementById('submitBtn').addEventListener('click', function() {
     const userNum = document.getElementById('input').value;
