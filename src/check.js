@@ -20,7 +20,6 @@ export function inputCheck(answer) {
             return;
         }
         inputValue = inputValue.split('').map(Number);
-        console.log('입력된 값:', inputValue);
         answerCheck(answer, inputValue);
         document.querySelector('.result').style.display = 'block';
         gameResult();
