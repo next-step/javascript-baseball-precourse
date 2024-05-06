@@ -25,10 +25,10 @@ startGame();
 
 // 버튼 ----------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  const button = document.querySelector(".inputButton"); // 확인 버튼
+  const inputButton = document.querySelector(".inputButton"); // 확인 버튼
   const restartButton = document.querySelector(".restartButton"); // 재시작 버튼
 
-  button.addEventListener("click", checkInput); // 확인 버튼 클릭 이벤트
+  inputButton.addEventListener("click", checkInput); // 확인 버튼 클릭 이벤트
   restartButton.addEventListener("click", restartGame); // 재시작 버튼 클릭 이벤트
 });
 
@@ -52,6 +52,7 @@ function displayResult(message) {
 function checkInput() {
   const inputField = document.getElementById("inputNumber");
   const inputValue = inputField.value;
+  const restartButton = document.querySelector(".restartButton");
 
   if (isValidInput(inputValue)) {
     const result = compareNumbers(computerNumbers, inputValue);
@@ -107,6 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const exitButton = document.querySelector(".exitButton");
   exitButton.addEventListener("click", function () {
     document.getElementById("app").style.display = "none"; // 인터페이스 숨기기
-    alert("게임이 종료되었습니다. 창을 닫아주세요.");
+    alert("게임을 종료합니다. 창을 닫아주세요.");
   });
 });
