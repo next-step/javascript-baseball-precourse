@@ -78,7 +78,7 @@ const restartGame = () => {
 document.addEventListener("DOMContentLoaded", () => {
     generateComputerNumber();
     document.getElementById("checkButton").addEventListener("click", (event) => {
-        event.preventDefault();  // Prevent form submission
+        event.preventDefault();
         getPlayerNumber();
     });
 });
