@@ -1,6 +1,6 @@
 let computerNumber = [];
 
-const generateComputerNumber = () => {
+export const generateComputerNumber = () => {
     computerNumber = [];
     while (computerNumber.length < 3) {
         const number = Math.floor(Math.random() * 9) + 1;
@@ -10,10 +10,4 @@ const generateComputerNumber = () => {
     }
 };
 
-const getComputerNumber = () => computerNumber;
-
-const resetComputerNumber = () => {
-    computerNumber = [];
-};
-
-export default { generateComputerNumber, getComputerNumber, resetComputerNumber };
+export { computerNumber };
