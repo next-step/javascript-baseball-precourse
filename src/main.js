@@ -1,4 +1,4 @@
-// 컴퓨터가 입력한 값, 0~9까지 랜덤으로 3자리 수 생성
+// 컴퓨터가 입력한 값, 1~9까지 랜덤으로 3자리 수 생성
 let numbers = generateRandomNumber()
 // 사용자가 입력한 값
 let answer = [];
@@ -6,7 +6,7 @@ let answer = [];
 function generateRandomNumber() {
     let randomNumbers = [];
     while (randomNumbers.length < 3) {
-        const num = Math.floor(Math.random() * 10)
+        const num = Math.floor(Math.random() * 9) + 1
         if (!randomNumbers.includes(num))
             randomNumbers.push(num);
     }
@@ -29,11 +29,13 @@ function checkAnswer(answer) {
     const userInput = document.getElementById('userInput').value
     if (userInput.length !== 3) {
         alert('3자리 수를 입력하세요.')
+        inputBox()
         return;
     }
     answer = userInput.split('').map(Number)
     if(hasDuplicates(answer)) {
       alert('중복된 숫자를 포함할 수 없습니다.')
+      inputBox()
       return;
     }
     return answer;
@@ -47,35 +49,30 @@ function hasDuplicates(array) {
 // 게임 로직
 let count = 0; // 횟수
 function evaluateGuess() {
-    if (count < 10) {
-        let strike = 0;
-        let ball = 0;
+    let strike = 0;
+    let ball = 0;
 
-        for (let i = 0; i < numbers.length; i++) {
-            if (numbers[i] === answer[i]) {
-                strike++;
-            } else if (answer.includes(numbers[i])) {
-                ball++;
-            }
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] === answer[i]) {
+            strike++;
+        } else if (answer.includes(numbers[i])) {
+            ball++;
         }
+    }
 
-        // 결과값 출력
-        let resultMessage = '';
-        if (strike === 3) {
-            resultMessage = '🎉정답을 맞추셨습니다🎉'
-        } else if (strike === 0 && ball === 0) {
-            resultMessage = '낫싱';
-            inputBox();
-        } else {
-            resultMessage = `${strike} 스트라이크 ${ball} 볼`
-            inputBox();
-        }
+    // 결과값 출력
+    let resultMessage = '';
+    if (strike === 3) {
+        resultMessage = '🎉정답을 맞추셨습니다🎉'
+    } else if (strike === 0 && ball === 0) {
+        resultMessage = '낫싱';
+        inputBox();
+    } else {
+        resultMessage = `${strike} 스트라이크 ${ball} 볼`
+        inputBox();
+    }
         printResult(resultMessage);
         count++;
-    } else {
-        resultMessage = '시도 횟수를 초과했습니다.'
-        printResult(resultMessage);
-    }
 }
 
 // 출력 메세지 함수
