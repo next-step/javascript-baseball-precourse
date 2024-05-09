@@ -44,3 +44,40 @@ function checkAnswer() {
 function hasDuplicates(array) {
     return (new Set(array)).size !== array.length;
 }
+
+//게임 로직
+let count = 0 //횟수
+function evaluateGuess() {
+    const result = document.getElementById('result')
+
+    if (count < 10) {
+        let strike = 0
+        let ball = 0
+
+        for (let i = 0; i<numbers.length; i++) {
+            if (numbers[i] === answer[i]) {
+                strike ++;
+            }else if (answer.includes(numbers[i])) {
+                ball ++;
+            }
+        }
+
+        //결과값 출력
+        let resultMessage = '';
+        if (strike === 3) {
+            resultMessage = '🎉정답을 맞추셨습니다🎉'
+            printResult(resultMessage)
+        } else if (strike === 0 && ball === 0) {
+            resultMessage = '낫싱'
+            inputBox()
+            printResult(resultMessage)
+        } else {
+            resultMessage = `${strike}스트라이크 ${ball}`
+            inputBox();
+            printResult(resultMessgae)
+        }
+        count ++
+    }else {
+        resultMessage = '시도 횟수를 초과했습니다.'
+    }
+}
