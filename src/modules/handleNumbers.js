@@ -1,4 +1,3 @@
-// 컴퓨터 랜덤 숫자를 반환하는 함수
 function createRandomNumbers() {
   const computerNumbers = []; // 숫자를 담을 배열 생성
   while (computerNumbers.length < 3) {
