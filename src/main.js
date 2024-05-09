@@ -92,14 +92,33 @@ function printResult(resultMessage) {
     restartButton.textContent = '게임 재시작'
     restartButton.id = 'restartButton'
     restartButton.style.display = resultMessage ? 'block' : 'none'
-    
+    restartButton.addEventListener('click', restartGame)
+
     //공백 요소 생성
     const space = document.createElement('div')
     space.textContent = '\xa0' 
 
+    //result div에 추가
     resultDiv.appendChild(restartMessage)
     resultDiv.appendChild(space)
     resultDiv.appendChild(restartButton)
+}
+
+//게임 재시작 함수
+function restartGame() {
+    //컴퓨터가 입력한 값, 랜덤으로 3자리 수 생성
+    numbers = generateRandomNumber()
+    console.log(numbers)
+
+    //시도 횟수 초기화
+    count = 0;
+
+    //결과창 초기화
+    clearResult()
+
+    //텍스트 상자 초기화
+    inputBox()
+
 }
 
 // 텍스트 상자 초기화
@@ -108,3 +127,10 @@ function inputBox() {
     inputBox.value = '';
     inputBox.focus(); // 입력 상자에 포커스를 맞춘다.
 }
+
+//결과창 초기화 함수
+function clearResult() {
+    const resultDiv = document.getElementById('result')
+    resultDiv.textContent = '';
+} 
+
