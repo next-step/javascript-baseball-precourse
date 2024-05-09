@@ -1,79 +1,21 @@
+import { checkAnswer } from "./check";
+import { generateRandomNumber } from "./randomNumber";
+import { evaluateGuess } from "./gameLogic";
+
 // 컴퓨터가 입력한 값, 1~9까지 랜덤으로 3자리 수 생성
 let numbers = generateRandomNumber()
 // 사용자가 입력한 값
 let answer = [];
-
-function generateRandomNumber() {
-    let randomNumbers = [];
-    while (randomNumbers.length < 3) {
-        const num = Math.floor(Math.random() * 9) + 1
-        if (!randomNumbers.includes(num))
-            randomNumbers.push(num);
-    }
-    return randomNumbers;
-}
-console.log(numbers);
-
 window.onload = function () {
     const submitButton = document.getElementById('submitButton')
     submitButton.addEventListener('click', () => {
         answer = checkAnswer(answer);
         if (answer) {
-            evaluateGuess(answer)
+            const resultMessage = evaluateGuess(numbers, answer)
+            printResult(resultMessage)
         }
     });
 };
-
-// 유효성 검사 및 값 저장
-function checkAnswer(answer) {
-    const userInput = document.getElementById('userInput').value
-    if (userInput.length !== 3) {
-        alert('3자리 수를 입력하세요.')
-        inputBox()
-        return;
-    }
-    answer = userInput.split('').map(Number)
-    if(hasDuplicates(answer)) {
-      alert('중복된 숫자를 포함할 수 없습니다.')
-      inputBox()
-      return;
-    }
-    return answer;
-}
-
-// 중복 제거
-function hasDuplicates(array) {
-    return (new Set(array)).size !== array.length
-}
-
-// 게임 로직
-let count = 0; // 횟수
-function evaluateGuess() {
-    let strike = 0;
-    let ball = 0;
-
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] === answer[i]) {
-            strike++;
-        } else if (answer.includes(numbers[i])) {
-            ball++;
-        }
-    }
-
-    // 결과값 출력
-    let resultMessage = '';
-    if (strike === 3) {
-        resultMessage = '🎉정답을 맞추셨습니다🎉'
-    } else if (strike === 0 && ball === 0) {
-        resultMessage = '낫싱';
-        inputBox();
-    } else {
-        resultMessage = `${strike} 스트라이크 ${ball} 볼`
-        inputBox();
-    }
-        printResult(resultMessage);
-        count++;
-}
 
 // 출력 메세지 함수
 function printResult(resultMessage) {
@@ -103,19 +45,17 @@ function printResult(resultMessage) {
 
 //게임 재시작 함수
 function restartGame() {
-    //컴퓨터가 입력한 값, 랜덤으로 3자리 수 생성
-    numbers = generateRandomNumber()
-    console.log(numbers)
 
-    //시도 횟수 초기화
-    count = 0;
+    numbers = generateRandomNumber()
+
+    //컴퓨터가 입력한 값, 랜덤으로 3자리 수 생성
+    answer = []
 
     //결과창 초기화
     clearResult()
 
     //텍스트 상자 초기화
     inputBox()
-
 }
 
 // 텍스트 상자 초기화
