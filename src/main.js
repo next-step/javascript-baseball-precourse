@@ -81,3 +81,12 @@ function evaluateGuess() {
         resultMessage = '시도 횟수를 초과했습니다.'
     }
 }
+
+//출력 메세지 함수
+function printResult(resultMessage) {
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `${resultMessage}`;
+    const restartButton = document.getElementById('restartButton')
+    restartButton.addEventListener('click',restartGame())
+}
+
