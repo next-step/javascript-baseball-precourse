@@ -1,24 +1,24 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>javascript_baseball</title>
+    <title></title>
   </head>
   <body>
     <div id="app">
       <h1>⚾숫자 야구 게임</h1>
       <p><b>1~9까지의 숫자</b>를 중복없이 <b>3개</b> 입력해주세요. </p>
-        <p>올바른 예) 139</p>
-        <p>틀린 예)122</p>
-        <input type="text" id="input" maxlength="3" />
-        <button onclick="checkNumbers()">확인</button>
-        <h2><b>📝결과</b></h2>
-        <p id ="result"></p>
-        <p id = "answer"></p>
-        <p id ="replayMessage">게임을 새로 시작하시겠습니까?</p>
-        <button id = "replayButton" onclick="replay()" style="display: none;">게임 재시작</button>
-    </div>
+      <p>올바른 예)139</p>
+      <p>틀린 예)122</p>
+      <input type="text" id="input" maxlength="3" />
+      <button id="checkButton">확인</button>
+      <h2><b>📝결과</b></h2>
+      <p id="result"></p>
+      <p id="answer"></p>
+      <p id="replayMessage">게임을 새로 시작하시겠습니까?</p>
+      <button id="replayButton" onclick="replay()" style="display: none;">게임 재시작</button> 
+      </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
