@@ -1,12 +1,30 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>숫자야구</title>
+  <style>
+    /* 화면 전체를 차지하는 컨테이너 */
+    .container {
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        height: 100vh; 
+        text-align: center;
+    }
+    #mainStart {
+      width: 100px;
+      height: 35px;
+      display: inline-block;
+    }   
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>⚾숫자 야구 게임에 오신 것을 환영합니다.<br>
+    <button id="mainStart">게임 시작</button>
+    </h1>    
+  </div>
+</body>
 </html>
