@@ -1,8 +1,11 @@
 const playerInput = document.getElementById('userInput');
 const submitBtn = document.getElementById('submit');
 const resultEl = document.getElementById('result');
+const gameOverSection = document.getElementById('game-over-section');
+const restartBtn = document.getElementById('restart-btn');
 
 submitBtn.addEventListener('click', displayResult);
+restartBtn.addEventListener('click', restartGame);
 
 let answer = generateNumber();
 
@@ -44,9 +47,23 @@ function displayResult() {
 
     if (strikes === 3) {
         resultEl.innerText = '🎉정답을 맞추셨습니다🎉';
+        gameOverSection.style.display = 'block';
+        restartBtn.style.display = 'inline';
+        submitBtn.disabled = true;
+        playerInput.disabled = true;
     } else if (strikes === 0 && balls === 0) {
         resultEl.innerText = '낫싱';
     } else {
         resultEl.innerText = `${balls}볼 ${strikes}스트라이크`;
     }
+}
+
+function restartGame() {
+    answer = generateNumber();
+    gameOverSection.style.display = 'none';
+    restartBtn.style.display = 'none';
+    resultEl.innerText = '';
+    playerInput.value = '';
+    playerInput.disabled = false;
+    submitBtn.disabled = false;
 }
