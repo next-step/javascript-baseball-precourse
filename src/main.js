@@ -35,3 +35,14 @@ function handleSubmit(event) {
   displayScore(value, score);
   tries.push(value); 
 }
+
+// 게임 재시작 
+function restartGame() {
+  answer = generateNumbers(); 
+  tries = []; 
+  $logs.textContent = ''; 
+  $restart.style.display='none'; 
+   $input.disabled = false; 
+   $confirmButton.disabled=false;
+   $input.value='';
+ }
