@@ -17,6 +17,8 @@ window.onload = function () {
     });
 };
 
+console.log(numbers)
+
 // 출력 메세지 함수
 function printResult(resultMessage) {
     const resultDiv = document.getElementById('result')
@@ -33,6 +35,13 @@ function printResult(resultMessage) {
     restartButton.style.display = resultMessage ? 'block' : 'none'
     restartButton.addEventListener('click', restartGame)
 
+    //endGame 버튼
+    const endGameButton = document.createElement('button') // restartButton 정의
+    endGameButton.textContent = '게임 종료'
+    endGameButton.id = 'endGameButton'
+    endGameButton.style.display = resultMessage ? 'block' : 'none'
+    endGameButton.addEventListener('click', endGame)
+
     //공백 요소 생성
     const space = document.createElement('div')
     space.textContent = '\xa0' 
@@ -41,12 +50,16 @@ function printResult(resultMessage) {
     resultDiv.appendChild(restartMessage)
     resultDiv.appendChild(space)
     resultDiv.appendChild(restartButton)
+    resultDiv.appendChild(space)
+    resultDiv.appendChild(endGameButton)
 }
 
 //게임 재시작 함수
 function restartGame() {
 
     numbers = generateRandomNumber()
+
+    console.log(numbers)
 
     //컴퓨터가 입력한 값, 랜덤으로 3자리 수 생성
     answer = []
@@ -56,6 +69,21 @@ function restartGame() {
 
     //텍스트 상자 초기화
     inputBox()
+}
+
+//게임 종료 함수
+function endGame() {
+    //결과창 초기화
+    clearResult()
+
+    //텍스트 상자 초기화
+    inputBox()
+
+    //개임 종료 메시지 출력
+    const resultDiv = document.getElementById('result')
+    const endMessage = document.createElement('h4')
+    endMessage.textContent = '게임이 종료되었습니다'
+    resultDiv.appendChild(endMessage)
 }
 
 // 텍스트 상자 초기화
