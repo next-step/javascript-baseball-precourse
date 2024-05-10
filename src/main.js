@@ -23,15 +23,20 @@ answerInput.addEventListener("input", function () {
 })
 
 checkBtn.addEventListener("click", function () {
-    resultPrint.style.display = "block"
-    const result = document.getElementById("result")
-
-    if(markAnswer(answer, number)) {
-        result.textContent = "🎉정답을 맞추셨습니다🎉"
-        restart.style.display = "block"
+    if(answer.length != 3) {
+        alert("1~9까지의 수를 중복없이 3개 입력해주세요.")
     }
     else {
-        result.textContent = makeHint()
+        resultPrint.style.display = "block"
+        const result = document.getElementById("result")
+        
+        if(markAnswer(answer, number)) {
+            result.textContent = "🎉정답을 맞추셨습니다🎉"
+            restart.style.display = "block"
+        }
+        else {
+            result.textContent = makeHint()
+        }
     }
 });
 
