@@ -4,7 +4,7 @@ import { Random, value } from './components/Random.js';
 import { Strike, strikes } from './components/Strike.js';
 import { Ball, balls,  } from './components/Ball.js';
 import { result  } from './components/result.js';
-
+import { validateInput } from './components/InputValidator.js';
 
 // 임의의 정답 값 설정 및 게임 초기세팅
 Random();
@@ -20,8 +20,18 @@ submitButton.addEventListener('click', () => {
         console.error("Value array is empty. Random function should be called first.");
         return;
     }
-
+    
+    //strikes,balls 계산.
     const input = document.getElementById('num').value.trim();
+
+
+    // 입력값 유효성 검사
+    if (!validateInput(input)) {
+        console.error("입력값이 유효하지 않습니다.");
+        return;
+    }
+
+
     const inputValue = String(input);
     Strike(inputValue, value);
     Ball(inputValue, value);
@@ -33,3 +43,12 @@ submitButton.addEventListener('click', () => {
     result(strikes, realballs);
 });
 
+
+
+//재시작.
+const restartButton = document.getElementById("restart");
+
+restartButton.addEventListener('click', () => {
+    Random(); // 새로운 랜덤 값 설정
+    document.querySelector('.result').style.display = 'none'; // 결과 창 숨기기
+});
