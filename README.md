@@ -9,20 +9,20 @@ JS를 사용한 숫자 야구 게임 프로그램 구현
 ## ✏️Commit Message Convention
 
 angular JS commit convention
-https://gist.github.com/stephenparish/9941e89d80e2bc58a153
+https://gist.gitnhub.com/stephenparish/9941e89d80e2bc58a153
 
 ## 🖥️실행 화면
 
 1. 게임 시작화면
-   ![startView](image-12.png)
+   ![startView](image-13.png)
 2. 게임 화면
-   ![gameView](image-10.png)
+   ![gameView](image-14.png)
 3. 잘못된 입력값 > alert 기능
-   ![alert](image-5.png)
+   ![alertView](image-15.png)
 4. 힌트 제공
-   ![hint](image-8.png)
+   ![hintView](image-16.png)
 5. 정답 맞춘 경우 재시작 or 종료
-   ![gameEndView](image-9.png)
+   ![bingo](image-17.png)
 
 ## 💥기능 목록
 
