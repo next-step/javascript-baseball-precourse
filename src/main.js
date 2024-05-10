@@ -5,6 +5,7 @@ import { Strike, strikes } from './components/Strike.js';
 import { Ball, balls,  } from './components/Ball.js';
 import { result  } from './components/result.js';
 import { validateInput } from './components/InputValidator.js';
+import { disableInput, enableInput } from './components/InputController.js';
 
 // 임의의 정답 값 설정 및 게임 초기세팅
 Random();
@@ -41,6 +42,12 @@ submitButton.addEventListener('click', () => {
 
     //결과값 보여주기
     result(strikes, realballs);
+
+    // 정답을 맞춘 경우 입력 비활성화
+    if (strikes === 3) {
+        disableInput();
+    }
+    
 });
 
 
