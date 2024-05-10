@@ -30,7 +30,6 @@ function getPlayerNumbers() {
   return playerNumbers;
 }
 
-//플레이어vs컴퓨터 숫자 비교
 function compareNumbers(playerNumbers, computerNumbers) {
   //비교 후 힌트 제공
   let strike = 0;

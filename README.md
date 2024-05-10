@@ -11,6 +11,19 @@ JS를 사용한 숫자 야구 게임 프로그램 구현
 angular JS commit convention
 https://gist.github.com/stephenparish/9941e89d80e2bc58a153
 
+## 🖥️실행 화면
+
+1. 게임 시작화면
+   ![startView](image-12.png)
+2. 게임 화면
+   ![gameView](image-10.png)
+3. 잘못된 입력값 > alert 기능
+   ![alert](image-5.png)
+4. 힌트 제공
+   ![hint](image-8.png)
+5. 정답 맞춘 경우 재시작 or 종료
+   ![gameEndView](image-9.png)
+
 ## 💥기능 목록
 
 - 숫자 야구 게임 view
@@ -20,7 +33,7 @@ https://gist.github.com/stephenparish/9941e89d80e2bc58a153
 - 게임 재시작 기능
 - 게임 종료 기능
 
-## src 폴더 구조
+## 📁src 폴더 구조
 
 ```
 📦src
@@ -29,6 +42,8 @@ https://gist.github.com/stephenparish/9941e89d80e2bc58a153
  ┃ ┗ 📜handleNumbers.js
  ┗ 📜main.js
 ```
+
+## 👩‍💻코드 설명
 
 ### handleNumber.js
 
