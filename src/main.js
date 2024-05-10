@@ -8,6 +8,7 @@ const checkBtn = document.getElementById("check-btn")
 const restart = document.querySelector(".restart")
 const restartBtn = document.getElementById("restart-btn")
 const resultPrint = document.querySelector(".result-print")
+const exitBtn = document.getElementById("exit-btn")
 const answerInput = document.getElementById("answer")
 let answer = ""
 
@@ -39,4 +40,9 @@ restartBtn.addEventListener("click", function () {
     resultPrint.style.display = "none"
     document.getElementById("answer").value = ""
     number = setNumber()
+});
+
+exitBtn.addEventListener("click", function () {
+    console.log("exit")
+    window.close()
 });
