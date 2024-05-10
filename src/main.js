@@ -3,9 +3,11 @@ const submitBtn = document.getElementById('submit');
 const resultEl = document.getElementById('result');
 const gameOverSection = document.getElementById('game-over-section');
 const restartBtn = document.getElementById('restart-btn');
+const quitBtn = document.getElementById('quit-btn');
 
 submitBtn.addEventListener('click', displayResult);
 restartBtn.addEventListener('click', restartGame);
+quitBtn.addEventListener('click', quitGame);
 
 let answer = generateNumber();
 
@@ -49,6 +51,7 @@ function displayResult() {
         resultEl.innerText = '🎉정답을 맞추셨습니다🎉';
         gameOverSection.style.display = 'block';
         restartBtn.style.display = 'inline';
+        quitBtn.style.display = 'inline';
         submitBtn.disabled = true;
         playerInput.disabled = true;
     } else if (strikes === 0 && balls === 0) {
@@ -61,9 +64,17 @@ function displayResult() {
 function restartGame() {
     answer = generateNumber();
     gameOverSection.style.display = 'none';
-    restartBtn.style.display = 'none';
     resultEl.innerText = '';
     playerInput.value = '';
     playerInput.disabled = false;
     submitBtn.disabled = false;
+}
+
+function quitGame() {
+    gameOverSection.style.display = 'none';
+    resultEl.innerText = '게임이 종료되었습니다.';
+    playerInput.disabled = true;
+    submitBtn.disabled = true;
+    restartBtn.style.display = 'none';
+    quitBtn.style.display = 'none';
 }
