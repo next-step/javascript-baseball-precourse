@@ -15,7 +15,7 @@ export default function checkError(value) {
     let digits = value.split('');
     let uniqueDigits = [...new Set(digits)];
     if (uniqueDigits.length !== digits.length) {
-        alert("중복된 숫자 없이 입력해야 합니다.\n다시 입력해주세요.");
+        alert("중복 없이 숫자를 입력해야 합니다.\n다시 입력해주세요.");
         return false;
     }
     return true;
