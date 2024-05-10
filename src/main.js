@@ -3,6 +3,7 @@
 import { Random, value } from './components/Random.js';
 import { Strike, strikes } from './components/Strike.js';
 import { Ball, balls,  } from './components/Ball.js';
+import { result  } from './components/result.js';
 
 
 // 임의의 정답 값 설정 및 게임 초기세팅
@@ -24,6 +25,11 @@ submitButton.addEventListener('click', () => {
     const inputValue = String(input);
     Strike(inputValue, value);
     Ball(inputValue, value);
-    //console.log(value, strikes,balls)
+    let realballs = balls-strikes;
+    console.log(value, strikes,realballs)
+
+
+    //결과값 보여주기
+    result(strikes, realballs);
 });
 
