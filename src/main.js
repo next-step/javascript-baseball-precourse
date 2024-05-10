@@ -1,4 +1,4 @@
-import { generateNumbers } from "./generateNumber.js"; 
+import { generateNumbers } from "./generateNumbers.js"; 
 import { checkInput } from "./checkInput.js";
 import { calculateScore } from "./calculateScore.js";
 import { displayScore } from "./displayScore.js";
