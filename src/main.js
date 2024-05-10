@@ -16,6 +16,10 @@ const $confirmButton = document.querySelector('#confirmButton');
 export let answer = generateNumbers(); 
 export let tries = []; 
 
+//정답제출버튼 및 재시작 버튼 클릭 시 
+$form.addEventListener('submit', handleSubmit);
+$restartButton.addEventListener('click', restartGame);
+
 // 정답 입력 처리 함수
 function handleSubmit(event) {
   event.preventDefault();
