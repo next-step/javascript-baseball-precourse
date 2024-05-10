@@ -1,3 +1,9 @@
+import { generateNumbers } from "./generateNumber.js"; 
+import { checkInput } from "./checkInput.js";
+import { calculateScore } from "./calculateScore.js";
+import { displayScore } from "./displayScore.js";
+import { displayLogText } from "./displayLogText.js";
+
 //DOM 요소
 export const $input = document.querySelector('#input');
 export const $logs = document.querySelector('#logs');
