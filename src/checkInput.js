@@ -1,9 +1,9 @@
 export default function checkInput(answer) {
-    if (answer.length != 3)
+    if (answer.length > 3)
         return false
-    if (answer[0] == answer[1] || answer[1] == answer[2] || answer[2] == answer[0])
+    if (answer.includes('0'))
         return false
-    if (answer[0] == 0 || answer[1] == 0 || answer[2] == 0)
+    if ([...new Set(answer)].join('').length != answer.length)
         return false
     return true
 }

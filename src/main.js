@@ -8,23 +8,29 @@ const checkBtn = document.getElementById("check-btn")
 const restart = document.querySelector(".restart")
 const restartBtn = document.getElementById("restart-btn")
 const resultPrint = document.querySelector(".result-print")
+const answerInput = document.getElementById("answer")
+let answer = ""
 
-checkBtn.addEventListener("click", function () {
-    const answer = document.getElementById("answer").value
-    if(!checkInput(answer)) {
+answerInput.addEventListener("input", function () {
+    if(!checkInput(answerInput.value)) {
         alert("1~9까지의 수를 중복없이 3개 입력해주세요.")
+        answerInput.value = answer
     }
     else {
-        resultPrint.style.display = "block"
-        const result = document.getElementById("result")
+        answer = answerInput.value
+    }
+})
 
-        if(markAnswer(answer, number)) {
-            result.textContent = "🎉정답을 맞추셨습니다🎉"
-            restart.style.display = "block"
-        }
-        else {
-            result.textContent = makeHint()
-        }
+checkBtn.addEventListener("click", function () {
+    resultPrint.style.display = "block"
+    const result = document.getElementById("result")
+
+    if(markAnswer(answer, number)) {
+        result.textContent = "🎉정답을 맞추셨습니다🎉"
+        restart.style.display = "block"
+    }
+    else {
+        result.textContent = makeHint()
     }
 });
 
