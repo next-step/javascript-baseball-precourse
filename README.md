@@ -1,1 +1,22 @@
-# javascript-baseball-precourse
+# 1회차 미니과제 - 숫자야구게임 만들기
+## 구현 기능
+### 정답 생성 (generateNumbers)
+*1~9사이 숫자를 중복 없이 3자리수를 만듭니다.
+### 입력 처리 (handleSubmit)
+*사용자가 값을 입력 후 제출 시에 처리하는 함수입니다.
+### 게임 재시작 (restartGame)
+*사용자가 정답을 맞춘 후 게임 초기화 및 재시작을 가능케 해주는 기능입니다.
+### 정답 유효성 확인 (checkInput)
+*사용자가 입력한 값이 유효한지 검사합니다.
+### 중복 제거 (removeDuplicates)
+*값에서 중복값을 제거 후 반환합니다.
+### 0값 제거 (removeZero)
+*값에서 0값을 제거 후 반환합니다.
+### 결과 출력 (displayLogText)
+*결과 부분에 값을 출력해줍니다.
+### 결과 계산 (counting)
+*스트라이크 및 볼을 계산하여 calculateScore에 전달해줍니다.
+### 계산값 합산 (calculateScore)
+*총 몇 스트라이크 몇 볼인지 계산합니다.
+### 점수 출력 (displayScore)
+*총 몇 스트라이크 몇 볼인지 결과부분에 출력해줍니다.
