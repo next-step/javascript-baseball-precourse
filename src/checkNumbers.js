@@ -22,6 +22,8 @@ export default function checkNumbers(answer) {
         document.getElementById("result").innerText = "정답을 맞추셨습니다";
         document.getElementById("replayButton").style.display = "block"; //재시작 버튼 표시 추가
         document.getElementById("replayMessage").innerText = "게임을 새로 시작하시겠습니까?"; //재시작 멘트 표시 추가
+        document.getElementById("endButton").style.display = "block"; // 재시작 버튼 표시
+        document.getElementById("endMessage").innerText = "게임을 종료합니다 ";
 
     } else if (strikes === 0 && balls === 0) {
         document.getElementById("result").innerText = "낫싱";
