@@ -1,9 +1,9 @@
-import { generateComputerNumber, computerNumber } from './model/ComputerNumberModel.js';
-import { displayGameResult } from './view/baseballGameView.js';
+import { computerNumber } from "../computerNumberModel.js";
+import { displayGameResult } from "../view/displayGameResultView.js";
 
 let playerNumber = "";
 
-const getPlayerNumber = () => {
+export const getPlayerNumber = () => {
     const input = document.getElementById("userInput");
     playerNumber = input.value.trim();
     
@@ -21,7 +21,7 @@ const getPlayerNumber = () => {
 };
 
 
-const checkAnswer = () => {
+export const checkAnswer = () => {
     let strikes = 0;
     let balls = 0;
     const playerDigits = playerNumber.split("").map(Number);
@@ -38,12 +38,4 @@ const checkAnswer = () => {
     displayGameResult(strikes, balls);
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-    generateComputerNumber();
-    document.getElementById("checkButton").addEventListener("click", (event) => {
-        event.preventDefault();
-        getPlayerNumber();
-    });
-});
-
-export { computerNumber, generateComputerNumber };
+export { playerNumber };
