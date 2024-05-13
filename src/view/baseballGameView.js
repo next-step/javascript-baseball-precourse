@@ -1,3 +1,5 @@
+import {computerNumber, generateComputerNumber } from '../main.js';
+
 export const displayGameResult = (strikes, balls) => {
     const resultElement = document.getElementById("gameResult");
     if (strikes === 3) {
@@ -26,7 +28,8 @@ const showRestartOption = () => {
 };
 
 const restartGame = () => {
-    computerNumber = [];
+    // 배열의 내용을 비웁니다.
+    computerNumber.length = 0;
     generateComputerNumber();
     document.getElementById("userInput").value = "";
     document.getElementById("gameResult").textContent = "";

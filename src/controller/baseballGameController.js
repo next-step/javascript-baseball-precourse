@@ -13,7 +13,7 @@ const checkAnswer = (playerNumber) => {
             balls++;
         }
     });
-
+    console.log(computerNumber);
     BaseballGameView.displayGameResult(strikes, balls);
 };
 
